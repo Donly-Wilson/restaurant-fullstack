@@ -1,14 +1,15 @@
-<div class="welcome-menu">
+<div class="side-menu">
     <a href="/" class="logo">
       <img src="/img/restaurant-logo.png" alt="">
     </a>
     <div class="menu">
       <div class="menu-title">Menu</div>
       <ul class="links">
-        <li><a href="/menu">Menu</a></li>
+        <li><a href="/menu">Food</a></li>
         <li><a href="/waitlist">Waitlist</a></li>
         <li><a href="/offers">Offers</a></li>
         <li><a href="/giftcards">Giftcards</a></li>
+        <li><a href="/about">About Us</a></li>
       </ul>
     </div>
     <div class="social-icons">
@@ -18,7 +19,7 @@
     </div>
     <div class="location">
       <div class="address">234 Main st, <br>
-        New York, New York 11747</div>
+        Rodney Bay, Gros Islet 11747</div>
       <div class="phone-number">
         <a href="tel:+7182198652">718-219-8652</a>
       </div>

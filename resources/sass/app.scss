@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
 @import "reset";
 @import "home";
+@import "./pages/about";
 
 body {
     background: white;
@@ -33,4 +34,302 @@ table {
 
 body {
     font-family: "Roboto", sans-serif;
+}
+
+// home-page 1st section
+#app-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    height: 100vh;
+    width: 100%;
+    // #app-layout main left menu
+    .side-menu {
+        background: white;
+        padding: 50px;
+        position: relative;
+        // display: flex;
+        // flex-direction: column;
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            img {
+                max-width: 100px;
+            }
+        }
+        .menu {
+            margin-bottom: 50px;
+            .menu-title {
+                color: #0971ce;
+                border-bottom: 1px solid #e2eaef;
+                font-size: 1.2rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+                padding-bottom: 20px;
+            }
+            .links {
+                li {
+                    a {
+                        color: black;
+                        display: block;
+                        font-size: 1.1rem;
+                        font-weight: 700;
+                        margin-bottom: 1.4rem;
+                        text-decoration: none;
+                        transition: color 0.3s ease-in-out;
+                        &:hover {
+                            color: red;
+                        }
+                    }
+                }
+            }
+        }
+        .social-icons {
+            display: flex;
+            a {
+                background: #c2c8cc;
+                border-radius: 50%;
+                color: white;
+                font-size: 0.9rem;
+                height: 30px;
+                margin-right: 10px;
+                text-decoration: none;
+                width: 30px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .location {
+            bottom: 100px;
+            position: absolute;
+            // margin-top: auto;
+            .address {
+                color: #7a8d99;
+                line-height: 1.7;
+                margin-bottom: 20px;
+            }
+            .phone-number {
+                a {
+                    color: #0971ce;
+                    font-size: 2rem;
+                    font-weight: 700;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+// Restaurant info 2nd section
+#information {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100vh;
+    // #information image
+    .restaurant-image {
+        overflow: hidden;
+        img {
+            // max-height:500px;
+            // object-fit: cover;
+            // object-position: 0 0;
+            width: 100%;
+        }
+    }
+    // #information content
+    .info {
+        padding: 100px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .paragraphs {
+            color: #525e66;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 20px;
+        }
+        .about-link {
+            color: inherit;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                margin-right: 20px;
+            }
+            .circle-right {
+                background: rgb(237, 75, 82); /* Old browsers */
+                background: -moz-radial-gradient(
+                    center,
+                    ellipse cover,
+                    rgba(237, 75, 82, 1) 0%,
+                    rgba(156, 27, 36, 1) 100%
+                ); /* FF3.6-15 */
+                background: -webkit-radial-gradient(
+                    center,
+                    ellipse cover,
+                    rgba(237, 75, 82, 1) 0%,
+                    rgba(156, 27, 36, 1) 100%
+                ); /* Chrome10-25,Safari5.1-6 */
+                background: radial-gradient(
+                    ellipse at center,
+                    rgba(237, 75, 82, 1) 0%,
+                    rgba(156, 27, 36, 1) 100%
+                ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                border-radius: 50%;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .fa-chevron-right {
+                    color: white;
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+}
+// Preview restaurant menu 3rd section
+#food-preview {
+    background: #f4f8fb;
+    padding: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    // "View 0ur Menu" button
+    .button-rounded {
+        background: #ed4852;
+        border-radius: 30px;
+        color: white;
+        display: inline-block;
+        margin-bottom: 130px;
+        padding: 15px;
+    }
+    //Slider div for left and right buttons
+    .container {
+        max-width: 1400px;
+        width: 100%;
+        position: relative;
+        .left-btn,
+        .right-btn {
+            background: red;
+            color: white;
+            cursor: pointer;
+            height: 50px;
+            position: absolute;
+            top: calc(50% - 25px);
+            width: 50px;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left-btn {
+            left: -35px;
+        }
+        .right-btn {
+            right: -35px;
+        }
+    }
+    //Slider div that keeps overflowing menu-cards/slides hidden
+    .food-slider {
+        font-size: 0;
+        // display: flex;
+        // margin-bottom:3rem;
+        max-width: 1400px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        //Main slider div that moves slides
+        .sliding-system {
+            white-space: nowrap;
+            transform: translate3d(0, 0, 0);
+        }
+        // This is styling for each menu-card/slide
+        .slide {
+            display: inline-block;
+            position: relative;
+            height: 500px;
+            width: 20%;
+            white-space: normal;
+            cursor: pointer;
+            &:hover {
+                .background {
+                    // background: #ed4852;
+                    background: rgb(245, 156, 46);
+                    transform: translate3d(0, -200px, 0);
+                }
+                .content {
+                    .food-title {
+                        color: white;
+                    }
+                    .food-description {
+                        color: white;
+                    }
+                }
+            }
+            .background {
+                background: white;
+                bottom: 0;
+                height: 100%;
+                top: 0;
+                position: absolute;
+                transition: transform 0.4s ease-in-out;
+                width: 100%;
+                z-index: 1;
+            }
+            .content {
+                padding: 20px;
+                position: absolute;
+                // transition: all .3s ease-in-out;
+                width: 100%;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                .food-title {
+                    color: #ed4852;
+                    font-size: 2rem;
+                    font-weight: 900;
+                    margin-bottom: 3rem;
+                    // transition: all .3s ease-in-out;
+                }
+                .food-description {
+                    color: #7a8d99;
+                    font-size: 0.8rem;
+                    font-weight: 400;
+                    line-height: 1.8;
+                    // transition: all .3s ease-in-out;
+                    margin-bottom: 3rem;
+                }
+            }
+            .food-image {
+                img {
+                    width: 95%;
+                    max-width: 250px;
+                }
+            }
+        }
+    }
+}
+
+//Global h2 style
+h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
 }

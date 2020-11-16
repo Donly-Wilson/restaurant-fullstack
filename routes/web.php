@@ -39,6 +39,10 @@ Route::get('/offers', function () {
     return view('pages/offers');
 });
 
+Route::get('/about', function () {
+    return view('pages/about');
+});
+
 Route::get('/contact', function () {
     return view('pages/contact');
 });
