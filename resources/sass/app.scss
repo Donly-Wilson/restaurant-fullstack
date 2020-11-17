@@ -1,6 +1,8 @@
 // Styling for each ID and Class is set in alphabetical order, FLEXBOX & GRID don't follow this rule
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
 @import "reset";
+@import "bootstrap.min.css";
 @import "home";
 @import "./pages/about";
 
@@ -33,7 +35,12 @@ table {
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    // font-family: "Roboto", sans-serif;
+    font-family: "Nunito", sans-serif;
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
 }
 
 // home-page 1st section
@@ -120,6 +127,29 @@ body {
                 }
             }
         }
+    }
+    // Main app content-area
+    #content-section {
+        background: rgb(237, 75, 82); /* Old browsers */
+        background: -moz-radial-gradient(
+            center,
+            ellipse cover,
+            rgba(237, 75, 82, 1) 0%,
+            rgba(156, 27, 36, 1) 100%
+        ); /* FF3.6-15 */
+        background: -webkit-radial-gradient(
+            center,
+            ellipse cover,
+            rgba(237, 75, 82, 1) 0%,
+            rgba(156, 27, 36, 1) 100%
+        ); /* Chrome10-25,Safari5.1-6 */
+        background: radial-gradient(
+            ellipse at center,
+            rgba(237, 75, 82, 1) 0%,
+            rgba(156, 27, 36, 1) 100%
+        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        max-width: calc(100vw - 350px);
+        overflow: hidden;
     }
 }
 // Restaurant info 2nd section

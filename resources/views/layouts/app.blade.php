@@ -19,7 +19,9 @@
             <!-- inputs welcome-menu from includes folder as side-menu-->
             @include('includes.side-menu')
             <!-- display the content of a given section that is called-->
-            @yield('content')
+            <section id="content-section">
+                @yield('content')
+            </section>
         </section>
     </body>
 </html>
