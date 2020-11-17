@@ -19,7 +19,8 @@
         rgba(156, 27, 36, 1) 100%
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
-    max-width: calc(100vw - 350px);
+    max-width: calc(100vw - 300px);
+    transform: translate3d(300px, 0, 0);
     overflow: hidden;
     padding: 100px;
     display: flex;
@@ -59,3 +60,24 @@
     //     }
     // }
 }
+
+/* Mobile Responsive */
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//     .side-menu {
+//         // display: none;
+//     }
+// }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+// }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+// }
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+// }

@@ -153,7 +153,8 @@ table {
   /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center, #ed4b52 0%, #9c1b24 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  max-width: calc(100vw - 350px);
+  max-width: calc(100vw - 300px);
+  transform: translate3d(300px, 0, 0);
   overflow: hidden;
   padding: 100px;
   display: flex;
@@ -186,6 +187,8 @@ table {
   width: 100%;
   position: relative;
 }
+
+/* Mobile Responsive */
 
 #about-page {
   padding: 100px;
@@ -248,15 +251,16 @@ p {
 
 #app-layout {
   display: grid;
-  grid-template-columns: 350px 1fr;
   height: 100vh;
   width: 100%;
 }
 
 #app-layout .side-menu {
   background: white;
+  height: 100vh;
   padding: 50px;
-  position: relative;
+  position: absolute;
+  width: 300px;
 }
 
 #app-layout .side-menu .logo {
@@ -341,7 +345,8 @@ p {
   /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center, #ed4b52 0%, #9c1b24 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  max-width: calc(100vw - 350px);
+  max-width: calc(100vw - 300px);
+  transform: translate3d(300px, 0, 0);
   overflow: hidden;
 }
 
@@ -353,6 +358,7 @@ p {
 
 #information .restaurant-image {
   overflow: hidden;
+  height: 100%;
 }
 
 #information .restaurant-image img {
@@ -544,5 +550,59 @@ h2 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
+}
+
+/* Mobile Responsive */
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #app-layout .side-menu {
+    display: none;
+  }
+
+  #app-layout .welcome-jumbo {
+    max-width: 100vw;
+    transform: translate3d(0, 0, 0);
+    padding: 20px;
+    width: 100%;
+  }
+
+  #information {
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px auto;
+  }
+
+  #information .info {
+    padding: 20px;
+  }
+
+  #information .info .paragraphs {
+    grid-template-columns: 1fr;
+  }
+
+  #information .info .about-link span {
+    width: 60%;
+  }
+
+  #food-preview {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px;
+  }
+
+  #food-preview .container .left-btn {
+    left: -20px;
+  }
+
+  #food-preview .container .right-btn {
+    right: -20px;
+  }
+
+  #food-preview h2 {
+    font-size: 2rem;
+  }
+
+  #food-preview .food-slider .slide {
+    width: 100%;
+  }
 }
 

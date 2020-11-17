@@ -18,7 +18,7 @@
         <section id="app-layout">
             <!-- inputs welcome-menu from includes folder as side-menu-->
             @include('includes.side-menu')
-
+            
             <div class="welcome-jumbo">
               <div class="status">NEW</div>
               <h1>Ballie's Burger</h1>
