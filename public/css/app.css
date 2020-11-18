@@ -194,11 +194,6 @@ table {
   padding: 100px;
 }
 
-#about-page .content-box {
-  background: white;
-  padding: 20px;
-}
-
 #about-page h1 {
   color: #000000;
   font-size: 3rem;
@@ -223,6 +218,62 @@ table {
 
 @media (min-width: 768px) and (max-width: 991px) {
   #about-page {
+    padding: 20px;
+  }
+}
+
+#waitlist-page {
+  padding: 100px;
+}
+
+#waitlist-page h1 {
+  color: #000000;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+#waitlist-page p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+
+#waitlist-page form .form-group label {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+#waitlist-page form .form-group .form-control {
+  border: 2px solid #9c1b24;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  height: auto;
+  padding: 10px;
+}
+
+#waitlist-page form .form-group button[type=submit] {
+  background: #9c1b24;
+  border: none;
+  padding: 20px 40px;
+}
+
+/* Mobile Responsive */
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #waitlist-page {
+    padding: 20px;
+  }
+
+  #waitlist-page h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #waitlist-page {
     padding: 20px;
   }
 }
@@ -564,6 +615,11 @@ h2 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
+}
+
+.content-box {
+  background: white;
+  padding: 20px;
 }
 
 /* Mobile Responsive */

@@ -5,6 +5,7 @@
 @import "bootstrap.min.css";
 @import "home";
 @import "./pages/about";
+@import "./pages/waitlist";
 
 body {
     background: white;
@@ -358,12 +359,16 @@ p {
         }
     }
 }
-
 //Global h2 style
 h2 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 3rem;
+}
+
+.content-box {
+    background: white;
+    padding: 20px;
 }
 
 /* Mobile Responsive */
