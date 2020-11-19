@@ -31,10 +31,6 @@ Route::get('/waitlist', function () {
     return view('pages/waitlist');
 });
 
-Route::get('/giftcards', function () {
-    return view('pages/giftcards');
-});
-
 Route::get('/offers', function () {
     return view('pages/offers');
 });

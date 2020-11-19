@@ -19,7 +19,7 @@
         rgba(156, 27, 36, 1) 100%
     ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
-    max-width: calc(100vw - 300px);
+    max-width: calc(100% - 300px);
     transform: translate3d(300px, 0, 0);
     overflow: hidden;
     padding: 100px;
