@@ -377,6 +377,47 @@ table {
   }
 }
 
+#single-menu-page {
+  padding: 70px;
+}
+
+#single-menu-page h1 {
+  color: #ed4852;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+#single-menu-page .item {
+  margin-bottom: 0.5rem;
+}
+
+#single-menu-page .item .title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#single-menu-page .item .title h4,
+#single-menu-page .item .title .price {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+/* Mobile Responsive */
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #single-menu-page {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #single-menu-page {
+    padding: 20px;
+  }
+}
+
 body {
   background: white;
   line-height: 1;
