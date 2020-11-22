@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\FoodCategoriesController;
+use App\Http\Controllers\admin\FoodItemsController;
+use App\Http\Controllers\StaticPagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,63 +17,90 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/app', function () {
-    return view('test');
-});
+/* STATIC PAGES - this is route for links on landing page */
+
+// home
+Route::get(
+    '/',
+    [StaticPagesController::class, 'home']
+);
+
+// ./Menu
+Route::get(
+    '/menu',
+    [StaticPagesController::class, 'menu']
+);
+
+Route::get(
+    '/menu/{slug}',
+    [StaticPagesController::class, 'singleMenu']
+);
+
+// ./Pages
+
+Route::get(
+    '/waitlist',
+    [StaticPagesController::class, 'waitlist']
+);
+Route::get(
+    '/offers',
+    [StaticPagesController::class, 'offers']
+);
+Route::get(
+    '/about',
+    [StaticPagesController::class, 'about']
+);
+Route::get(
+    '/contact',
+    [StaticPagesController::class, 'contact']
+);
+
 
 /* ADMIN - this is route for links on admin dashboard page */
-Route::get('/admin', function () {
-    return view('admin/dashboard');
-});
+Route::get(
+    '/admin',
+    [AdminController::class, 'dashboard']
+);
 
-Route::get('/admin/food-categories', function () {
-    return view('admin/food-categories/all');
-});
+// ADMIN/food-categories
+Route::get(
+    '/admin/food-categories',
+    [FoodCategoriesController::class, 'index']
+);
 
-Route::get('/admin/food-categories/create', function () {
-    return view('admin/food-categories/create');
-});
+Route::get(
+    '/admin/food-categories/create',
+    [FoodCategoriesController::class, 'create']
+);
 
-Route::get('/admin/food-categories/{id}/edit', function () {
-    return view('admin/food-categories/edit');
-});
+Route::get(
+    '/admin/food-categories/{id}/edit',
+    [FoodCategoriesController::class, 'edit']
+);
 
-// Login & Register
+// ADMIN/food-items
+Route::get(
+    '/admin/food-items',
+    [FoodItemsController::class, 'index']
+);
+
+Route::get(
+    '/admin/food-items/create',
+    [FoodItemsController::class, 'create']
+);
+
+Route::get(
+    '/admin/food-items/{id}/edit',
+    [FoodItemsController::class, 'edit']
+);
+
+/* ADMIN AUTHENTICATION */
+// Register
 Route::get('/admin/register', function () {
     return view('admin/register');
 });
-
+// Login
 Route::get('/admin/login', function () {
     return view('admin/login');
-});
-
-/* PAGES - this is route for links on landing page */
-
-//Menu
-Route::get('/menu', function () {
-    return view('menu/index');
-});
-
-Route::get('/menu/{slug}', function () {
-    return view('menu/single-menu');
-});
-
-Route::get('/waitlist', function () {
-    return view('pages/waitlist');
-});
-
-Route::get('/offers', function () {
-    return view('pages/offers');
-});
-
-Route::get('/about', function () {
-    return view('pages/about');
-});
-
-Route::get('/contact', function () {
-    return view('pages/contact');
 });

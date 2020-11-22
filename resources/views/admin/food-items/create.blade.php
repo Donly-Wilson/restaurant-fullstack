@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Edit this category </h2>
+                <h2 class="pageheader-title">New Food Item </h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="/admin/food-categories" class="breadcrumb-link">Food Category</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Food Category</li>
+                            <li class="breadcrumb-item"><a href="/admin/food-items" class="breadcrumb-link">Food Item</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">New Food Item</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,16 +32,20 @@
             <!-- ============================================================== -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Edit category</h5>
+                    <h5 class="card-header">Create a new item</h5>
                     <div class="card-body">
                         <form action="#" id="basicform" data-parsley-validate="">
                             <div class="form-group">
-                                <label for="inputCategory">Category Name</label>
-                                <input id="inputCategory" type="text" name="category" data-parsley-trigger="change" required="" placeholder="Enter category name" autocomplete="off" class="form-control">
+                                <label for="inputItem">Item Name</label>
+                                <input id="inputItem" type="text" name="title" data-parsley-trigger="change" required="" placeholder="Enter item name" autocomplete="off" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="inputCategoryImageUrl">Image Url</label>
-                                <input id="inputCategoryImageUrl" type="text" name="imageUrl" data-parsley-trigger="change" required="" placeholder="http://www.bailie.com/img/burgers.jpg" autocomplete="off" class="form-control">
+                                <label for="inputPrice">Price</label>
+                                <input id="inputPrice" type="text" name="price" data-parsley-trigger="change" required="" placeholder="Enter item price" autocomplete="off" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputItemImageUrl">Image Url</label>
+                                <input id="inputItemImageUrl" type="text" name="imageUrl" data-parsley-trigger="change" required="" placeholder="http://www.bailie.com/img/burgers.jpg" autocomplete="off" class="form-control">
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
