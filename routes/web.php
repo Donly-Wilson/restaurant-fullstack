@@ -21,13 +21,21 @@ Route::get('/app', function () {
     return view('test');
 });
 
-/* ADMIN */
+/* ADMIN - this is route for links on admin dashboard page */
 Route::get('/admin', function () {
     return view('admin/dashboard');
 });
 
 Route::get('/admin/food-categories', function () {
     return view('admin/food-categories/all');
+});
+
+Route::get('/admin/food-categories/create', function () {
+    return view('admin/food-categories/create');
+});
+
+Route::get('/admin/food-categories/{id}/edit', function () {
+    return view('admin/food-categories/edit');
 });
 
 // Login & Register
@@ -39,7 +47,7 @@ Route::get('/admin/login', function () {
     return view('admin/login');
 });
 
-/* PAGES */
+/* PAGES - this is route for links on landing page */
 
 //Menu
 Route::get('/menu', function () {
