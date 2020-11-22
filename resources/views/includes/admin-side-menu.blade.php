@@ -70,10 +70,10 @@
                     <div id="submenu-4" class="collapse submenu" style="">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="admin/users">All Users<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link" href="/admin/users">All Users<span class="badge badge-secondary">New</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Create User<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link" href="/admin/users/create">Create User<span class="badge badge-secondary">New</span></a>
                             </li>
                         </ul>
                     </div>

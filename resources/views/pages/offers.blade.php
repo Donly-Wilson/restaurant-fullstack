@@ -26,7 +26,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="emailinput">Email address</label>
-                                <input type="email" class="form-control" name="email" id="emailinput" placeholder="name@example.com">
+                                <input type="email" class="form-control" name="email" id="emailinput" placeholder="email@address.com">
                               </div>
                         </div>
                         <div class="col-md-6">
@@ -51,7 +51,6 @@
                               </div>
                         </div>
                     </div>
-                    
             </div>
         </div>
     </div>

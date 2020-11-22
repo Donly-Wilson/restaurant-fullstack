@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CustomersController;
 use App\Http\Controllers\admin\FoodCategoriesController;
 use App\Http\Controllers\admin\FoodItemsController;
+use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\StaticPagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -108,6 +109,22 @@ Route::get(
 Route::get(
     '/admin/offers-members/{id}/edit',
     [CustomersController::class, 'edit']
+);
+
+// ADMIN/users
+Route::get(
+    '/admin/users',
+    [UsersController::class, 'index']
+);
+
+Route::get(
+    '/admin/users/create',
+    [UsersController::class, 'create']
+);
+
+Route::get(
+    '/admin/users/{id}/edit',
+    [UsersController::class, 'edit']
 );
 
 /* ADMIN AUTHENTICATION */

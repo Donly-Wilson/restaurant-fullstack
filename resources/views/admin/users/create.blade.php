@@ -8,14 +8,14 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">Edit Food Item </h2>
+                <h2 class="pageheader-title">New Users</h2>
                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="/admin/food-items" class="breadcrumb-link">Food Item</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Food Item</li>
+                            <li class="breadcrumb-item"><a href="/admin/users" class="breadcrumb-link">All Users</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">New Users</li>
                         </ol>
                     </nav>
                 </div>
@@ -32,20 +32,31 @@
             <!-- ============================================================== -->
             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Edit this item</h5>
+                    <h5 class="card-header">Create a new user</h5>
                     <div class="card-body">
                         <form action="#" id="basicform" data-parsley-validate="">
                             <div class="form-group">
-                                <label for="inputItem">Item Name</label>
-                                <input id="inputItem" type="text" name="title" data-parsley-trigger="change" required="" placeholder="Enter item name" autocomplete="off" class="form-control">
+                                <label for="inputfirstnameUser">First Name</label>
+                                <input id="inputfirstnameUser" type="text" name="fname" data-parsley-trigger="change" required="" placeholder="Enter first name" autocomplete="off" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="inputPrice">Price</label>
-                                <input id="inputPrice" type="text" name="price" data-parsley-trigger="change" required="" placeholder="Enter item price" autocomplete="off" class="form-control">
+                                <label for="inputlastnameUser">Last Name</label>
+                                <input id="inputlastnameUser" type="text" name="lname" data-parsley-trigger="change" required="" placeholder="Enter last name" autocomplete="off" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="inputItemImageUrl">Image Url</label>
-                                <input id="inputItemImageUrl" type="text" name="imageUrl" data-parsley-trigger="change" required="" placeholder="http://www.bailie.com/img/burgers.jpg" autocomplete="off" class="form-control">
+                                <label for="inputemail">Email</label>
+                                <input id="inputemail" type="email" name="email" data-parsley-trigger="change" required="" placeholder="Enter password" autocomplete="off" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputpassword">Password</label>
+                                <input id="inputpassword" type="password" name="password" data-parsley-trigger="change" required="" placeholder="Enter password" autocomplete="off" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputrole">Select Role</label>
+                                <select class="form-control" id="inputrole">
+                                    <option value="admin">Admin</option>
+                                    <option value="employee">Employee</option>
+                                </select>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
