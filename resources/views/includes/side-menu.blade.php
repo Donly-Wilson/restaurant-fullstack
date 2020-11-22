@@ -6,8 +6,9 @@
       <div class="menu-title">Menu</div>
       <ul class="links">
         <li><a href="/menu">Food</a></li>
-        <li><a href="/waitlist">Waitlist</a></li>
+        <li><a href="/reservations">Reservations</a></li>
         <li><a href="/offers">Offers</a></li>
+        <li><a href="/contact">Contact</a></li>
         <li><a href="/about">About Us</a></li>
       </ul>
     </div>

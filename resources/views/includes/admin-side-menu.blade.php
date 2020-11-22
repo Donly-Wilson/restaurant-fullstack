@@ -57,10 +57,10 @@
                     <div id="submenu-3" class="collapse submenu" style="">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Notification Members<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link" href="/admin/offers-members">Offers Members<span class="badge badge-secondary">New</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages/cards.html">Reservation<span class="badge badge-secondary">New</span></a>
+                                <a class="nav-link" href="/admin/reservations">Reservation<span class="badge badge-secondary">New</span></a>
                             </li>
                         </ul>
                     </div>

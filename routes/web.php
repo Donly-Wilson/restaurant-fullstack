@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CustomersController;
 use App\Http\Controllers\admin\FoodCategoriesController;
 use App\Http\Controllers\admin\FoodItemsController;
 use App\Http\Controllers\StaticPagesController;
@@ -19,8 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 /* STATIC PAGES - this is route for links on landing page */
-
-// home
+// Home
 Route::get(
     '/',
     [StaticPagesController::class, 'home']
@@ -38,22 +38,21 @@ Route::get(
 );
 
 // ./Pages
-
 Route::get(
-    '/waitlist',
-    [StaticPagesController::class, 'waitlist']
+    '/reservations',
+    [StaticPagesController::class, 'reservations']
 );
 Route::get(
     '/offers',
     [StaticPagesController::class, 'offers']
 );
 Route::get(
-    '/about',
-    [StaticPagesController::class, 'about']
-);
-Route::get(
     '/contact',
     [StaticPagesController::class, 'contact']
+);
+Route::get(
+    '/about',
+    [StaticPagesController::class, 'about']
 );
 
 
@@ -93,6 +92,22 @@ Route::get(
 Route::get(
     '/admin/food-items/{id}/edit',
     [FoodItemsController::class, 'edit']
+);
+
+// ADMIN/customers
+Route::get(
+    '/admin/offers-members',
+    [CustomersController::class, 'allOffersMembers']
+);
+
+Route::get(
+    '/admin/reservations',
+    [CustomersController::class, 'allReservations']
+);
+
+Route::get(
+    '/admin/offers-members/{id}/edit',
+    [CustomersController::class, 'edit']
 );
 
 /* ADMIN AUTHENTICATION */

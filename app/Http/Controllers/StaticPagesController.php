@@ -21,9 +21,9 @@ class StaticPagesController extends Controller
         return view('menu/single-menu');
     }
 
-    public function waitlist()
+    public function reservations()
     {
-        return view('pages/waitlist');
+        return view('pages/reservations');
     }
 
     public function offers()
