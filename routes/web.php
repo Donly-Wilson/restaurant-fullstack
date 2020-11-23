@@ -129,13 +129,13 @@ Route::get(
 
 /* ADMIN AUTHENTICATION */
 // Register
-// Route::get('/admin/register', function () {
-//     return view('admin/register');
-// });
-// // Login
-// Route::get('/admin/login', function () {
-//     return view('admin/login');
-// });
+Route::get('/admin/register', function () {
+    return view('admin/register');
+});
+// Login
+Route::get('/admin/login', function () {
+    return view('admin/login');
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

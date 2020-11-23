@@ -1,43 +1,90 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+{{-- Admin --}}
+<!doctype html>
+<html lang="en">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <style>
+    html,
+    body {
+        height: 100%; 
+    }
 
-        <x-jet-validation-errors class="mb-4" />
+    body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    </style>
+</head>
+<!-- ============================================================== -->
+<!-- signup form  -->
+<!-- ============================================================== -->
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+<body>
+    <!-- ============================================================== -->
+    <!-- signup form  -->
+    <!-- ============================================================== -->
+    <form class="splash-container" method="POST" action="{{ route('register') }}">
+        @csrf
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-1">Registrations Form</h3>
+                <p>Please enter your user information.</p>
             </div>
+            <div class="card-body">
+                
+                    <div class="form-group">
+                        <x-jet-input id="name" class="form-control form-control-lg" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Username" />
+                    </div>
+        
+                    <div class="form-group">
+                        <x-jet-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" required placeholder="E-mail" />
+                    </div>
+        
+                    <div class="form-group">
+                        <x-jet-input id="password" class="form-control form-control-lg" type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
+                    </div>
+        
+                    <div class="form-group">
+                        <x-jet-input id="password_confirmation" class="form-control form-control-lg" type="password" name="password_confirmation" required autocomplete="new-password" 
+                        placeholder="Confirm Password"/>
+                    </div>
 
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                    <div class="form-group pt-2">
+                        <button class="btn btn-block btn-primary" type="submit">{{ __('Register My Account') }}</button>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
+                        </label>
+                    </div>
+                    <div class="form-group row pt-0">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-2">
+                            <button class="btn btn-block btn-social btn-facebook " type="button">Facebook</button>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <button class="btn  btn-block btn-social btn-twitter" type="button">Twitter</button>
+                        </div>
+                    </div>
             </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+            <div class="card-footer bg-white">
+                <p>Already member? <a href="{{ route('login') }}"class="text-secondary">Login Here.</a></p>
             </div>
+        </div>
+    </form>
+</body>
 
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+ 
+</html>

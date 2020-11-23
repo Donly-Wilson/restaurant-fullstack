@@ -1,3 +1,4 @@
+{{-- Admin --}}
 <!doctype html>
 <html lang="en">
  
@@ -14,7 +15,7 @@
     <style>
     html,
     body {
-        height: 100%;
+        height: 100%; 
     }
 
     body {
