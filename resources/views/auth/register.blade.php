@@ -6,6 +6,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Csrf Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -26,6 +28,11 @@
         padding-top: 40px;
         padding-bottom: 40px;
     }
+    .text-red-600 {
+    --text-opacity: 1;
+    color: #e02424;
+    color: rgba(224, 36, 36, var(--text-opacity));
+    }  
     </style>
 </head>
 <!-- ============================================================== -->
@@ -36,6 +43,7 @@
     <!-- ============================================================== -->
     <!-- signup form  -->
     <!-- ============================================================== -->
+    
     <form class="splash-container" method="POST" action="{{ route('register') }}">
         @csrf
         <div class="card">
@@ -45,6 +53,14 @@
             </div>
             <div class="card-body">
                 
+                <x-jet-validation-errors class="mb-4" />
+
+                @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+                @endif
+
                     <div class="form-group">
                         <x-jet-input id="name" class="form-control form-control-lg" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Username" />
                     </div>

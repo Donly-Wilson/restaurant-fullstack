@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class FoodItemsController extends Controller
 {
+    //Any link using this controller will need to be loged in
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('admin/food-items/all');

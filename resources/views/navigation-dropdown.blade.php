@@ -37,8 +37,18 @@
                                 </div>
                             </button>
                         @endif
-                    </x-slot>
+                        {{-- Shifted Logout btn --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
+                            <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                                {{ __('Logout') }}
+                            </x-jet-dropdown-link>
+                        </form>
+                    </x-slot>
+                    
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
@@ -89,7 +99,7 @@
                         @endif
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-jet-dropdown-link href="{{ route('logout') }}"
@@ -97,7 +107,7 @@
                                                             this.closest('form').submit();">
                                 {{ __('Logout') }}
                             </x-jet-dropdown-link>
-                        </form>
+                        </form> --}}
                     </x-slot>
                 </x-jet-dropdown>
             </div>

@@ -122,12 +122,42 @@
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
-                                    <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
+                                    <h5 class="mb-0 text-white nav-user-name">
+                                        @guest
+                                            No Username
+                                        @else
+                                            {{ Auth::user()->name }}
+                                        @endguest
+
+                                    </h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                                {{-- <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a> --}}
+
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                this.closest('form').submit();">
+                                        <i class="fas fa-power-off mr-2"></i> {{ __('Logout') }}
+                                    </a>
+                                  </form>
+
+                                    @if (Route::has('login'))
+                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                                            @auth
+                                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+                                            @else
+                                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+
+                                            @if (Route::has('register'))
+                                                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                                            @endif
+                                    @endif
+                                    </div>
+                                @endif
                             </div>
                         </li>
                     </ul>
@@ -150,6 +180,11 @@
         <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
+            @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
         @yield('content')
             <!-- ============================================================== -->
             <!-- footer -->
@@ -203,5 +238,39 @@
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
 </body>
- 
+
 </html>
+
+{{-- <!-- Own build from Grabblie project -->
+<nav>
+    @guest
+      <a href="/register">register</a>
+      <a href="/login">login</a>
+    @else
+    <!-- Authentication -->
+      <a href="/account">{{$user->name}}</a>
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <x-jet-responsive-nav-link href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+            {{ __('Logout') }}
+        </x-jet-responsive-nav-link>
+      </form>
+    @endguest
+  </nav>
+  
+<!-- Came after auth with livewire -->
+@if (Route::has('login'))
+    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+        @auth
+            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+        @else
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+            @endif
+        @endif
+    </div>
+@endif --}}
