@@ -59,4 +59,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    //1 User could have multiple Roles (Link role and user table)
+    public function roles()
+    {
+        return $this->belongsToMany('App/Role');
+    }
 }
