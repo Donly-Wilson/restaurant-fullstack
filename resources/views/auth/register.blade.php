@@ -62,9 +62,13 @@
                 @endif
 
                     <div class="form-group">
-                        <x-jet-input id="name" class="form-control form-control-lg" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="Username" />
+                        <x-jet-input id="fname" class="form-control form-control-lg" type="text" name="fname" :value="old('fname')" required autofocus autocomplete="name" placeholder="First Name" />
                     </div>
-        
+                    
+                    <div class="form-group">
+                        <x-jet-input id="lname" class="form-control form-control-lg" type="text" name="lname" :value="old('fname')" required autofocus autocomplete="name" placeholder="Last name" />
+                    </div>
+
                     <div class="form-group">
                         <x-jet-input id="email" class="form-control form-control-lg" type="email" name="email" :value="old('email')" required placeholder="E-mail" />
                     </div>
