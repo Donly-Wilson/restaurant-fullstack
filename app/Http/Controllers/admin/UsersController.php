@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class UsersController extends Controller
 {
-    //Any link using this controller will need to be loged in
+    //Any link using this controller will need to be logged in
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,7 +19,11 @@ class UsersController extends Controller
 
     public function index()
     {
-        return view('admin/users/all');
+        // return 10 users from User table per page
+        $users = User::paginate(10);
+        return view('admin/users/all', [
+            'users' => $users
+        ]);
     }
 
     public function create()

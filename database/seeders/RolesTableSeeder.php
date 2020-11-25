@@ -17,7 +17,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        //Created user Role
+        //Assign dummy Roles for users with in UsersTableSeeder
         DB::table('roles')->insert([
             'title' => 'Admin',
         ]);
