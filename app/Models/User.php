@@ -63,6 +63,6 @@ class User extends Authenticatable
     //1 User could have multiple Roles (Link role and user table)
     public function roles()
     {
-        return $this->belongsToMany('App/Role');
+        return $this->belongsToMany('App\Models\Role');
     }
 }

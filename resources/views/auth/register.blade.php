@@ -66,7 +66,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <x-jet-input id="lname" class="form-control form-control-lg" type="text" name="lname" :value="old('fname')" required autofocus autocomplete="name" placeholder="Last name" />
+                        <x-jet-input id="lname" class="form-control form-control-lg" type="text" name="lname" :value="old('lname')" required autofocus autocomplete="name" placeholder="Last name" />
                     </div>
 
                     <div class="form-group">

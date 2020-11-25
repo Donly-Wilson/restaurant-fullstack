@@ -122,6 +122,11 @@ Route::get(
     [UsersController::class, 'create']
 );
 
+Route::post(
+    '/admin/users',
+    [UsersController::class, 'store']
+);
+
 Route::get(
     '/admin/users/{id}/edit',
     [UsersController::class, 'edit']

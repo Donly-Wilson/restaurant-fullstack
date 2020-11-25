@@ -12,6 +12,6 @@ class Role extends Model
     //1 Role could have multiple User (Link role and user table)
     public function users()
     {
-        return $this->belongsToMany('App/User');
+        return $this->belongsToMany('App\Models\User');
     }
 }
