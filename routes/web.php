@@ -22,39 +22,17 @@ use Illuminate\Support\Facades\Route;
 
 /* STATIC PAGES - this is route for links on landing page */
 // Home
-Route::get(
-    '/',
-    [StaticPagesController::class, 'home']
-);
+Route::get('/', [StaticPagesController::class, 'home']);
 
 // ./Menu
-Route::get(
-    '/menu',
-    [StaticPagesController::class, 'menu']
-);
-
-Route::get(
-    '/menu/{slug}',
-    [StaticPagesController::class, 'singleMenu']
-);
+Route::get('/menu', [StaticPagesController::class, 'menu']);
+Route::get('/menu/{slug}', [StaticPagesController::class, 'singleMenu']);
 
 // ./Pages
-Route::get(
-    '/reservations',
-    [StaticPagesController::class, 'reservations']
-);
-Route::get(
-    '/offers',
-    [StaticPagesController::class, 'offers']
-);
-Route::get(
-    '/contact',
-    [StaticPagesController::class, 'contact']
-);
-Route::get(
-    '/about',
-    [StaticPagesController::class, 'about']
-);
+Route::get('/reservations', [StaticPagesController::class, 'reservations']);
+Route::get('/offers', [StaticPagesController::class, 'offers']);
+Route::get('/contact', [StaticPagesController::class, 'contact']);
+Route::get('/about', [StaticPagesController::class, 'about']);
 
 
 /* ADMIN - this is route for links on admin dashboard page */
@@ -112,25 +90,14 @@ Route::get(
 );
 
 // ADMIN/users
-Route::get(
-    '/admin/users',
-    [UsersController::class, 'index']
-);
-
-Route::get(
-    '/admin/users/create',
-    [UsersController::class, 'create']
-);
-
-Route::post(
-    '/admin/users',
-    [UsersController::class, 'store']
-);
-
-Route::get(
-    '/admin/users/{id}/edit',
-    [UsersController::class, 'edit']
-);
+Route::get('/admin/users', [UsersController::class, 'index']);
+Route::get('/admin/users/create', [UsersController::class, 'create']);
+Route::post('/admin/users', [UsersController::class, 'store']);
+Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit']);
+Route::put('/admin/users/{id}', [UsersController::class, 'update']);
+// Route::get('/admin/users/{id}/delete', [UsersController::class, 'delete']); //get request to delete user
+// Route::post('/admin/users/{id}/delete', [UsersController::class, 'delete']);  //post request to delete user
+Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
 /* ADMIN AUTHENTICATION */
 // Register

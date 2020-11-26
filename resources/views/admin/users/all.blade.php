@@ -1,3 +1,4 @@
+<!--This is "ALL USERS PAGE" -->
 @extends('layouts.admin')
 
 @section('content')
@@ -44,19 +45,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- //Loops the "$users" object being passed down in it's route controller aka UsersController) --}}
                                     @foreach ($users as $user)
                                         <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row">{{$user->id}}</th>
                                             <td>{{ $user->fname }} {{ $user->lname }}</td>
                                             <td>{{ date('m/d/y', strtotime($user->updated_at)) }}</td>
                                             <td><a href="/admin/users/{{$user->id}}/edit"><i class="far fa-edit"></i></a></td>
-                                            <td><a href="/admin.users/{{$user->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this user')){return false;}"><i class="far fa-trash-alt"></i></a></td>
+                                            <td>
+                                                {{-- Get request to delete user --}}
+                                                {{-- <a href="/admin/users/{{$user->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this user')){return false;}"><i class="far fa-trash-alt"></i></a> --}}
+                                            
+                                                {{-- Delete method to delete user | Remove '@method('DELETE')' and it becomes Post request --}}
+                                                <form id="delete-user-{{$user->id}}" method="POST" action="/admin/users/{{$user->id}}/delete">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a class="dropdown-item" href="#"
+                                                        onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                                        <i class="far fa-trash-alt"></i> {{ __('Delete') }}
+                                                    </a>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
-                                    
                                 </tbody>
                             </table>
-                            <!-- Larvel built in Pagination -->
+                            <!-- Add Larvel builtin pagination with "links()"-->
                             {{ $users->links() }}
                         </div>
                     </div>
