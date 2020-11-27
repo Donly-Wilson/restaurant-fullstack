@@ -34,14 +34,28 @@
                 <div class="card">
                     <h5 class="card-header">Create a new category</h5>
                     <div class="card-body">
-                        <form action="#" id="basicform" data-parsley-validate="">
+                        <form class="" method="POST" action="/admin/food-categories">
+                            @csrf
                             <div class="form-group">
-                                <label for="inputCategory">Category Name</label>
-                                <input id="inputCategory" type="text" name="category" data-parsley-trigger="change" required="" placeholder="Enter category name" autocomplete="off" class="form-control">
+                                <label for="inputtitle">Title</label>
+                                <input id="inputtitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give category a title" />
+                                @error('title')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="inputCategoryImageUrl">Image Url</label>
-                                <input id="inputCategoryImageUrl" type="text" name="imageUrl" data-parsley-trigger="change" required="" placeholder="http://www.bailie.com/img/burgers.jpg" autocomplete="off" class="form-control">
+                                <label for="inputimageurl">Image Url</label>
+                                <input id="inputimageurl" class="form-control form-control-lg @error('image_url') is-invalid @enderror" type="text" name="image_url" value="{{old('image_url')}}" required autofocus placeholder="Add an image url to category" />
+                                @error('image_url')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdescription">Description</label>
+                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required autofocus placeholder="Write a description">{{old('description')}}</textarea>
+                                @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">

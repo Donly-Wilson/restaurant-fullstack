@@ -38,6 +38,15 @@ class UsersController extends Controller
 
     public function store()
     {
+        //Add validation for new user info being inputed
+        request()->validate([
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'role_id' => ['required'],
+        ]);
+
         // return request()->all();
         $user = new User();
         $user->fname = request('fname');
