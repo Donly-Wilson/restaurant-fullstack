@@ -45,7 +45,7 @@ class UsersController extends Controller
         $user->email = request('email');
         $user->password = Hash::make(request('password'));
         $user->save();
-        $user->roles()->attach(request('role_id'));
+        $user->roles()->attach(request('role_id')); //this just reattach role_id to user
 
 
         return redirect('admin/users');

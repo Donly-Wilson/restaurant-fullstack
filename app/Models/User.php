@@ -60,7 +60,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //1 User could have multiple Roles (Link role and user table)
+    //1 User could have multiple Roles (this link user and role table with a "Many-to-many" relationship)
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');

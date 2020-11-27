@@ -36,58 +36,25 @@ Route::get('/about', [StaticPagesController::class, 'about']);
 
 
 /* ADMIN - this is route for links on admin dashboard page */
-Route::get(
-    '/admin',
-    [AdminController::class, 'dashboard']
-);
+Route::get('/admin', [AdminController::class, 'dashboard']);
 
 // ADMIN/food-categories
-Route::get(
-    '/admin/food-categories',
-    [FoodCategoriesController::class, 'index']
-);
-
-Route::get(
-    '/admin/food-categories/create',
-    [FoodCategoriesController::class, 'create']
-);
-
-Route::get(
-    '/admin/food-categories/{id}/edit',
-    [FoodCategoriesController::class, 'edit']
-);
+Route::get('/admin/food-categories', [FoodCategoriesController::class, 'index']);
+Route::get('/admin/food-categories/create', [FoodCategoriesController::class, 'create']);
+Route::post('/admin/food-categories', [FoodCategoriesController::class, 'store']);
+Route::get('/admin/food-categories/{id}/edit', [FoodCategoriesController::class, 'edit']);
+Route::put('/admin/food-categories/{id}', [FoodCategoriesController::class, 'update']);
+Route::delete('/admin/food-categories/{id}/delete', [FoodCategoriesController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
 // ADMIN/food-items
-Route::get(
-    '/admin/food-items',
-    [FoodItemsController::class, 'index']
-);
-
-Route::get(
-    '/admin/food-items/create',
-    [FoodItemsController::class, 'create']
-);
-
-Route::get(
-    '/admin/food-items/{id}/edit',
-    [FoodItemsController::class, 'edit']
-);
+Route::get('/admin/food-items', [FoodItemsController::class, 'index']);
+Route::get('/admin/food-items/create', [FoodItemsController::class, 'create']);
+Route::get('/admin/food-items/{id}/edit', [FoodItemsController::class, 'edit']);
 
 // ADMIN/customers
-Route::get(
-    '/admin/offers-members',
-    [CustomersController::class, 'allOffersMembers']
-);
-
-Route::get(
-    '/admin/reservations',
-    [CustomersController::class, 'allReservations']
-);
-
-Route::get(
-    '/admin/offers-members/{id}/edit',
-    [CustomersController::class, 'edit']
-);
+Route::get('/admin/offers-members', [CustomersController::class, 'allOffersMembers']);
+Route::get('/admin/reservations', [CustomersController::class, 'allReservations']);
+Route::get('/admin/offers-members/{id}/edit', [CustomersController::class, 'edit']);
 
 // ADMIN/users
 Route::get('/admin/users', [UsersController::class, 'index']);

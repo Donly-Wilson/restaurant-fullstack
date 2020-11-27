@@ -21,6 +21,7 @@ class CreateRoleUserTable extends Migration
             $table->timestamps();
         });
 
+        //references table: uses role_id as a refrence id in roles and cascade on delete
         Schema::table('role_user', function (Blueprint $table) {
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

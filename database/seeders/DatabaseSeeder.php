@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
+        //This creates the dummy data for website
         $this->call([
             UsersTableSeeder::class,
             RolesTableSeeder::class,
+            FoodCategorySeeder::class,
+            FoodItemSeeder::class,
         ]);
     }
 }

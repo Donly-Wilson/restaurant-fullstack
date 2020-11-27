@@ -34,68 +34,68 @@
                 <div class="card">
                     <h5 class="card-header">Edit this user</h5>
                     <div class="card-body">
-                    <form class="" method="POST" action="/admin/users/{{$user->id}}">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label for="inputfirstnameUser">First Name</label>
-                                <input id="inputfirstnameUser" class="form-control form-control-lg @error('fname') is-invalid @enderror" type="text" name="fname" :value="{{old('fname', $user->fname)}}" required autofocus autocomplete="name" placeholder="First Name" />
-                                @error('fname')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="inputlastnameUser">Last Name</label>
-                                <input id="inputlastnameUser" class="form-control form-control-lg" type="text" name="lname" :value="{{old('lname', $user->lname)}}" required autofocus autocomplete="name" placeholder="Last name" />
-                                @error('lname')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="inputemail">Email</label>
-                                <input id="inputemail" class="form-control form-control-lg" type="email" name="email" :value="{{old('email', $user->email)}}" required placeholder="Enter email" />
-                                @error('email')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div> 
-                            <div class="form-group">
-                                <label for="inputpassword">Password</label>
-                                <input id="inputpassword" class="form-control form-control-lg" type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="password_confirmation">Confirm Password</label>
-                                <input id="password_confirmation" class="form-control form-control-lg" type="password" name="password_confirmation" required autocomplete="new-password" 
-                                placeholder="Confirm Password"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputrole">Select Role</label>
-                                <select class="form-control" id="inputrole" name="role_id">
-                                    {{-- //Loops the "$roles" object being passed down in it's route controller aka UsersController) --}}
-                                    @foreach ($roles as $role)
-                                        <option value="{{$role->id}}" 
-                                                @if ($role->title == 'Employee')
-                                                    selected
-                                                @endif>
-                                            {{$role->title}}
-                                        </option>
-                                            
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                        <form class="" method="POST" action="/admin/users/{{$user->id}}">
+                                @csrf
+                                @method('PUT')
+                                <div class="form-group">
+                                    <label for="inputfirstnameUser">First Name</label>
+                                    <input id="inputfirstnameUser" class="form-control form-control-lg @error('fname') is-invalid @enderror" type="text" name="fname" value="{{old('fname', $user->fname)}}" required autofocus autocomplete="name" placeholder="First Name" />
+                                    @error('fname')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                                <div class="col-sm-6 pl-0">
-                                    <p class="text-right">
-                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                    </p>
+                                <div class="form-group">
+                                    <label for="inputlastnameUser">Last Name</label>
+                                    <input id="inputlastnameUser" class="form-control form-control-lg" type="text" name="lname" value="{{old('lname', $user->lname)}}" required autofocus autocomplete="name" placeholder="Last name" />
+                                    @error('lname')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
                                 </div>
-                            </div>
+                                <div class="form-group">
+                                    <label for="inputemail">Email</label>
+                                    <input id="inputemail" class="form-control form-control-lg" type="email" name="email" value="{{old('email', $user->email)}}" required placeholder="Enter email" />
+                                    @error('email')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                </div> 
+                                <div class="form-group">
+                                    <label for="inputpassword">Password</label>
+                                    <input id="inputpassword" class="form-control form-control-lg" type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="password_confirmation">Confirm Password</label>
+                                    <input id="password_confirmation" class="form-control form-control-lg" type="password" name="password_confirmation" required autocomplete="new-password" 
+                                    placeholder="Confirm Password"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputrole">Select Role</label>
+                                    <select class="form-control" id="inputrole" name="role_id">
+                                        {{-- //Loops the "$roles" object being passed down in it's route controller aka UsersController) --}}
+                                        @foreach ($roles as $role)
+                                            <option value="{{$role->id}}" 
+                                                    @if ($role->title == 'Employee')
+                                                        selected
+                                                    @endif>
+                                                {{$role->title}}
+                                            </option>
+                                                
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                    </div>
+                                    <div class="col-sm-6 pl-0">
+                                        <p class="text-right">
+                                            <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                        </p>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                 </div>
