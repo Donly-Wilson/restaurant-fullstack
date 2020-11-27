@@ -34,19 +34,51 @@
                 <div class="card">
                     <h5 class="card-header">Create a new item</h5>
                     <div class="card-body">
-                        <form action="#" id="basicform" data-parsley-validate="">
+                        <form class="" method="POST" action="/admin/food-items">
+                            @csrf
                             <div class="form-group">
-                                <label for="inputItem">Item Name</label>
-                                <input id="inputItem" type="text" name="title" data-parsley-trigger="change" required="" placeholder="Enter item name" autocomplete="off" class="form-control">
+                                <label for="inputtitle">Title</label>
+                                <input id="inputtitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give item a title" />
+
+                                @error('title')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="inputPrice">Price</label>
-                                <input id="inputPrice" type="text" name="price" data-parsley-trigger="change" required="" placeholder="Enter item price" autocomplete="off" class="form-control">
+                                <label for="inputprice">Price</label>
+                                <input id="inputprice" class="form-control form-control-lg @error('price') is-invalid @enderror" type="text" name="price" value="{{old('price')}}" required autofocus autocomplete="price" placeholder="Give item a price" />
+
+                                @error('price')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="inputItemImageUrl">Image Url</label>
-                                <input id="inputItemImageUrl" type="text" name="imageUrl" data-parsley-trigger="change" required="" placeholder="http://www.bailie.com/img/burgers.jpg" autocomplete="off" class="form-control">
+                                <label for="inputcategory">Select Category</label>
+                                <select class="form-control" id="inputcategory" name="category_id">
+                                    @foreach ($categories as $category)
+                                        <option value="{{$category->id}}"> 
+                                            {{$category->title}}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
+                            <div class="form-group">
+                                <label for="inputimageurl">Image Url</label>
+                                <input id="inputimageurl" class="form-control form-control-lg @error('image_url') is-invalid @enderror" type="text" name="image_url" value="{{old('image_url')}}" autofocus placeholder="Add an image url to item" />
+
+                                @error('image_url')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdescription">Description</label>
+                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required autofocus placeholder="Write the ingredients">{{old('description')}}</textarea>
+
+                                @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                 </div>

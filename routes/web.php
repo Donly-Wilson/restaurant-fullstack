@@ -49,7 +49,10 @@ Route::delete('/admin/food-categories/{id}/delete', [FoodCategoriesController::c
 // ADMIN/food-items
 Route::get('/admin/food-items', [FoodItemsController::class, 'index']);
 Route::get('/admin/food-items/create', [FoodItemsController::class, 'create']);
+Route::post('/admin/food-items', [FoodItemsController::class, 'store']);
 Route::get('/admin/food-items/{id}/edit', [FoodItemsController::class, 'edit']);
+Route::put('/admin/food-items/{id}', [FoodItemsController::class, 'update']);
+Route::delete('/admin/food-items/{id}/delete', [FoodItemsController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
 // ADMIN/customers
 Route::get('/admin/offers-members', [CustomersController::class, 'allOffersMembers']);
