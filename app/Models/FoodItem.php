@@ -11,7 +11,15 @@ class FoodItem extends Model
 
     protected $table = "food_items";
     // Get the food category that owns the food item.(link the food items to food category,inverse of "one-to-one" relationship)
-    public function food_category()
+    protected $fillable = [
+        'title',
+        'description',
+        'image_url',
+        'price',
+        'category_id',
+    ];
+
+    public function categories()
     {
         return $this->belongsTo('App\Models\FoodCategory');
     }

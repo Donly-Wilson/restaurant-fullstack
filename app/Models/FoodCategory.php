@@ -11,6 +11,13 @@ class FoodCategory extends Model
 
     protected $table = "food_categories"; //manually bring table because class name is different
     //1 Food categories could have unlimited food items (This link food_item to good_category table with "One-to-many" relations)
+
+    protected $fillable = [
+        'title',
+        'description',
+        'image_url'
+    ];
+
     public function food_items()
     {
 

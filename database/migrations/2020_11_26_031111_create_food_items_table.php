@@ -17,7 +17,7 @@ class CreateFoodItemsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('image_url')->nullable();
+            $table->text('image_url')->nullable(); //nullable means an empty value can be returned/accepted
             $table->float('price', 8, 2);
             $table->bigInteger('category_id')->unsigned()->nullable();
             $table->timestamps();
