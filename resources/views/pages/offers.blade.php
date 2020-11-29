@@ -32,7 +32,6 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="inputemail">Email address</label>
-                                <label for="inputemail">First Name</label>
                                 <input id="inputemail" class="form-control form-control-lg @error('email') is-invalid @enderror" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="email" placeholder="email@address.com" />
                                 @error('email')
                                     <div class="alert alert-danger">{{ $message }}</div>
@@ -41,7 +40,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="inputphone">Phone no.</label>
+                                <label for="inputphone">Phone Number</label>
                                 <input id="inputphone" class="form-control form-control-lg @error('phone_number') is-invalid @enderror" type="tel" name="phone_number" value="{{old('phone_number')}}" required autofocus autocomplete="phone_number" placeholder="758-321-7801" />
                                 @error('phone_number')
                                     <div class="alert alert-danger">{{ $message }}</div>

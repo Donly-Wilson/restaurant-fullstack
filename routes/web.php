@@ -30,13 +30,15 @@ Route::get('/menu', [StaticPagesController::class, 'menu']);
 Route::get('/menu/{slug}', [StaticPagesController::class, 'singleMenu']);
 
 // ./Pages
+Route::get('/contact', [StaticPagesController::class, 'contact']);
+Route::get('/about', [StaticPagesController::class, 'about']);
+// ./Pages/RESERVATION
 Route::get('/reservations', [StaticPagesController::class, 'reservations']);
+Route::post('/reservations', [StaticPagesController::class, 'saveReservations']);
+// ./Pages/OFFERS
 Route::get('/offers', [StaticPagesController::class, 'offers']);
 Route::post('/offers', [StaticPagesController::class, 'registerMember']);
 Route::get('/offers/thank-you', [StaticPagesController::class, 'offersThankYou']);
-Route::get('/contact', [StaticPagesController::class, 'contact']);
-Route::get('/about', [StaticPagesController::class, 'about']);
-
 
 /* ADMIN - this is route for links on admin dashboard page */
 Route::get('/admin', [AdminController::class, 'dashboard']);
