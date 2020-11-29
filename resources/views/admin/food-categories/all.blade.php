@@ -71,6 +71,8 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <!-- Add Larvel builtin pagination with "links()"-->
+                            {{ $categories->links() }}
                         </div>
                     </div>
                 </div>

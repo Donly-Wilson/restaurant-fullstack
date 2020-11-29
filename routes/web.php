@@ -60,7 +60,7 @@ Route::delete('/admin/food-items/{id}/delete', [FoodItemsController::class, 'del
 // ADMIN Customers
 // ADMIN/Members
 Route::get('/admin/members', [MemberController::class, 'index']);
-Route::get('/admin/offers-members/{id}/edit', [CustomersController::class, 'edit']);
+Route::delete('/admin/members/{id}/delete', [MemberController::class, 'delete']); //delete method to delete user 
 // ADMIN/Reservations
 Route::get('/admin/reservations', [CustomersController::class, 'allReservations']);
 

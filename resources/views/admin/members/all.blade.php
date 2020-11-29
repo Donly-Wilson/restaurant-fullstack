@@ -41,6 +41,7 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone Number</th>
                                         <th scope="col">Date Created</th>
+                                        <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,7 +53,6 @@
                                             <td>{{ $member->email }}</td>
                                             <td>{{ $member->phone_number }}</td>
                                             <td>{{ date('m/d/y', strtotime($member->updated_at)) }}</td>
-                                            <td><a class="edit-btn" href="/admin/members/{{$member->id}}/edit"><i class="far fa-edit"></i></a></td>
                                             <td>
                                                 {{-- This is a "GET" request to delete member --}}
                                                 {{-- <a href="/admin/members/{{$member->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this member')){return false;}"><i class="far fa-trash-alt"></i></a> --}}
@@ -73,6 +73,8 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <!-- Add Larvel builtin pagination with "links()"-->
+                            {{ $members->links() }}
                         </div>
                     </div>
                 </div>
