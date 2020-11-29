@@ -41,7 +41,7 @@ class FoodItemsController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'image_url' => ['nullable', 'string'], //nullable means an empty value can be returned
-            'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
+            'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'], //This regrex validates price with 2 decimals
             'category_id' => ['required', 'integer'],
         ]);
 

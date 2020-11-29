@@ -6,34 +6,47 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h1>Sign Up To Notification For Deals</h1>
-                <form>
+                <form class="" method="POST" action="/offers">
+                    @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="firstnameinput">First Name</label>
-                                <input type="text" class="form-control" name="fname" id="firstnameinput" placeholder="John">
-                              </div>
+                                <label for="inputfname">First Name</label>
+                                <input id="inputfname" class="form-control form-control-lg @error('fname') is-invalid @enderror" type="text" name="fname" value="{{old('fname')}}" required autofocus autocomplete="fname" placeholder="John" />
+                                @error('fname')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="lastnameinput">Phone no.</label>
-                                <input type="text" class="form-control" name="lname" id="lastnameinput" placeholder="Doe">
-                              </div>
-
+                                <label for="inputlname">Last Name</label>
+                                <input id="inputlname" class="form-control form-control-lg @error('lname') is-invalid @enderror" type="text" name="lname" value="{{old('lname')}}" required autofocus autocomplete="lname" placeholder="John" />
+                                @error('lname')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="emailinput">Email address</label>
-                                <input type="email" class="form-control" name="email" id="emailinput" placeholder="email@address.com">
-                              </div>
+                                <label for="inputemail">Email address</label>
+                                <label for="inputemail">First Name</label>
+                                <input id="inputemail" class="form-control form-control-lg @error('email') is-invalid @enderror" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="email" placeholder="email@address.com" />
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="phoneinput">Phone no.</label>
-                                <input type="text" class="form-control" name="phone" id="phoneinput" placeholder="758-321-7801">
-                              </div>
+                                <label for="inputphone">Phone no.</label>
+                                <input id="inputphone" class="form-control form-control-lg @error('phone_number') is-invalid @enderror" type="tel" name="phone_number" value="{{old('phone_number')}}" required autofocus autocomplete="phone_number" placeholder="758-321-7801" />
+                                @error('phone_number')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
                         </div>
                     </div>
@@ -51,6 +64,7 @@
                               </div>
                         </div>
                     </div>
+                </form>
             </div>
         </div>
     </div>
