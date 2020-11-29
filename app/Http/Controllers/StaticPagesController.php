@@ -39,7 +39,7 @@ class StaticPagesController extends Controller
         request()->validate([
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'phone_number' => ['required', 'digits:10'],
         ]);
 
