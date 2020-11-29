@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             RolesTableSeeder::class,
             FoodCategorySeeder::class,
             FoodItemSeeder::class,
+            MemberSeeder::class,
         ]);
     }
 }

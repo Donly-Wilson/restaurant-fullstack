@@ -13,11 +13,6 @@ class CustomersController extends Controller
         $this->middleware('auth');
     }
 
-    public function allOffersMembers()
-    {
-        return view('admin/customers/all-offers-members');
-    }
-
     public function allReservations()
     {
         return view('admin/customers/all-reservations');

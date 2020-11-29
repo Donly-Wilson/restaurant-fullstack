@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CustomersController;
 use App\Http\Controllers\admin\FoodCategoriesController;
 use App\Http\Controllers\admin\FoodItemsController;
+use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\StaticPagesController;
 use Illuminate\Support\Facades\Route;
@@ -54,10 +55,12 @@ Route::get('/admin/food-items/{id}/edit', [FoodItemsController::class, 'edit']);
 Route::put('/admin/food-items/{id}', [FoodItemsController::class, 'update']);
 Route::delete('/admin/food-items/{id}/delete', [FoodItemsController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
-// ADMIN/customers
-Route::get('/admin/offers-members', [CustomersController::class, 'allOffersMembers']);
-Route::get('/admin/reservations', [CustomersController::class, 'allReservations']);
+// ADMIN Customers
+// ADMIN/Members
+Route::get('/admin/members', [MemberController::class, 'index']);
 Route::get('/admin/offers-members/{id}/edit', [CustomersController::class, 'edit']);
+// ADMIN/Reservations
+Route::get('/admin/reservations', [CustomersController::class, 'allReservations']);
 
 // ADMIN/users
 Route::get('/admin/users', [UsersController::class, 'index']);
