@@ -10191,6 +10191,11 @@ table {
   padding: 20px 40px;
 }
 
+#offers-page .thank-you h1,
+#offers-page .thank-you p {
+  text-align: center;
+}
+
 /* Mobile Responsive */
 
 @media (min-width: 0px) and (max-width: 767px) {

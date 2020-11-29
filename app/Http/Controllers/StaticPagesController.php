@@ -40,20 +40,25 @@ class StaticPagesController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string'],
-            'phone_number' => ['required', 'string'],
+            'phone_number' => ['required', 'digits:10'],
         ]);
 
         // return request()->all();
         $member = new Member();
         $member->fname = request('fname');
-        $member->description = request('description');
+        $member->lname = request('lname');
+        $member->email = request('email');
         $member->phone_number = request('phone_number');
         $member->save();
 
         return redirect('/offers/thank-you');
-        // return redirect('pages/offers');
     }
 
+    //Returned page after the member that sign up is stored in database
+    public function offersThankYou()
+    {
+        return view('pages/thank-you');
+    }
 
     public function about()
     {

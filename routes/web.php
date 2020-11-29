@@ -32,6 +32,8 @@ Route::get('/menu/{slug}', [StaticPagesController::class, 'singleMenu']);
 // ./Pages
 Route::get('/reservations', [StaticPagesController::class, 'reservations']);
 Route::get('/offers', [StaticPagesController::class, 'offers']);
+Route::post('/offers', [StaticPagesController::class, 'registerMember']);
+Route::get('/offers/thank-you', [StaticPagesController::class, 'offersThankYou']);
 Route::get('/contact', [StaticPagesController::class, 'contact']);
 Route::get('/about', [StaticPagesController::class, 'about']);
 
@@ -72,7 +74,7 @@ Route::put('/admin/users/{id}', [UsersController::class, 'update']);
 // Route::post('/admin/users/{id}/delete', [UsersController::class, 'delete']);  //post request to delete user
 Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
-/* ADMIN AUTHENTICATION */
+/* ADMIN AUTHENTICATION - this is route for giving access to admin dashboard page*/
 // Register
 Route::get('/admin/register', function () {
     return view('admin/register');
