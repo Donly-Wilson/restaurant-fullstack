@@ -18,11 +18,11 @@ class FoodItemsController extends Controller
     //Route for "All Food items" page
     public function index()
     {
-        // return 10 category from FoodItem table per page
-        $item = FoodItem::paginate(10);
+        // return 10 item from FoodItem table per page
+        $items = FoodItem::paginate(10);
 
         return view('admin/food-items/all', [
-            'items' => $item //passed down items variable to route
+            'items' => $items //passed down items variable to route
         ]);
     }
 
@@ -40,7 +40,7 @@ class FoodItemsController extends Controller
         request()->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'image_url' => ['nullable', 'url'], //nullable means an empty value can be returned
+            'image_url' => ['nullable', 'string'], //nullable means an empty value can be returned
             'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
             'category_id' => ['required', 'integer'],
         ]);
@@ -65,8 +65,8 @@ class FoodItemsController extends Controller
         $item = FoodItem::find($id);
         $categories = FoodCategory::all();
         return view('admin/food-items/edit', [
-            'items' => $item,
-            '$categories' => $categories
+            'item' => $item,
+            'categories' => $categories
         ]);
     }
 
@@ -76,10 +76,11 @@ class FoodItemsController extends Controller
         request()->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'image_url' => ['url'],
+            'image_url' => ['nullable', 'string'], //nullable means an empty value can be returned
             'price' => ['required', 'regex:/^\d*(\.\d{2})?$/'],
             'category_id' => ['required', 'integer'],
         ]);
+        // return request()->all();
 
         //Select food category by id and rename every value
         $item = FoodItem::find($id);

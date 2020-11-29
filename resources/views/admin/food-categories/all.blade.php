@@ -50,19 +50,20 @@
                                             <th scope="row">{{$category->id}}</th>
                                             <td>{{ $category->title }}</td>
                                             <td>{{ date('m/d/y', strtotime($category->updated_at)) }}</td>
-                                            <td><a href="/admin/food-categories/{{$category->id}}/edit"><i class="far fa-edit"></i></a></td>
+                                            <td><a class="edit-btn" href="/admin/food-categories/{{$category->id}}/edit"><i class="far fa-edit"></i></a></td>
                                             <td>
-                                                {{-- Get request to delete category --}}
+                                                {{-- This is a "GET" request to delete category --}}
                                                 {{-- <a href="/admin/food-categories/{{$category->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this category')){return false;}"><i class="far fa-trash-alt"></i></a> --}}
                                             
-                                                {{-- Delete method to delete category | Remove '@method('DELETE')' and it becomes Post request --}}
+                                                {{-- this uses "Delete method" to delete category | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
                                                 <form id="delete-category-{{$category->id}}" method="POST" action="/admin/food-categories/{{$category->id}}/delete">
                                                     @csrf
                                                     @method('DELETE')
                                                     <a class="dropdown-item" href="#"
                                                         onclick="event.preventDefault();
                                                         this.closest('form').submit();">
-                                                        <i class="far fa-trash-alt"></i> {{ __('Delete') }}
+                                                        <i class="far fa-trash-alt"></i>
+                                                         {{-- {{ __('Delete') }} --}}
                                                     </a>
                                                 </form>
                                             </td>

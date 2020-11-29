@@ -39,20 +39,37 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Title</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Date Created</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Burgers</td>
-                                        <td>$9</td>
-                                        <td>2/2/2020</td>
-                                        <td><a href="/admin/food-items/1/edit"><i class="far fa-edit"></i></a></td>
-                                    <td><a href="/admin.food-items/1/delete" onclick="if(! confirm('Are you sure you want to delete this food item')){return false;}"><i class="far fa-trash-alt"></i></a></td>
-                                    </tr>
+                                    {{-- //Loops the "$items" object being passed down in it's route controller aka FoodItemsController) --}}
+                                    @foreach ($items as $item)
+                                        <tr>
+                                            <th scope="row">{{$item->id}}</th>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $item->price }}</td>
+                                            <td>{{ date('m/d/y', strtotime($item->updated_at)) }}</td>
+                                            <td><a class="edit-btn" href="/admin/food-items/{{$item->id}}/edit"><i class="far fa-edit"></i></a></td>
+                                            <td>
+                                                {{-- This is a "GET" request to delete item --}}
+                                                {{-- <a href="/admin/food-items/{{$item->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this item')){return false;}"><i class="far fa-trash-alt"></i></a> --}}
+                                            
+                                                {{-- this uses "Delete method" to delete item | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
+                                                <form id="delete-item-{{$item->id}}" method="POST" action="/admin/food-items/{{$item->id}}/delete">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="#"
+                                                        onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                                        <i class="far fa-trash-alt"></i>
+                                                    </a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
