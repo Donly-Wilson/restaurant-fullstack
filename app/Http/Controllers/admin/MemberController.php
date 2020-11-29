@@ -20,7 +20,7 @@ class MemberController extends Controller
         // return 10 member from Member table per page
         $members = Member::paginate(10);
 
-        return view('admin/members/all-members', [
+        return view('admin/members/all', [
             'members' => $members //passed down this members variable to route
         ]);
     }

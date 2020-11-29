@@ -44,12 +44,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>James Rodriguez</td>
-                                        <td>james27@gmail.com</td>
-                                        <td>347-219-8652</td>
-                                        <td>2/2/2020</td>
+                                    {{-- //Loops the "$members" object being passed down in it's route controller aka membersController) --}}
+                                    @foreach ($members as $member)
+                                        <tr>
+                                            <th scope="row">{{$member->id}}</th>
+                                            <td>{{ $member->fname }} {{ $member->lname }}</td>
+                                            <td>{{ $member->email }}</td>
+                                            <td>{{ $member->phone_number }}</td>
+                                            <td>{{ date('m/d/y', strtotime($member->updated_at)) }}</td>
+                                            <td><a class="edit-btn" href="/admin/members/{{$member->id}}/edit"><i class="far fa-edit"></i></a></td>
+                                            <td>
+                                                {{-- This is a "GET" request to delete member --}}
+                                                {{-- <a href="/admin/members/{{$member->id}}/delete" onclick="if(! confirm('Are you sure you want to delete this member')){return false;}"><i class="far fa-trash-alt"></i></a> --}}
+                                            
+                                                {{-- this uses "Delete method" to delete member | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
+                                                <form id="delete-member-{{$member->id}}" method="POST" action="/admin/members/{{$member->id}}/delete">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <a href="#"
+                                                        onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                                        <i class="far fa-trash-alt"></i>
+                                                         {{-- {{ __('Delete') }} --}}
+                                                    </a>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
