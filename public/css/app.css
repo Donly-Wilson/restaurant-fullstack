@@ -10632,6 +10632,10 @@ h2 {
   padding: 20px;
 }
 
+.edit-btn:hover {
+  color: #0056b3;
+}
+
 /* Mobile Responsive */
 
 @media (min-width: 0px) and (max-width: 767px) {
