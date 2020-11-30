@@ -16,7 +16,7 @@ class MemberSeeder extends Seeder
     public function run()
     {
 
-        //Create dummy users can also be used to login
+        //Create dummy for offers table
         DB::table('members')->insert([
             'fname' => 'Ramsey',
             'lname' => 'Jordan',
