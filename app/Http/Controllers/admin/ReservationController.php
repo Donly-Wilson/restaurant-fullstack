@@ -60,8 +60,8 @@ class ReservationController extends Controller
 
         //Find reservation by id in reservations table and store it in "$reservation" variable
         $reservation = Reservation::find($id);
-        return view('admin/ reservations/edit', [
-            ' reservation' => $reservation,
+        return view('admin/reservations/edit', [
+            'reservation' => $reservation,
         ]);
     }
 
@@ -79,7 +79,7 @@ class ReservationController extends Controller
 
         //Select reservation by id and rename every value
         // return request()->all();
-        $reservation = new Reservation();
+        $reservation = Reservation::find($id);
         $reservation->fname = request('fname');
         $reservation->lname = request('lname');
         $reservation->email = request('email');
