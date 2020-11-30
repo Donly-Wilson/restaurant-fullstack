@@ -34,11 +34,12 @@ Route::get('/contact', [StaticPagesController::class, 'contact']);
 Route::get('/about', [StaticPagesController::class, 'about']);
 // ./Pages/RESERVATION
 Route::get('/reservations', [StaticPagesController::class, 'reservations']);
-Route::post('/reservations', [StaticPagesController::class, 'saveReservations']);
+Route::post('/reservations', [StaticPagesController::class, 'saveReservation']);
+Route::get('/reservations/thank-you', [StaticPagesController::class, 'thankYou']);
 // ./Pages/OFFERS
 Route::get('/offers', [StaticPagesController::class, 'offers']);
 Route::post('/offers', [StaticPagesController::class, 'registerMember']);
-Route::get('/offers/thank-you', [StaticPagesController::class, 'offersThankYou']);
+Route::get('/offers/thank-you', [StaticPagesController::class, 'thankYou']);
 
 /* ADMIN - this is route for links on admin dashboard page */
 Route::get('/admin', [AdminController::class, 'dashboard']);

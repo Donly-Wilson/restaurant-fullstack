@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Member;
+use App\Models\Reservation;
 
 class StaticPagesController extends Controller
 {
@@ -25,6 +26,33 @@ class StaticPagesController extends Controller
     public function reservations()
     {
         return view('pages/reservations');
+    }
+
+    //This stores the person reservation that sign up through reservsation page
+    public function saveReservation()
+    {
+        //Add validation for new member info being inputed in table
+        request()->validate([
+            'fname' => ['required', 'string', 'max:255'],
+            'lname' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'phone_number' => ['required', 'digits:10'],
+            'guest_total' => ['required', 'string'],
+            'time' => ['required', 'string'],
+        ]);
+
+        // return request()->all();
+        $reservation = new Reservation();
+        $reservation->fname = request('fname');
+        $reservation->lname = request('lname');
+        $reservation->email = request('email');
+        $reservation->phone_number = request('phone_number');
+        $reservation->guest_total = request('guest_total');
+        $reservation->time = request('time');
+        $reservation->save();
+
+        // return 'working';
+        return redirect('/reservations/thank-you');
     }
 
     public function offers()
@@ -55,7 +83,7 @@ class StaticPagesController extends Controller
     }
 
     //Returned page after the member that sign up is stored in database
-    public function offersThankYou()
+    public function thankYou()
     {
         return view('pages/thank-you');
     }

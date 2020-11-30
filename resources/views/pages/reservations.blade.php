@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h1>Get On The List</h1>
-                <form class="" method="POST" action="/resavations">
+                <form class="" method="POST" action="/reservations">
                   @csrf
                   <div class="form-group">
                     <label for="inputfname">First Name</label>
