@@ -83,6 +83,15 @@ Route::put('/admin/users/{id}', [UsersController::class, 'update']);
 // Route::post('/admin/users/{id}/delete', [UsersController::class, 'delete']);  //post request to delete user
 Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
 
+// ADMIN/settings
+Route::get('/admin/settings/general', [SettingsController::class, 'general']);
+Route::post('/admin/settings/general', [SettingsController::class, 'savegeneral']);
+Route::get('/admin/settings/seo', [SettingsController::class, 'seo']);
+Route::post('/admin/settings/seo', [SettingsController::class, 'saveseo']);
+Route::get('/admin/settings/socials', [SettingsController::class, 'socials']);
+Route::post('/admin/settings/socials', [SettingsController::class, 'savesocials']);
+
+
 /* ADMIN AUTHENTICATION - this is route for giving access to admin dashboard page*/
 // Register
 Route::get('/admin/register', function () {
