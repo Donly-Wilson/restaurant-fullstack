@@ -9,7 +9,11 @@ use App\Http\Controllers\admin\ReservationController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\StaticPagesController;
+use App\Models\GeneralSetting;
+use App\Models\SeoSetting;
+use App\Models\SocialSetting;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +107,19 @@ Route::get('/admin/login', function () {
     return view('admin/login');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+//like a Wild card - can pass any data to any choosen view(remove home and put "*" for every single view)
+View::composer(['home', 'pages/about', 'pages/contact', 'pages/offers', 'pages/reservations', 'thank-you', 'menu/index', 'menu/single-menu'], function ($view) {
+    $generalSettings = GeneralSetting::find(1); //Pass down info in general_settings table to home view 
+    $seoSettings = seoSetting::find(1); //Pass down info in seo_settings table to home view 
+    $socialSettings = SocialSetting::find(1); //Pass down info in social_settings table to home view 
+
+    $view->with('settings', [
+        "general" => $generalSettings,
+        "social" => $socialSettings,
+        "seo" => $seoSettings
+    ]);
+});
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');

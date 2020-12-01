@@ -12,12 +12,12 @@ class StaticPagesController extends Controller
 {
     public function home()
     {
-        $generalSettings = GeneralSetting::find(1); //Pass down info in general_settings table to home view 
-        $socialSettings = SocialSetting::find(1); //Pass down info in social_settings table to home view 
-        return view('home', [
-            "generalSettings" => $generalSettings, //passed down generalSetting variable to route
-            "socialSettings" => $socialSettings //passed down socialSetting variable to route
-        ]);
+        // $generalSettings = GeneralSetting::find(1); //Pass down info in general_settings table to home view 
+        // $socialSettings = SocialSetting::find(1); //Pass down info in social_settings table to home view 
+        return view('home',
+            //  ["generalSettings" => $generalSettings, //passed down generalSetting variable to route
+            //     "socialSettings" => $socialSettings //passed down socialSetting variable to route]
+        );
     }
 
     public function menu()
