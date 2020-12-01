@@ -19,7 +19,7 @@ class GeneralSettingSeeder extends Seeder
         DB::table('general_settings')->insert([
             'site_title' => "Bailie's  Burgers",
             'logo_image_url' => './img/restaurant-logo.png',
-            'address_1' => '234 Main st',
+            'address_1' => '234 Main st,',
             'address_2' => '',
             'city' => 'Rodney Bay',
             'state' => 'Gros Islet',
