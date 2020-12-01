@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             FoodCategorySeeder::class,
             FoodItemSeeder::class,
             MemberSeeder::class,
+            GeneralSettingSeeder::class,
+            SeoSettingSeeder::class,
+            SocialSettingSeeder::class,
         ]);
     }
 }
