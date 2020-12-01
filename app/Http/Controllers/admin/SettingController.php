@@ -18,6 +18,8 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
 
+    //////*GENERAL SETTINGS*////// 
+
     //This is general settings Edit route
     public function general()
     {
@@ -59,7 +61,10 @@ class SettingController extends Controller
         return redirect('admin/settings/general');
     }
 
-    //This is seo settings Edit route
+
+    //////*SEO SETTINGS*//////
+
+    // This is seo settings Edit route
     public function seo()
     {
         $id = 1; // make $id to always be one
@@ -86,5 +91,39 @@ class SettingController extends Controller
         $seo_setting->keywords = request('keywords');
         $seo_setting->save();
         return redirect('admin/settings/seo');
+    }
+
+
+    //////*SOCIALS SETTINGS*//////
+
+    //This is social settings Edit route
+    public function social()
+    {
+        $id = 1; // make $id to always be one
+        //Find social_setting by id in social_settings table and store it in "$social_setting" variable
+        $social_setting = socialSetting::find($id);
+        return view('admin/settings/social', [
+            'social_setting' => $social_setting,
+        ]);
+    }
+
+    //This is  social settings Update route
+    public function savesocial()
+    {
+        $id = 1; // make $id to always be one
+        //Add validation for new social_setting info being inputed in table
+        request()->validate([
+            'facebook_url' => ['nullable', 'url'],
+            'twitter_url' => ['nullable', 'url'],
+            'instagram_url' => ['nullable', 'url'],
+        ]);
+
+        //Select social_setting by id and rename every value
+        $social_setting = socialSetting::find($id);
+        $social_setting->facebook_url = request('facebook_url');
+        $social_setting->twitter_url = request('twitter_url');
+        $social_setting->instagram_url = request('instagram_url');
+        $social_setting->save();
+        return redirect('admin/settings/social');
     }
 }

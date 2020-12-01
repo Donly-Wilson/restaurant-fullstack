@@ -89,8 +89,8 @@ Route::get('/admin/settings/general', [SettingController::class, 'general']);
 Route::put('/admin/settings/general', [SettingController::class, 'savegeneral']); //PUT methodfor update route
 Route::get('/admin/settings/seo', [SettingController::class, 'seo']);
 Route::put('/admin/settings/seo', [SettingController::class, 'saveseo']);
-Route::get('/admin/settings/socials', [SettingController::class, 'socials']);
-Route::put('/admin/settings/socials', [SettingController::class, 'savesocials']);
+Route::get('/admin/settings/social', [SettingController::class, 'social']);
+Route::put('/admin/settings/social', [SettingController::class, 'savesocial']);
 
 
 /* ADMIN AUTHENTICATION - this is route for giving access to admin dashboard page*/
