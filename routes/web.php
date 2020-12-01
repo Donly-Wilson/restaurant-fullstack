@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\FoodCategoriesController;
 use App\Http\Controllers\admin\FoodItemsController;
 use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\admin\ReservationController;
+use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\StaticPagesController;
 use Illuminate\Support\Facades\Route;
@@ -85,11 +86,11 @@ Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete']); /
 
 // ADMIN/settings
 Route::get('/admin/settings/general', [SettingController::class, 'general']);
-Route::post('/admin/settings/general', [SettingController::class, 'savegeneral']);
+Route::put('/admin/settings/general', [SettingController::class, 'savegeneral']); //PUT methodfor update route
 Route::get('/admin/settings/seo', [SettingController::class, 'seo']);
-Route::post('/admin/settings/seo', [SettingController::class, 'saveseo']);
+Route::put('/admin/settings/seo', [SettingController::class, 'saveseo']);
 Route::get('/admin/settings/socials', [SettingController::class, 'socials']);
-Route::post('/admin/settings/socials', [SettingController::class, 'savesocials']);
+Route::put('/admin/settings/socials', [SettingController::class, 'savesocials']);
 
 
 /* ADMIN AUTHENTICATION - this is route for giving access to admin dashboard page*/

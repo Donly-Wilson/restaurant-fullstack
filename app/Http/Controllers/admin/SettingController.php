@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
 
 
@@ -15,32 +16,44 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
 
-    public function edit($id) // $id created in the route/web.php and pulled from browser's navlink
+    //This is Edit 
+    public function general()
     {
-
-        //Find category by id in food-categories table and store it in "$category" variable
-        $category = FoodCategory::find($id);
-        return view('admin/food-categories/edit', [
-            'category' => $category,
+        $id = 1; // make $id to always be one
+        //Find general_setting by id in general_settings table and store it in "$general_setting" variable
+        $general_setting = GeneralSetting::find($id);
+        return view('admin/settings/general', [
+            'general_setting' => $general_setting,
         ]);
     }
 
-    public function update($id) // $id created in the route/web.php and pulled from browser's navlink
+    //This is Update 
+    public function savegeneral()
     {
-        //Add validation for new food category info being inputed in table
+        $id = 1; // make $id to always be one
+        //Add validation for new general_setting info being inputed in table
         request()->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
-            'image_url' => ['required', 'string'],
+            'site_title' => ['required', 'string', 'max:255'],
+            'logo_image_url' => ['required', 'string'],
+            'address_1' => ['required', 'string'],
+            'address_2' => ['nullable', 'string'],
+            'city' => ['required', 'string'],
+            'state' => ['required', 'string'],
+            'zipcode' => ['required', 'string'],
+            'phone_number' => ['required', 'digits:10']
         ]);
 
-        //Select food category by id and rename every value
-        $category = FoodCategory::find($id);
-        $category->title = request('title');
-        $category->description = request('description');
-        $category->image_url = request('image_url');
-        $category->save();
-
-        return redirect('admin/food-categories');
+        //Select general_setting by id and rename every value
+        $general_setting = GeneralSetting::find($id);
+        $general_setting->site_title = request('site_title');
+        $general_setting->logo_image_url = request('logo_image_url');
+        $general_setting->address_1 = request('address_1');
+        $general_setting->address_2 = request('address_2');
+        $general_setting->city = request('city');
+        $general_setting->state = request('state');
+        $general_setting->zipcode = request('zipcode');
+        $general_setting->phone_number = request('phone_number');
+        $general_setting->save();
+        return redirect('admin/settings/general');
     }
 }

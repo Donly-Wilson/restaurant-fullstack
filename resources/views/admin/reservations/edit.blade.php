@@ -68,6 +68,7 @@
                             <div class="form-group">
                                 <label for="guest_total">How Many Guest?</label>
                                 <select class="form-control form-control-lg @error('guest_total') is-invalid @enderror" name="guest_total" id="guest_total">
+                                    {{-- The if statement is to show previous selected option --}}
                                   <option value="1" @if (old('guest_total',$reservation->guest_total) == '1') selected="selected" @endif>1</option>
                                   <option value="2" @if (old('guest_total', $reservation->guest_total) == '2') selected="selected" @endif>2</option>
                                   <option value="3" @if (old('guest_total', $reservation->guest_total) == '3') selected="selected" @endif>3</option>
@@ -81,6 +82,7 @@
                             <div class="form-group">
                                   <label for="timeinput">What Time?</label>
                                   <select class="form-control form-control-lg @error('time') is-invalid @enderror" name="time" id="timeinput">
+                                    {{-- The if statement is to show previous selected option --}}
                                     <option value="6" @if (old('time', $reservation->time) == '6') selected="selected" @endif>6:00 PM</option>
                                     <option value="7" @if (old('time', $reservation->time) == '7') selected="selected" @endif>7:00 PM</option>
                                     <option value="8" @if (old('time', $reservation->time) == '8') selected="selected" @endif>8:00 PM</option>
