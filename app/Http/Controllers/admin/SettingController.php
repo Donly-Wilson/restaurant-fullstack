@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\GeneralSetting;
+use App\Models\SeoSetting;
+use App\Models\SocialSetting;
 use Illuminate\Http\Request;
 
 
@@ -16,7 +18,7 @@ class SettingController extends Controller
         $this->middleware('auth');
     }
 
-    //This is Edit 
+    //This is general settings Edit route
     public function general()
     {
         $id = 1; // make $id to always be one
@@ -27,7 +29,7 @@ class SettingController extends Controller
         ]);
     }
 
-    //This is Update 
+    //This is  general settings Update route
     public function savegeneral()
     {
         $id = 1; // make $id to always be one
@@ -55,5 +57,34 @@ class SettingController extends Controller
         $general_setting->phone_number = request('phone_number');
         $general_setting->save();
         return redirect('admin/settings/general');
+    }
+
+    //This is seo settings Edit route
+    public function seo()
+    {
+        $id = 1; // make $id to always be one
+        //Find seo_setting by id in seo_settings table and store it in "$seo_setting" variable
+        $seo_setting = SeoSetting::find($id);
+        return view('admin/settings/seo', [
+            'seo_setting' => $seo_setting,
+        ]);
+    }
+
+    //This is  seo settings Update route
+    public function saveseo()
+    {
+        $id = 1; // make $id to always be one
+        //Add validation for new seo_setting info being inputed in table
+        request()->validate([
+            'description' => ['required', 'string'],
+            'keywords' => ['required', 'string'],
+        ]);
+
+        //Select seo_setting by id and rename every value
+        $seo_setting = seoSetting::find($id);
+        $seo_setting->description = request('description');
+        $seo_setting->keywords = request('keywords');
+        $seo_setting->save();
+        return redirect('admin/settings/seo');
     }
 }
