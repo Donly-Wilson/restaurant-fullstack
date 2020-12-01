@@ -1,6 +1,10 @@
 {{-- Calls layout/app and adds @section area to where it's name being @yeild --}}
 @extends('layouts.app')
 
+@section('title')
+Food Menu - {{$settings["general"]->site_title}}
+@endsection
+
 @section('content')
 <div id="menu-page">
     <section id="food-preview">

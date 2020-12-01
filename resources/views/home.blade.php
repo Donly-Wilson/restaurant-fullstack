@@ -1,5 +1,9 @@
 @extends('layouts.landing-page')
 
+@section('title')
+{{$settings["general"]->site_title}} - St.Lucia Selling Franchise
+@endsection
+
 @section('content')
 <section id="information">
   <div class="restaurant-image">
