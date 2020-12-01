@@ -10097,6 +10097,45 @@ table {
   }
 }
 
+#contact-page {
+  padding: 100px;
+}
+
+#contact-page h1 {
+  color: #000000;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+#contact-page h3 {
+  color: #000000;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#contact-page p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 2;
+  margin-bottom: 2rem;
+}
+
+/* Mobile Responsive */
+
+@media (min-width: 0px) and (max-width: 767px) {
+  #contact-page {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  #contact-page {
+    padding: 20px;
+  }
+}
+
 #waitlist-page {
   padding: 100px;
 }
