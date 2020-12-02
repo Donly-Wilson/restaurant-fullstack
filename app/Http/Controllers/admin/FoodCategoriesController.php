@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class FoodCategoriesController extends Controller
 {
     //Any link using this controller will need to be logged in
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     //Route for "All Food categories" page
     public function index()

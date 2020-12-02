@@ -51,20 +51,20 @@ Route::get('/offers/thank-you', [StaticPagesController::class, 'thankYou']);
 Route::get('/admin', [AdminController::class, 'dashboard']);
 
 // ADMIN/food-categories
-Route::get('/admin/food-categories', [FoodCategoriesController::class, 'index']);
-Route::get('/admin/food-categories/create', [FoodCategoriesController::class, 'create']);
-Route::post('/admin/food-categories', [FoodCategoriesController::class, 'store']);
-Route::get('/admin/food-categories/{id}/edit', [FoodCategoriesController::class, 'edit']);
-Route::put('/admin/food-categories/{id}', [FoodCategoriesController::class, 'update']);
-Route::delete('/admin/food-categories/{id}/delete', [FoodCategoriesController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
+Route::get('/admin/food-categories', [FoodCategoriesController::class, 'index'])->middleware('role:Admin');
+Route::get('/admin/food-categories/create', [FoodCategoriesController::class, 'create'])->middleware('role:Admin');
+Route::post('/admin/food-categories', [FoodCategoriesController::class, 'store'])->middleware('role:Admin');
+Route::get('/admin/food-categories/{id}/edit', [FoodCategoriesController::class, 'edit'])->middleware('role:Admin');
+Route::put('/admin/food-categories/{id}', [FoodCategoriesController::class, 'update'])->middleware('role:Admin');
+Route::delete('/admin/food-categories/{id}/delete', [FoodCategoriesController::class, 'delete'])->middleware('role:Admin'); //delete method to delete user (advised way, doesn't matter tho)
 
 // ADMIN/food-items
-Route::get('/admin/food-items', [FoodItemsController::class, 'index']);
-Route::get('/admin/food-items/create', [FoodItemsController::class, 'create']);
-Route::post('/admin/food-items', [FoodItemsController::class, 'store']);
-Route::get('/admin/food-items/{id}/edit', [FoodItemsController::class, 'edit']);
-Route::put('/admin/food-items/{id}', [FoodItemsController::class, 'update']);
-Route::delete('/admin/food-items/{id}/delete', [FoodItemsController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
+Route::get('/admin/food-items', [FoodItemsController::class, 'index'])->middleware('role:Admin');
+Route::get('/admin/food-items/create', [FoodItemsController::class, 'create'])->middleware('role:Admin');
+Route::post('/admin/food-items', [FoodItemsController::class, 'store'])->middleware('role:Admin');
+Route::get('/admin/food-items/{id}/edit', [FoodItemsController::class, 'edit'])->middleware('role:Admin');
+Route::put('/admin/food-items/{id}', [FoodItemsController::class, 'update'])->middleware('role:Admin');
+Route::delete('/admin/food-items/{id}/delete', [FoodItemsController::class, 'delete'])->middleware('role:Admin'); //delete method to delete user (advised way, doesn't matter tho)
 
 // ADMIN Customers
 // ADMIN/Members
@@ -79,22 +79,22 @@ Route::put('/admin/reservations/{id}', [ReservationController::class, 'update'])
 Route::delete('/admin/reservations/{id}/delete', [ReservationController::class, 'delete']); //delete method to delete user 
 
 // ADMIN/users
-Route::get('/admin/users', [UsersController::class, 'index']);
-Route::get('/admin/users/create', [UsersController::class, 'create']);
-Route::post('/admin/users', [UsersController::class, 'store']);
-Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit']);
-Route::put('/admin/users/{id}', [UsersController::class, 'update']);
+Route::get('/admin/users', [UsersController::class, 'index'])->middleware('role:Admin');
+Route::get('/admin/users/create', [UsersController::class, 'create'])->middleware('role:Admin');
+Route::post('/admin/users', [UsersController::class, 'store'])->middleware('role:Admin');
+Route::get('/admin/users/{id}/edit', [UsersController::class, 'edit'])->middleware('role:Admin');
+Route::put('/admin/users/{id}', [UsersController::class, 'update'])->middleware('role:Admin');
 // Route::get('/admin/users/{id}/delete', [UsersController::class, 'delete']); //get request to delete user
 // Route::post('/admin/users/{id}/delete', [UsersController::class, 'delete']);  //post request to delete user
-Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete']); //delete method to delete user (advised way, doesn't matter tho)
+Route::delete('/admin/users/{id}/delete', [UsersController::class, 'delete'])->middleware('role:Admin'); //delete method to delete user (advised way, doesn't matter tho)
 
 // ADMIN/settings
-Route::get('/admin/settings/general', [SettingController::class, 'general']);
-Route::put('/admin/settings/general', [SettingController::class, 'savegeneral']); //PUT methodfor update route
-Route::get('/admin/settings/seo', [SettingController::class, 'seo']);
-Route::put('/admin/settings/seo', [SettingController::class, 'saveseo']);
-Route::get('/admin/settings/social', [SettingController::class, 'social']);
-Route::put('/admin/settings/social', [SettingController::class, 'savesocial']);
+Route::get('/admin/settings/general', [SettingController::class, 'general'])->middleware('role:Admin');
+Route::put('/admin/settings/general', [SettingController::class, 'savegeneral'])->middleware('role:Admin'); //PUT methodfor update route
+Route::get('/admin/settings/seo', [SettingController::class, 'seo'])->middleware('role:Admin');
+Route::put('/admin/settings/seo', [SettingController::class, 'saveseo'])->middleware('role:Admin');
+Route::get('/admin/settings/social', [SettingController::class, 'social'])->middleware('role:Admin');
+Route::put('/admin/settings/social', [SettingController::class, 'savesocial'])->middleware('role:Admin');
 
 
 /* ADMIN AUTHENTICATION - this is route for giving access to admin dashboard page*/
