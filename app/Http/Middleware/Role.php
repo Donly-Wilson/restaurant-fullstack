@@ -18,7 +18,7 @@ class Role
      */
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        $user = Auth::user();
+        $user = Auth::user(); //check to see if user is logged in
         foreach ($roles as $role) {
             $ro = RO::where('title', $role)->first();
 
