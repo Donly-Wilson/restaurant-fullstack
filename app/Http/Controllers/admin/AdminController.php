@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    //Any link using this controller will need to be loged in
+    //Any link using this controller will need to be logged in
     public function __construct()
     {
         $this->middleware('auth');

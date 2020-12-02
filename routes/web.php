@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\MemberController;
 use App\Http\Controllers\admin\ReservationController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\DashboardApiController;
 use App\Http\Controllers\StaticPagesController;
 use App\Models\GeneralSetting;
 use App\Models\SeoSetting;
@@ -47,8 +48,10 @@ Route::get('/offers', [StaticPagesController::class, 'offers']);
 Route::post('/offers', [StaticPagesController::class, 'registerMember']);
 Route::get('/offers/thank-you', [StaticPagesController::class, 'thankYou']);
 
-/* ADMIN - this is route for links on admin dashboard page */
+/* ADMIN DASHBOARD - this is route for links on admin dashboard page */
 Route::get('/admin', [AdminController::class, 'dashboard']);
+//Get request to api built with mysql 
+Route::get('/admin/estimated-revenue-daily', [DashboardApiController::class, 'getDailyRevenueLast30']);
 
 // ADMIN/food-categories
 Route::get('/admin/food-categories', [FoodCategoriesController::class, 'index'])->middleware('role:Admin');
