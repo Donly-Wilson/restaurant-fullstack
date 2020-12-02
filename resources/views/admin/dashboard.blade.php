@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+{{-- Route comes from controller\admin\AdminController --}}
 <div class="dashboard-ecommerce">
     <div class="container-fluid dashboard-content ">
         <!-- ============================================================== -->
@@ -31,9 +32,9 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Total Revenue</h5>
+                            <h5 class="text-muted">Estimated Revenue</h5>
                             <div class="metric-value d-inline-block">
-                                <h1 class="mb-1">$12099</h1>
+                                <h1 class="mb-1">{{$estimated_income_last_30}}</h1>
                             </div>
                             <div class="metric-label d-inline-block float-right text-success font-weight-bold">
                                 <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
@@ -45,7 +46,7 @@
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="text-muted">Affiliate Revenue</h5>
+                            <h5 class="text-muted">Total Reservation</h5>
                             <div class="metric-value d-inline-block">
                                 <h1 class="mb-1">$12099</h1>
                             </div>
