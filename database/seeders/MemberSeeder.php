@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker; //built in faker library generator to fake data
 
 class MemberSeeder extends Seeder
 {
@@ -16,14 +17,19 @@ class MemberSeeder extends Seeder
     public function run()
     {
 
+        $faker = Faker::create();
         //Create dummy for offers table
-        DB::table('members')->insert([
-            'fname' => 'Ramsey',
-            'lname' => 'Jordan',
-            'email' => 'rj@gmail.com',
-            'phone_number' => 12345678,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+        foreach (range(1, 100) as $index) {
+            DB::table('members')->insert([
+                'fname' => $faker->FirstName,
+                'lname' => $faker->lastName,
+                'email' => $faker->email,
+                'phone_number' => $faker->phoneNumber,
+                'created_at' => $faker->dateTimeThisMonth,
+                'updated_at' => $faker->dateTimeThisMonth,
+                // 'created_at' => Carbon::now(),
+                // 'updated_at' => Carbon::now(),
+            ]);
+        }
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Faker\Factory as Faker; //built in faker library generator to fake data
 
 class UsersTableSeeder extends Seeder
 {
@@ -36,5 +37,19 @@ class UsersTableSeeder extends Seeder
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
+
+        $faker = Faker::create();
+        foreach (range(3, 20) as $index) {
+            DB::table('users')->insert([
+                'fname' => $faker->FirstName,
+                'lname' => $faker->lastName,
+                'email' => $faker->email,
+                'password' => Hash::make('12345678'),
+                'created_at' => $faker->dateTimeThisMonth,
+                'updated_at' => $faker->dateTimeThisMonth,
+                // 'created_at' => Carbon::now(),
+                // 'updated_at' => Carbon::now(),
+            ]);
+        }
     }
 }
