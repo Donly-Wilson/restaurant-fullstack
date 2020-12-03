@@ -10,13 +10,24 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">E-commerce Dashboard Template </h2>
+                    <h2 class="pageheader-title">
+                    @if (Auth::user()->isAdmin())    
+                        Admin Dashboard
+                    @else
+                        Employee Dashboard    
+                    @endif
+                    </h2>
                     <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">E-Commerce Dashboard Template</li>
+                                <li class="breadcrumb-item"><a href="/admin" class="breadcrumb-link">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                @if (Auth::user()->isAdmin())    
+                                    Last 30 Days
+                                @else
+                                    Latest Reservation
+                                @endif</li>
                             </ol>
                         </nav>
                     </div>
@@ -27,7 +38,7 @@
         <!-- end pageheader  -->
         <!-- ============================================================== -->
         <div class="ecommerce-widget">
-
+            @if (Auth::user()->isAdmin())
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="card">
@@ -98,12 +109,15 @@
                         </div>
                     </div>
                 </div>
+            </div>    
+            @endif
                 <!-- ============================================================== -->
           
                 <!-- ============================================================== -->
 
                               <!-- recent orders  -->
                 <!-- ============================================================== -->
+            <div class="row">
                 <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                     <div class="card">
                         <h5 class="card-header">Recent Reservations</h5>
