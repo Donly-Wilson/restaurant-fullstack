@@ -10740,8 +10740,13 @@ h2 {
 
   #food-preview {
     width: 100%;
-    overflow: hidden;
+    overflow: auto;
     padding: 20px;
+  }
+
+  #food-preview .food-slider .sliding-system {
+    white-space: normal;
+    transform: translate3d(0%, 0, 0);
   }
 
   #food-preview .button-rounded {
@@ -10750,14 +10755,17 @@ h2 {
 
   #food-preview .container .left-btn {
     left: -20px;
+    display: none;
   }
 
   #food-preview .container .right-btn {
     right: -20px;
+    display: none;
   }
 
   #food-preview .food-slider .slide {
     width: 100%;
+    margin-bottom: 1rem;
   }
 }
 
