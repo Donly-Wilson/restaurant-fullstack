@@ -10599,6 +10599,7 @@ body {
 #food-preview .food-slider .sliding-system {
   white-space: nowrap;
   transform: translate3d(0, 0, 0);
+  transition: all 0.3s ease-in-out;
 }
 
 #food-preview .food-slider .slide {

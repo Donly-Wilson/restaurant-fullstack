@@ -26,3 +26,53 @@
       </div>
     </div>
   </section>
+
+  <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+
+  <script>
+    let slides = $('.sliding-system a.slide').length
+    let maxSlides;
+    let moveTotal;
+    let currentSlide=0;
+
+    //Run function when screen is resize
+    $(window).resize(function () {
+      currentSlide = 0;
+      $('.sliding-system').css('transform', 'translate3d(-0%,0,0');
+    })
+
+    //Function to ensure slider is mobile ready
+    function desktopSlider() {
+      if (a.matches) {
+        maxSlides = Math.ceil((slides * 20) / 100);
+        moveTotal = 100;
+
+        //right btn
+        $('.right-btn').on('click', () => {
+          console.log('right btn click')
+          if(currentSlide < maxSlides){
+            currentSlide += 20;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
+          }
+        })
+        //left btn
+        $('.left-btn').on('click', () => {
+          console.log('left btn click')
+          if(currentSlide != 0){
+            currentSlide -= 20;
+            $('.sliding-system').css('transform', `translate3d(-${currentSlide}%, 0, 0)`);
+          }
+        })
+      }
+    }
+
+    var a = window.matchMedia("(min-width:998px)")
+    desktopSlider(a)
+    a.addListener(desktopSlider)
+
+    function tabletSlider() {
+      if (b.matches){
+        
+      }
+    }
+  </script>
