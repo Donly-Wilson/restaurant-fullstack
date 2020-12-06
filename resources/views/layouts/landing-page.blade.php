@@ -6,10 +6,12 @@
         <style>
             nav{
                 display: flex;
-                justify-content: space-between
+                justify-content: space-between;
+                align-items: center;
             }
             .navbar-toggler{
                 background-color:green;
+                z-index: 3;
             }
             #app-layout .side-menu{
                 padding: 30px 50px 0;
@@ -29,6 +31,10 @@
             }
             #app-layout .side-menu .location{
                 position: static;
+            }
+
+            #app-layout .open-menu{
+                transform: translate3d(0%, 0, 0);
             }
         </style>
     </head>
@@ -56,8 +62,7 @@
 
 <script>
     sideMenuBtn = $('.navbar-toggler')
-    sideMenuBtn.on('click', function() {
-        $('.side-menu').css('transform', `translate3d(0%, 0, 0)`)
-        // console.log("click");
-    })
+    sideMenuBtn.click(function() {
+        $('.side-menu').toggleClass('open-menu');
+});
 </script>
