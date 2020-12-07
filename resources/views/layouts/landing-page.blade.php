@@ -14,6 +14,7 @@
                 padding:5px 4%;
                 transition: all 0.4s ease-in-out;
                 width:100%;
+                height:45px;
                 z-index: 5;
             }
             .animated{
@@ -93,7 +94,7 @@
                 cursor: pointer;
                 bottom: 0;
                 left: 300px;
-                height: calc(100vh - 6.8%);
+                height: calc(100vh - 45px);
                 width: calc(100vw - 300px);
                 position: absolute;
                 opacity: 0;
@@ -101,6 +102,9 @@
             }
             .open-menu .outerLayer{
                 opacity: 1;
+            }
+            .lock-scroll {
+                overflow: hidden;
             }
         </style>
     </head>
@@ -133,11 +137,12 @@
     // Toggle on Hamburger Menu Click
     hamburgerBtn = $('.navbar-toggler')
     menuOuterLayer = $('.outerLayer')
-    controlSideMenu = [hamburgerBtn,menuOuterLayer]
-    controlSideMenu.forEach(openCloseMenu => {
-        openCloseMenu.click(function() {
+    openCloseBtn = [hamburgerBtn,menuOuterLayer]
+    openCloseBtn.forEach(controlSideMenu => {
+        controlSideMenu.click(function() {
             $('.side-menu').toggleClass('open-menu');
             $('.hamburger-icon').toggleClass('is-opened');
+            $(document.body).toggleClass('lock-scroll'); //Lock screen scroll when added to body
         }); 
     });
     //Navbar

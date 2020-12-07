@@ -10709,6 +10709,10 @@ h2 {
     width: 100%;
   }
 
+  #app-layout .side-menu .location .phone-number a {
+    font-size: 1.8rem;
+  }
+
   #information {
     grid-template-columns: 1fr;
     grid-template-rows: 200px auto;
@@ -10788,6 +10792,10 @@ h2 {
     padding: 20px;
     transform: translate3d(0, 0, 0);
     width: 100%;
+  }
+
+  #app-layout .side-menu .location .phone-number a {
+    font-size: 1.8rem;
   }
 
   #information {
