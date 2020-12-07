@@ -8,12 +8,13 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                position:fixed;
-                z-index: 5;
-                color:white;
-                width:100%;
                 background: rgba(0, 0, 0, 0.5);
+                color:white;
+                position:fixed;
+                padding:5px 4%;
                 transition: all 0.4s ease-in-out;
+                width:100%;
+                z-index: 5;
             }
             .animated{
                 transform: translate3d(0, -100%, 0);
@@ -23,8 +24,18 @@
                 /* z-index: 6; */
             }
             .navbar-toggler{
-                background-color:green;
+                outline:none;
                 z-index: 10;
+            }
+            .hamburger-icon div{
+                /* background-color:black;*/
+                background-color:white; 
+                border-radius: 5px;
+                width:30px;
+                height:3px;
+            }
+            .hamburger-icon_1, .hamburger-icon_2{
+                margin-bottom:6px;
             }
             #app-layout .side-menu{
                 padding: 30px 50px 0;
@@ -53,11 +64,17 @@
     </head>
     <body>
         <nav>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <p>Ballie's Burger</p>
+            <button class="navbar-toggler third-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
+            aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">    
+                <div class="hamburger-icon">
+                    <div class="hamburger-icon_1"></div>
+                    <div class="hamburger-icon_2"></div>
+                    <div class="hamburger-icon_3"></div>
+                </div>
+            </button>
         </nav>
+        
         <section id="app-layout">
             <!-- inputs welcome-menu from includes folder as side-menu-->
             @include('includes.side-menu')
