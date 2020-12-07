@@ -133,39 +133,4 @@
     </body>
 </html>
 
-<script>
-    // Toggle on Hamburger Menu Click
-    hamburgerBtn = $('.navbar-toggler')
-    menuOuterLayer = $('.outerLayer')
-    openCloseBtn = [hamburgerBtn,menuOuterLayer]
-    openCloseBtn.forEach(controlSideMenu => {
-        controlSideMenu.click(function() {
-            $('.side-menu').toggleClass('open-menu');
-            $('.hamburger-icon').toggleClass('is-opened');
-            $(document.body).toggleClass('lock-scroll'); //Lock screen scroll when added to body
-        }); 
-    });
-    //Navbar
-$(function(){
-    var scroll = $(document).scrollTop();
-    var navHeight = $('nav').outerHeight();
-    console.log(navHeight);
-    $(window).scroll(function () {
-        var scrolled = $(document).scrollTop();
-        // console.log(scrolled);
-        if(scrolled > navHeight){
-            $('nav').addClass('animated');
-        }else{
-            $('nav').removeClass('animated');
-        }
-
-        if (scrolled > scroll) {
-            $('nav').removeClass('sticky');
-        }else{
-            $('nav').addClass('sticky');
-        }
-
-        scroll = $(document).scrollTop();
-    });
-});
-</script>
+<script src="./js/customJquery.js"></script>
