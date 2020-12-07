@@ -1,5 +1,5 @@
 <div class="side-menu">
-    <div class="outerlayer"></div>
+    <div class="outerLayer"></div>
     <a href="/" class="logo">
       <img src="{{$settings["general"]->logo_image_url}}" alt="">
     </a>

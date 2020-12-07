@@ -10691,7 +10691,7 @@ h2 {
   }
 
   #app-layout .side-menu {
-    transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-100vw, 0, 0);
   }
 
   #app-layout .welcome-jumbo {
@@ -10772,7 +10772,7 @@ h2 {
 
 @media (min-width: 768px) and (max-width: 991px) {
   #app-layout .side-menu {
-    transform: translate3d(-300px, 0, 0);
+    transform: translate3d(-100vw, 0, 0);
   }
 
   #app-layout .welcome-jumbo {

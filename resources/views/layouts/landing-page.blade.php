@@ -23,25 +23,54 @@
                 transform: translate3d(0, 0, 0);
                 /* z-index: 6; */
             }
-            .navbar-toggler{
+
+            /* Hamburger-Menu */
+            .navbar-toggler:focus{
                 outline:none;
-                z-index: 10;
             }
-            .hamburger-icon div{
-                /* background-color:black;*/
-                background-color:white; 
-                border-radius: 5px;
-                width:30px;
-                height:3px;
+            .hamburger-icon{
+                position: relative; 
+                width: 34px;
+                height: 24px; 
+                transition: transform 0.4s;
             }
-            .hamburger-icon_1, .hamburger-icon_2{
-                margin-bottom:6px;
+            .hamburger-icon span{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%); 
+                display: block;
+                width: 22px;
+                height: 2px;
+                background-color: #FFF;
+                transition: background 0.3s;
             }
+            .hamburger-icon span::before, .hamburger-icon span::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translateY(-6px);
+                display: block;
+                width: 22px;
+                height: 2px;
+                background-color: #FFF;
+                transition: transform 0.5s;
+            }
+            .hamburger-icon span::after {
+                transform: translateY(6px); 
+            }
+            .hamburger-icon.is-opened span { background: transparent; }
+            .hamburger-icon.is-opened span::before { transform: translateY(0) rotate(45deg); }
+            .hamburger-icon.is-opened span::after { transform: translateY(0) rotate(-45deg); }
+            /* .hamburger-icon.is-opened { transform: rotate(180deg); } */
+
+            /* mobile side-menu */
             #app-layout .side-menu{
                 padding: 30px 50px 0;
                 position:fixed;
                 top:0;
-                transition: all 0.3s ease-in-out;
+                transition: transform 0.3s ease-in-out;
                 z-index: 6;
             }
             #app-layout .side-menu .logo{
@@ -56,21 +85,31 @@
             #app-layout .side-menu .location{
                 position: static;
             }
-
             #app-layout .open-menu{
                 transform: translate3d(0%, 0, 0);
+            }
+            .outerLayer{
+                background: rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                bottom: 0;
+                left: 300px;
+                height: calc(100vh - 6.8%);
+                width: calc(100vw - 300px);
+                position: absolute;
+                opacity: 0;
+                transition: opacity 0.4s ease-in-out;
+            }
+            .open-menu .outerLayer{
+                opacity: 1;
             }
         </style>
     </head>
     <body>
         <nav>
             <p>Ballie's Burger</p>
-            <button class="navbar-toggler third-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
-            aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">    
+            <button class="navbar-toggler" type="button">    
                 <div class="hamburger-icon">
-                    <div class="hamburger-icon_1"></div>
-                    <div class="hamburger-icon_2"></div>
-                    <div class="hamburger-icon_3"></div>
+                    <span></span>
                 </div>
             </button>
         </nav>
@@ -91,11 +130,16 @@
 </html>
 
 <script>
-    // Toggle Hamburger Menu
+    // Toggle on Hamburger Menu Click
     hamburgerBtn = $('.navbar-toggler')
-    hamburgerBtn.click(function() {
-        $('.side-menu').toggleClass('open-menu');
-});
+    menuOuterLayer = $('.outerLayer')
+    controlSideMenu = [hamburgerBtn,menuOuterLayer]
+    controlSideMenu.forEach(openCloseMenu => {
+        openCloseMenu.click(function() {
+            $('.side-menu').toggleClass('open-menu');
+            $('.hamburger-icon').toggleClass('is-opened');
+        }); 
+    });
     //Navbar
 $(function(){
     var scroll = $(document).scrollTop();
