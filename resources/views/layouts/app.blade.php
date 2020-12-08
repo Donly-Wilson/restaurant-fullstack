@@ -6,6 +6,8 @@
     </head>
     <body>
         <section id="app-layout">
+            <!-- inputs navbar from includes folder as the header navbar-->
+            @include('includes.navbar')
             <!-- inputs welcome-menu from includes folder as side-menu-->
             @include('includes.side-menu')
             <!-- display the content of a given section that is called-->
@@ -20,3 +22,5 @@
         </section>
     </body>
 </html>
+<script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/js/customJquery.js"></script>

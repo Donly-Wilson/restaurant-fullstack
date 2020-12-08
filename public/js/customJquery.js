@@ -13,21 +13,21 @@ openCloseBtn.forEach(controlSideMenu => {
 //Navbar
 $(function(){
     let scroll = $(document).scrollTop();
-    let navHeight = $('nav').outerHeight();
+    let navHeight = $('#headerNav').outerHeight();
     console.log(navHeight);
     $(window).on('scroll',function () {
         let scrolled = $(document).scrollTop();
         // console.log(scrolled);
         if(scrolled > navHeight){
-            $('nav').addClass('animated');
+            $('#headerNav').addClass('animated');
         }else{
-            $('nav').removeClass('animated');
+            $('#headerNav').removeClass('animated');
         }
 
         if (scrolled > scroll) {
-            $('nav').removeClass('sticky');
+            $('#headerNav').removeClass('sticky');
         }else{
-            $('nav').addClass('sticky');
+            $('#headerNav').addClass('sticky');
         }
 
         scroll = $(document).scrollTop();

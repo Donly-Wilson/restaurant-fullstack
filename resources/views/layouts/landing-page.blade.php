@@ -3,120 +3,10 @@
     <head>
         <!-- inputs meta-tags from includes folder -->
         @include('includes.metaTags')
-        <style>
-            nav{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                background: rgba(0, 0, 0, 0.5);
-                color:white;
-                position:fixed;
-                padding:5px 4%;
-                transition: all 0.4s ease-in-out;
-                width:100%;
-                height:45px;
-                z-index: 5;
-            }
-            .animated{
-                transform: translate3d(0, -100%, 0);
-            }
-            .sticky{
-                transform: translate3d(0, 0, 0);
-                /* z-index: 6; */
-            }
-
-            /* Hamburger-Menu */
-            .navbar-toggler:focus{
-                outline:none;
-            }
-            .hamburger-icon{
-                position: relative; 
-                width: 34px;
-                height: 24px; 
-                transition: transform 0.4s;
-            }
-            .hamburger-icon span{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translateX(-50%) translateY(-50%); 
-                display: block;
-                width: 22px;
-                height: 2px;
-                background-color: #FFF;
-                transition: background 0.3s;
-            }
-            .hamburger-icon span::before, .hamburger-icon span::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                transform: translateY(-6px);
-                display: block;
-                width: 22px;
-                height: 2px;
-                background-color: #FFF;
-                transition: transform 0.5s;
-            }
-            .hamburger-icon span::after {
-                transform: translateY(6px); 
-            }
-            .hamburger-icon.is-opened span { background: transparent; }
-            .hamburger-icon.is-opened span::before { transform: translateY(0) rotate(45deg); }
-            .hamburger-icon.is-opened span::after { transform: translateY(0) rotate(-45deg); }
-            /* .hamburger-icon.is-opened { transform: rotate(180deg); } */
-
-            /* mobile side-menu */
-            #app-layout .side-menu{
-                padding: 30px 50px 0;
-                position:fixed;
-                top:0;
-                transition: transform 0.3s ease-in-out;
-                z-index: 6;
-            }
-            #app-layout .side-menu .logo{
-                margin-bottom:40px;
-            }
-            #app-layout .side-menu .menu{
-                margin-bottom:40px;
-            }
-            #app-layout .side-menu .social-icons{
-                margin-bottom:10px;
-            }
-            #app-layout .side-menu .location{
-                position: static;
-            }
-            #app-layout .open-menu{
-                transform: translate3d(0%, 0, 0);
-            }
-            .outerLayer{
-                background: rgba(0, 0, 0, 0.5);
-                cursor: pointer;
-                bottom: 0;
-                left: 300px;
-                height: calc(100vh - 45px);
-                width: calc(100vw - 300px);
-                position: absolute;
-                opacity: 0;
-                transition: opacity 0.4s ease-in-out;
-            }
-            .open-menu .outerLayer{
-                opacity: 1;
-            }
-            .lock-scroll {
-                overflow: hidden;
-            }
-        </style>
     </head>
     <body>
-        <nav>
-            <p>Ballie's Burger</p>
-            <button class="navbar-toggler" type="button">    
-                <div class="hamburger-icon">
-                    <span></span>
-                </div>
-            </button>
-        </nav>
+    <!-- inputs navbar from includes folder as the header navbar-->
+    @include('includes.navbar')
         
         <section id="app-layout">
             <!-- inputs welcome-menu from includes folder as side-menu-->
@@ -132,5 +22,5 @@
         
     </body>
 </html>
-
-<script src="./js/customJquery.js"></script>
+<script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<script src="/js/customJquery.js"></script>
