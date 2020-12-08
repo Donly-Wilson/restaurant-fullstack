@@ -10302,25 +10302,43 @@ table {
 
 #single-menu-page .quickCategories {
   display: inline-table;
-  margin-left: 6px;
+  margin: 0 6px;
+  background: white;
 }
 
 #single-menu-page .quickCategories .backBtn {
-  background-color: white;
+  background: white;
   color: #0971ce;
-  display: table-cell;
+  display: inline-block;
   font-weight: 700;
   padding: 10px;
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-#single-menu-page .quickCategories .backBtn .active {
+#single-menu-page .quickCategories .backBtn:hover {
+  color: white;
+  background: #363738;
   box-shadow: 0px -6px 24px -5px rgba(0, 0, 0, 0.66);
   -webkit-clip-path: inset(0px -15px 0px -15px);
           clip-path: inset(0px -15px 0px -15px);
-  color: #0971ce;
+}
+
+#single-menu-page .quickCategories .active {
+  color: white;
+  background: #363738;
+  box-shadow: 0px -6px 24px -5px rgba(0, 0, 0, 0.66);
+  -webkit-clip-path: inset(0px -15px 0px -15px);
+          clip-path: inset(0px -15px 0px -15px);
+}
+
+#single-menu-page .content-box {
+  box-shadow: -1px 8px 34px -1px rgba(0, 0, 0, 0.66);
+  position: relative;
 }
 
 #single-menu-page h1 {
@@ -10396,6 +10414,10 @@ table {
 
 body {
   font-family: "Nunito", sans-serif;
+}
+
+#headerNav {
+  display: none;
 }
 
 #app-layout {
