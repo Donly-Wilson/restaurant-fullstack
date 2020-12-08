@@ -8,6 +8,23 @@
 <div id="single-menu-page">
     <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1 col-ld-8 offset-ld-2">
+            <div class="quickCategories">
+                <a href="" class="backBtn">Starter</a>
+                <a class="backBtn">Burger</a>
+                <a class="backBtn">Drinks</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+                <a class="backBtn">Entrees</a>
+
+            </div>
             <div class="content-box">
                 <div class="row">
                     <div class="col-md-12">
