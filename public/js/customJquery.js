@@ -12,12 +12,13 @@ openCloseBtn.forEach(controlSideMenu => {
 });
 //Navbar
 $(function(){
+  // $(document).ready(function(){
     let scroll = $(document).scrollTop();
     let navHeight = $('#headerNav').outerHeight();
-    console.log(navHeight);
+    console.log(scroll);
     $(window).on('scroll',function () {
         let scrolled = $(document).scrollTop();
-        // console.log(scrolled);
+        console.log('scrolled');
         if(scrolled > navHeight){
             $('#headerNav').addClass('animated');
         }else{
@@ -32,6 +33,7 @@ $(function(){
 
         scroll = $(document).scrollTop();
     });
+  // });
 });
 
 // Slider
