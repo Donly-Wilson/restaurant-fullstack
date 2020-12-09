@@ -3,6 +3,23 @@
     <head>
         <!-- inputs meta-tags from includes folder -->
         @include('includes.metaTags')
+        <style>
+            footer{
+                margin-top: -13px;
+            }
+            .footer-image{
+                display: flex;
+            }
+            .footer-image img{
+                width: 100%;
+                align-items: flex-end;
+            }
+            .footer-content{
+                background:#323231;
+                height: 300px;
+                margin-top: -1px
+            }
+        </style>
     </head>
     <body>
     <!-- inputs navbar from includes folder as the header navbar-->
@@ -19,7 +36,15 @@
             </div>
         </section>
         @yield('content')
-        
+        <footer>
+            <div class="footer-image">
+                <img src="/img/footer.svg" alt="">
+            </div>
+            <div class="footer-content">
+                <p>Copyright © 2020 Big Chef Steakhouse. All rights reserved.</p>
+                <p>COVID-19 Opening Approval</p>
+            </div>
+        </footer>
     </body>
 </html>
 <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
