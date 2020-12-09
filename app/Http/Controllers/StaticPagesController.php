@@ -42,6 +42,8 @@ class StaticPagesController extends Controller
 
     public function singlemenu($slug)
     {
+        // return All category from FoodCategory table per page
+        $categories = FoodCategory::all();
         // return category from FoodCategory table that matches slug
         $foodCategory = FoodCategory::where('title', '=', $slug)->first();
         //return food items with category id that matches foodcategory id
@@ -49,7 +51,8 @@ class StaticPagesController extends Controller
 
         return view('menu/single-menu', [
             'foodItem' => ucfirst($slug),
-            'foodItems' => $foodItems
+            'foodItems' => $foodItems,
+            'categories' => $categories //passed down categories variable to route
         ]);
     }
 
