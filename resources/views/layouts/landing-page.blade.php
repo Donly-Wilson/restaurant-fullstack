@@ -18,12 +18,26 @@
             }
             .footer-contents{
                 background:#323231;
-                padding: 40px;
-                /* height: 300px; */
+                padding: 40px 40px 0;
                 margin-top: -1px
+            }
+            .footer-info li{
+                padding: 10px 0;
+                font-size: 1.3rem;
+            }
+            .footer-info a{
+                color:white;
             }
             .footer-extras{
                 background:#323231;
+                padding: 40px 40px 10px;
+                text-align: center;
+            }
+            .footer-extras hr{
+                border-top: 1px solid white;
+            }
+            .footer-extras p{
+                padding: 10px;
             }
         </style>
     </head>
@@ -37,7 +51,9 @@
             
             <div class="welcome-jumbo">
               <div class="status">NEW</div>
-              <h1>Ballie's Burger</h1>
+              <h1> <a href="/" class="logo">
+                <img src="//localhost:3000/./img/restaurant-logo.png" alt="">
+              </a>Ballie's Burger</h1>
               <img class="burger-fries" src="./img/hamburger-and-fries.png" alt="">
             </div>
         </section>
@@ -62,8 +78,9 @@
                 </div>
             </div>
             <div class="footer-extras">
+                <hr>
                 <p>Copyright © 2020 Bailie's Burger. All rights reserved.</p>
-                    <p>COVID-19 Opening Approval</p>
+                <p>COVID-19 Opening Approval</p>
             </div>
         </footer>
     </body>
