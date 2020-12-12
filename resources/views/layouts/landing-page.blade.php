@@ -21,6 +21,10 @@
                 padding: 40px 40px 0;
                 margin-top: -1px
             }
+            .footer-reservation{
+                padding:10px;
+                border:1px solid white;
+            }
             .footer-logo{
                 font-size: 3rem;
                 font-weight: 700;
@@ -89,7 +93,7 @@
                     </div>
                     <div class="col-md-4">
                         <div>
-                            <a href="">ONLINE RESERVATION</a>
+                            <a class="footer-reservation" href="">ONLINE RESERVATION</a>
                             <p>Open Daily</p>
                             <p>1pm. - 9pm.</p>
                         </div>
