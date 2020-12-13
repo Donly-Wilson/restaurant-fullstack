@@ -23,7 +23,7 @@
             }
             .footer-reservation{
                 padding:10px;
-                border:1px solid white;
+                border:1px solid yellow;
             }
             .footer-logo{
                 font-size: 3rem;
