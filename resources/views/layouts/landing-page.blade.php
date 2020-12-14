@@ -23,10 +23,10 @@
                 padding: 40px 40px 0;
                 margin-top: -1px
             }
-            .footer-reservation{
+            .footer-reservationBtn{
                 padding:10px;
                 border:1px solid #f59c2e;
-                margin-bottom: 10px;
+                margin-bottom: 5px;
                 color: white;
                 display: inline-block;
                 background: transparent;
@@ -44,23 +44,56 @@
                 vertical-align: text-top;
             }
             .footer-info{
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+                padding:20px 0;
+            }
+            .footer-info p{
+                padding-top:10px;
             }
             .footer-info li{
                 padding: 10px 0;
-                font-size: 1.3rem;
             }
             .footer-info a{
                 color:white;
             }
             .footer-info h3{
                 color:#f59c2e;
+                font-size: 1.3rem;
+            }
+            .footer-info div:nth-child(2){
+                text-align: center;
+            }
+            .footer-info div:nth-child(3){
+                text-align: right;
+            }
+            .footer-info div:nth-child(3) .social-icons{
+                margin-top: 15px;
+                font-size: 1.5rem;
+            }
+            .footer-info div:nth-child(3) .social-icons a{
+                margin-left: 15px;
+            }
+            .footer-info div:nth-child(3) .social-icons a .whatsapp{
+                font-size: 1.7rem;
             }
             .footer-extras{
                 /* background:#323231; */
                 background:black;
                 padding: 40px 40px 10px;
-                text-align: center;
+                /* text-align: center; */
+            }
+            .footer-extras_content{
+                display: flex;
+                justify-content: space-between;
+            }
+            .footer-extras_content .links{
+                display: flex;
+                padding: 9px;
+            }
+            .footer-extras_content .links a{
+                color:white;
+                text-decoration: none;
+                margin-left: 10px;
             }
             .footer-extras hr{
                 border-top: 1px solid white;
@@ -100,17 +133,10 @@
                         <p>Rodney bay</p>
                         <p>Mobile: 754 716 284</p>
                         <p>Telephone: 254 906 364</p>
-                                {{-- <ul class="links">
-                                    <li><a href="/menu">Food</a></li>
-                                    <li><a href="/reservations">Reservations</a></li>
-                                    <li><a href="/offers">Offers</a></li>
-                                    <li><a href="/contact">Contact</a></li>
-                                    <li><a href="/about">About Us</a></li>
-                                </ul> --}}
                     </div>
                     <div class="col-md-4">
-                        <div>
-                            <a class="footer-reservation" href="">ONLINE RESERVATION</a>
+                        <div class="footer-reservation">
+                            <a class="footer-reservationBtn" href="">ONLINE RESERVATION</a>
                             <p>Open Daily</p>
                             <p>1pm. - 9pm.</p>
                         </div>
@@ -119,6 +145,7 @@
                         <h3>Follow Us</h3>
                         <p>E-mail: bailie@outlook.com</p>
                         <div class="social-icons">
+                            <a class="whatsapp" href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                             <a href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             <a href="{{$settings["social"]->twitter_url}}" target="new"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                             <a href="{{$settings["social"]->instagram_url}}" target="new"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -128,8 +155,19 @@
             </div>
             <div class="footer-extras col-md-12">
                 <hr>
-                <p>Copyright © 2020 Bailie's Burger. All rights reserved.</p>
-                <p>COVID-19 Opening Approval</p>
+                <div class="footer-extras_content">
+                    <div>
+                        <p>Copyright © 2020 Bailie's Burger. All rights reserved.</p>
+                        {{-- <p>COVID-19 Opening Approval</p> --}}
+                    </div>
+                    <ul class="links">
+                        <li><a href="/menu">Food</a></li>
+                        <li><a href="/reservations">Reservations</a></li>
+                        <li><a href="/offers">Offers</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/about">About Us</a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
     </body>
