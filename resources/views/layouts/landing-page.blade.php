@@ -3,120 +3,6 @@
     <head>
         <!-- inputs meta-tags from includes folder -->
         @include('includes.metaTags')
-        <style>
-            footer{
-                
-                margin-top: -13px;
-                color:white;
-            }
-            .footer-image{
-                display: flex;
-            }
-            .footer-image img{
-                align-items: flex-end;
-                filter: brightness(0);
-                width: 100%;
-            }
-            .footer-contents{
-                /* background:#323231; */
-                background:black;
-                padding: 40px 40px 0;
-                margin-top: -1px
-            }
-            .footer-reservationBtn{
-                padding:10px;
-                border:1px solid #f59c2e;
-                margin-bottom: 5px;
-                color: white;
-                display: inline-block;
-                background: transparent;
-                text-decoration: none;
-                transition: all 0.3s ease-in-out;
-            }
-            .footer-reservationBtn:hover{
-                background: #f59c2e;
-                text-decoration: none;
-                /* font-weight: 700 */
-            }
-            .footer-logo{
-                font-size: 3rem;
-                font-weight: 700;
-                margin-bottom: 3rem;
-            }
-            .footer-logo img{
-                width:70px;
-            }
-            .footer-logo h2{
-                display: inline;
-                vertical-align: text-top;
-            }
-            .footer-info{
-                font-size: 1.1rem;
-                padding:20px 0;
-            }
-            .footer-info p{
-                padding-top:10px;
-            }
-            .footer-info li{
-                padding: 10px 0;
-            }
-            .footer-info a{
-                color:white;
-            }
-            .footer-info h3{
-                color:#f59c2e;
-                font-size: 1.3rem;
-            }
-            .footer-info div:nth-child(2){
-                text-align: center;
-            }
-            .footer-info div:nth-child(3){
-                text-align: right;
-            }
-            .footer-info div:nth-child(3) .social-icons{
-                margin-top: 15px;
-                font-size: 1.5rem;
-            }
-            .footer-info div:nth-child(3) .social-icons a{
-                margin-left: 15px;
-                transition: color 0.3s ease-in-out;
-            }
-            .footer-info div:nth-child(3) .social-icons a:hover{
-                color:#f59c2e;
-            }
-            .footer-info div:nth-child(3) .social-icons .whatsapp{
-                font-size: 1.7rem;
-            }
-            .footer-extras{
-                /* background:#323231; */
-                background:black;
-                padding: 40px 40px 10px;
-                /* text-align: center; */
-            }
-            .footer-extras_content{
-                display: flex;
-                justify-content: space-between;
-            }
-            .footer-extras_content .links{
-                display: flex;
-                padding: 9px;
-            }
-            .footer-extras_content .links a{
-                color:white;
-                text-decoration: none;
-                margin-left: 10px;
-                transition: color 0.3s ease-in-out;
-            }
-            .footer-extras_content .links a:hover{
-                color:#f59c2e;
-            }
-            .footer-extras hr{
-                border-top: 1px solid white;
-            }
-            .footer-extras p{
-                padding: 10px;
-            }
-        </style>
     </head>
     <body>
     <!-- inputs navbar from includes folder as the header navbar-->
@@ -138,10 +24,10 @@
                 <img src="/img/footer.svg" alt="">
             </div>
             <div class="footer-contents row no-gutters">
-                <div class="footer-logo col-md-12">
-                        <img src="./img/restaurant-logo.png" alt="">
+                <a class="footer-logo col-md-12" href="/">
+                    <img src="./img/restaurant-logo.png" alt="">
                     <h2>Bailie's Burger</h2>
-                </div>
+                </a>
                 <div class="footer-info col-md-12 row">
                     <div class="col-md-4">
                         <h3>Where We At</h3>
@@ -159,7 +45,7 @@
                     </div>
                     <div class="col-md-4">
                         <h3>Follow Us</h3>
-                        <p>E-mail: bailie@outlook.com</p>
+                        <a class="email" href="mailto:bailie@outlook.com">E-mail: bailie@outlook.com</a>
                         <div class="social-icons">
                             <a class="whatsapp" href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                             <a href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -173,7 +59,7 @@
                 <hr>
                 <div class="footer-extras_content">
                     <div>
-                        <p>Copyright © 2020 Bailie's Burger. All rights reserved.</p>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Bailie's Burger. All rights reserved.</p>
                         {{-- <p>COVID-19 Opening Approval</p> --}}
                     </div>
                     <ul class="links">

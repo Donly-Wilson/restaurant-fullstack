@@ -10065,6 +10065,152 @@ table {
 
 /* Mobile Responsive */
 
+footer {
+  margin-top: -13px;
+  color: white;
+}
+
+footer .footer-image {
+  display: flex;
+}
+
+footer .footer-image img {
+  align-items: flex-end;
+  filter: brightness(0);
+  width: 100%;
+}
+
+footer .footer-contents {
+  /* background:#323231; */
+  background: black;
+  padding: 40px 40px 0;
+  margin-top: -1px;
+}
+
+footer .footer-contents .footer-logo {
+  cursor: pointer;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+footer .footer-contents .footer-logo:hover {
+  text-decoration: none;
+}
+
+footer .footer-contents .footer-logo img {
+  width: 70px;
+}
+
+footer .footer-contents .footer-logo h2 {
+  color: white;
+  display: inline;
+  vertical-align: text-top;
+}
+
+footer .footer-contents .footer-info {
+  font-size: 1.1rem;
+  padding: 20px 0;
+}
+
+footer .footer-contents .footer-info p {
+  padding-top: 10px;
+}
+
+footer .footer-contents .footer-info li {
+  padding: 10px 0;
+}
+
+footer .footer-contents .footer-info a {
+  color: white;
+}
+
+footer .footer-contents .footer-info h3 {
+  color: #f59c2e;
+  font-size: 1.3rem;
+}
+
+footer .footer-contents .footer-info div:nth-child(2) {
+  text-align: center;
+}
+
+footer .footer-contents .footer-info div:nth-child(2) .footer-reservationBtn {
+  padding: 10px;
+  border: 1px solid #f59c2e;
+  margin-bottom: 5px;
+  color: white;
+  display: inline-block;
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+footer .footer-contents .footer-info div:nth-child(2) .footer-reservationBtn:hover {
+  background: #f59c2e;
+  text-decoration: none;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) {
+  text-align: right;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) .email {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) .social-icons {
+  margin-top: 15px;
+  font-size: 1.5rem;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) .social-icons a {
+  margin-left: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) .social-icons a:hover {
+  color: #f59c2e;
+}
+
+footer .footer-contents .footer-info div:nth-child(3) .social-icons .whatsapp {
+  font-size: 1.7rem;
+}
+
+footer .footer-contents .footer-extras {
+  background: black;
+  padding: 40px 40px 10px;
+}
+
+footer .footer-contents .footer-extras hr {
+  border-top: 1px solid white;
+}
+
+footer .footer-contents .footer-extras p {
+  padding: 10px;
+}
+
+footer .footer-contents .footer-extras .footer-extras_content {
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .footer-contents .footer-extras .footer-extras_content .links {
+  display: flex;
+  padding: 9px;
+}
+
+footer .footer-contents .footer-extras .footer-extras_content .links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.3s ease-in-out;
+}
+
+footer .footer-contents .footer-extras .footer-extras_content .links a:hover {
+  color: #f59c2e;
+}
+
 #about-page {
   padding: 100px;
 }

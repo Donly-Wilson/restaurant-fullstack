@@ -1,0 +1,122 @@
+// Footer Styling
+footer {
+    margin-top: -13px;
+    color: white;
+    // Svg above footer
+    .footer-image {
+        display: flex;
+        img {
+            align-items: flex-end;
+            filter: brightness(0);
+            width: 100%;
+        }
+    }
+    //All footer content
+    .footer-contents {
+        /* background:#323231; */
+        background: black;
+        padding: 40px 40px 0;
+        margin-top: -1px;
+        .footer-logo {
+            cursor: pointer;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            &:hover {
+                text-decoration: none;
+            }
+            img {
+                width: 70px;
+            }
+            h2 {
+                color: white;
+                display: inline;
+                vertical-align: text-top;
+            }
+        }
+        .footer-info {
+            font-size: 1.1rem;
+            padding: 20px 0;
+            p {
+                padding-top: 10px;
+            }
+            li {
+                padding: 10px 0;
+            }
+            a {
+                color: white;
+            }
+            h3 {
+                color: #f59c2e;
+                font-size: 1.3rem;
+            }
+            //2nd/middle div within "footer-info"
+            div:nth-child(2) {
+                text-align: center;
+                .footer-reservationBtn {
+                    padding: 10px;
+                    border: 1px solid #f59c2e;
+                    margin-bottom: 5px;
+                    color: white;
+                    display: inline-block;
+                    background: transparent;
+                    text-decoration: none;
+                    transition: all 0.3s ease-in-out;
+                }
+                .footer-reservationBtn:hover {
+                    background: #f59c2e;
+                    text-decoration: none;
+                }
+            }
+            //3rd/last div within "footer-info"
+            div:nth-child(3) {
+                text-align: right;
+                .email {
+                    display: inline-block;
+                    margin-top: 10px;
+                }
+                .social-icons {
+                    margin-top: 15px;
+                    font-size: 1.5rem;
+                    a {
+                        margin-left: 15px;
+                        transition: color 0.3s ease-in-out;
+                        &:hover {
+                            color: #f59c2e;
+                        }
+                    }
+                    .whatsapp {
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+        .footer-extras {
+            background: black;
+            padding: 40px 40px 10px;
+            hr {
+                border-top: 1px solid white;
+            }
+            p {
+                padding: 10px;
+            }
+            .footer-extras_content {
+                display: flex;
+                justify-content: space-between;
+                .links {
+                    display: flex;
+                    padding: 9px;
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        margin-left: 10px;
+                        transition: color 0.3s ease-in-out;
+                        &:hover {
+                            color: #f59c2e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
