@@ -30,6 +30,13 @@
                 color: white;
                 display: inline-block;
                 background: transparent;
+                text-decoration: none;
+                transition: all 0.3s ease-in-out;
+            }
+            .footer-reservationBtn:hover{
+                background: #f59c2e;
+                text-decoration: none;
+                /* font-weight: 700 */
             }
             .footer-logo{
                 font-size: 3rem;
@@ -72,8 +79,12 @@
             }
             .footer-info div:nth-child(3) .social-icons a{
                 margin-left: 15px;
+                transition: color 0.3s ease-in-out;
             }
-            .footer-info div:nth-child(3) .social-icons a .whatsapp{
+            .footer-info div:nth-child(3) .social-icons a:hover{
+                color:#f59c2e;
+            }
+            .footer-info div:nth-child(3) .social-icons .whatsapp{
                 font-size: 1.7rem;
             }
             .footer-extras{
@@ -94,6 +105,10 @@
                 color:white;
                 text-decoration: none;
                 margin-left: 10px;
+                transition: color 0.3s ease-in-out;
+            }
+            .footer-extras_content .links a:hover{
+                color:#f59c2e;
             }
             .footer-extras hr{
                 border-top: 1px solid white;
@@ -129,19 +144,20 @@
                 </div>
                 <div class="footer-info col-md-12 row">
                     <div class="col-md-4">
-                        <h3>Where we at</h3>
-                        <p>Rodney bay</p>
+                        <h3>Where We At</h3>
+                        <p class="address">{{$settings["general"]->address_1}} {{$settings["general"]->address_2}}<br>
+                            {{$settings["general"]->city}}, {{$settings["general"]->state}} {{$settings["general"]->zipcode}}</p>
                         <p>Mobile: 754 716 284</p>
                         <p>Telephone: 254 906 364</p>
                     </div>
                     <div class="col-md-4">
-                        <div class="footer-reservation">
-                            <a class="footer-reservationBtn" href="">ONLINE RESERVATION</a>
+                        <div>
+                            <a class="footer-reservationBtn" href="/reservations">ONLINE RESERVATION</a>
                             <p>Open Daily</p>
                             <p>1pm. - 9pm.</p>
                         </div>
                     </div>
-                    <div class="map col-md-4">
+                    <div class="col-md-4">
                         <h3>Follow Us</h3>
                         <p>E-mail: bailie@outlook.com</p>
                         <div class="social-icons">
