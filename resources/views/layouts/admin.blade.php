@@ -136,28 +136,26 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
                                 {{-- <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a> --}}
 
-                                {{-- This form is a post request that logout when clicked --}}
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
-                                        <i class="fas fa-power-off mr-2"></i> {{ __('Logout') }}
-                                    </a>
-                                  </form>
-
-                                    @if (Route::has('login'))
-                                        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                            @auth
-                                                <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                                            @else
-                                                <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                                @if (Route::has('login'))
+                                    {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
+                                        @auth
+                                            {{-- This form is a post request that logout when clicked --}}
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
+                                                                            this.closest('form').submit();">
+                                                    <i class="fas fa-power-off mr-2"></i> {{ __('Logout') }}
+                                                </a>
+                                            </form>
+                                        @else
+                                            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
                                             @endif
-                                    @endif
-                                    </div>
+                                        @endif
+                                    {{-- </div> --}}
                                 @endif
                             </div>
                         </li>
