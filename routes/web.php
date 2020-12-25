@@ -111,7 +111,7 @@ Route::get('/admin/login', function () {
 });
 
 //like a Wild card - can pass any data to any choosen view(remove home and put "*" for every single view)
-View::composer(['home', 'pages/about', 'pages/contact', 'pages/offers', 'pages/reservations', 'thank-you', 'menu/all-categories', 'menu/single-menu'], function ($view) {
+View::composer(['home', 'pages/about', 'pages/contact', 'pages/offers', 'pages/reservations', 'pages/thank-you', 'menu/all-categories', 'menu/single-menu'], function ($view) {
     $generalSettings = GeneralSetting::find(1); //Pass down info in general_settings table to home view 
     $seoSettings = seoSetting::find(1); //Pass down info in seo_settings table to home view 
     $socialSettings = SocialSetting::find(1); //Pass down info in social_settings table to home view 
