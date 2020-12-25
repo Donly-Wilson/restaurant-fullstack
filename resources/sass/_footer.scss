@@ -120,3 +120,50 @@ footer {
         }
     }
 }
+
+/* Mobile Responsive */
+
+// Small devices (landscape phones, 767px and below)
+@media (min-width: 0px) and (max-width: 767px) {
+    footer {
+        .footer-contents {
+            padding: 40px 20px 0;
+            .row {
+                margin: 0;
+            }
+            .footer-info {
+                .col-md-4 + .col-md-4 {
+                    padding: 40px 0 0;
+                }
+                div:nth-child(1) {
+                    text-align: center;
+                }
+                div:nth-child(3) {
+                    text-align: center;
+                }
+            }
+            .footer-extras {
+                padding: 0;
+                .footer-extras_content {
+                    flex-direction: column-reverse;
+                    p {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+// }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+// }
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+// }

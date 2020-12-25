@@ -552,6 +552,7 @@ h2 {
     #food-preview {
         width: 100%;
         overflow: auto;
+        padding: 20px 20px 40px;
         .food-slider {
             .sliding-system {
                 white-space: normal;
@@ -571,7 +572,6 @@ h2 {
                 display: none;
             }
         }
-        padding: 20px;
         .food-slider {
             .slide {
                 width: 100%;
