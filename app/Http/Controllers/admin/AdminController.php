@@ -23,7 +23,7 @@ class AdminController extends Controller
         $estimated_income_last_30 = DB::select(DB::raw('
             SELECT
                 (sum(guest_total)*27) as total
-                FROM restaurant.reservations
+                FROM reservations
                 WHERE created_at BETWEEN CURDATE()-INTERVAL 30 DAY AND CURDATE()
         '));
         // return dd($estimated_income_last_30[0]->total);
@@ -34,16 +34,17 @@ class AdminController extends Controller
         $total_customers_last_30 = DB::select(DB::raw('
         SELECT
             sum(guest_total) as total
-            FROM restaurant.reservations
+            FROM reservations
             WHERE created_at BETWEEN CURDATE()-INTERVAL 30 DAY AND CURDATE()
         '));
 
 
         //This calculates a count of all rows in reservations table and returns it in an array
+        // For local host "FROM restaurant.reservations" was us instead of "FROM reservations"
         $total_reservation_last_30 = DB::select(DB::raw('
             SELECT
                 count(*) as total
-                FROM restaurant.reservations
+                FROM reservations
                 WHERE created_at BETWEEN CURDATE()-INTERVAL 30 DAY AND CURDATE()
         '));
 
@@ -51,7 +52,7 @@ class AdminController extends Controller
         //This calculates a count of all rows for users with 2(employee) as role_id and returns it in an array
         $total_employees = DB::select(DB::raw('
             select count(*) as total
-            from restaurant.users
+            from users
             inner join role_user on role_user.user_id=users.id
             inner join roles on roles.id=role_user.role_id	
             where role_id = 2
