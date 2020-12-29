@@ -40,7 +40,7 @@ class AdminController extends Controller
 
 
         //This calculates a count of all rows in reservations table and returns it in an array
-        // For local host "FROM restaurant.reservations" was us instead of "FROM reservations"
+        // For local host "FROM restaurant.reservations" was use instead of "FROM reservations"
         $total_reservation_last_30 = DB::select(DB::raw('
             SELECT
                 count(*) as total
