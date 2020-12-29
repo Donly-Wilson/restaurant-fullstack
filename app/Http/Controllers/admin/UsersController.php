@@ -23,6 +23,8 @@ class UsersController extends Controller
     {
         // return 10 users from User table per page
         $users = User::paginate(10);
+        $users->roles()->attach(request('role_id'));
+        return $users;
         return view('admin/users/all', [
             'users' => $users //passed down user variable to route
         ]);
@@ -38,7 +40,7 @@ class UsersController extends Controller
 
     public function store()
     {
-        //Add validation for new user info being inputed
+        //Add validation for new user info being    inputed
         request()->validate([
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],

@@ -38,7 +38,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Id</th>
-                                        <th scope="col">Email</th>
+                                        <th scope="col">Username</th>
                                         <th scope="col">Date Created</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
@@ -49,7 +49,13 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <th scope="row">{{$user->id}}</th>
-                                            <td>{{ $user->fname }} {{ $user->lname }}</td>
+                                            <td>{{ $user->fname }} {{ $user->lname }} <span style="
+                                                color: #2ec551;
+                                                background-color: hsla(133.9,62.1%,47.6%,0.2);
+                                                padding: 5px 8px;
+                                                border-radius: 11px;
+                                                margin-left: 15px;
+                                            ">{{ $user->role }}</span></td>
                                             <td>{{ date('m/d/y', strtotime($user->updated_at)) }}</td>
                                             <td><a href="/admin/users/{{$user->id}}/edit"><i class="far fa-edit"></i></a></td>
                                             <td>
@@ -78,6 +84,6 @@
                 </div>
                 <!-- ============================================================== -->
                 <!-- end basic table -->
-                <!-- ============================================================== -->
+                <!-- ============================= ================================= -->
     </div>
 @endsection
