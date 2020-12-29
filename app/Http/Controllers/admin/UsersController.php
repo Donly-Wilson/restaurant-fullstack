@@ -23,8 +23,23 @@ class UsersController extends Controller
     {
         // return 10 users from User table per page
         $users = User::paginate(10);
-        $users->roles()->attach(request('role_id'));
-        return $users;
+
+        //Return admin users
+        $adminUsers = User::whereHas(
+            'roles',
+            function ($q) {
+                $q->where('role_id', '1');
+            }
+        )->get();
+
+        //Return employee users
+        $employeeUsers = User::whereHas(
+            'roles',
+            function ($q) {
+                $q->where('role_id', '2');
+            }
+        )->get();
+        // return $users;
         return view('admin/users/all', [
             'users' => $users //passed down user variable to route
         ]);
