@@ -22,5 +22,5 @@ mix
     .browserSync({
         proxy: 'localhost',
         // Stop the browser from automatically opening, access with proxy's value:3000(localhost:3000)
-        open: false
+        open: false,
     });

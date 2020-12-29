@@ -10752,12 +10752,8 @@ body {
 }
 
 #information .info .about-link .circle-right {
-  background: #ed4b52;
+  background: #9c1b24 100%;
   /* Old browsers */
-  /* FF3.6-15 */
-  /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center, #ed4b52 0%, #9c1b24 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   border-radius: 50%;
   height: 40px;
   width: 40px;
@@ -10769,6 +10765,7 @@ body {
 #information .info .about-link .circle-right .fa-chevron-right {
   color: white;
   font-size: 1.3rem;
+  padding: 2px 0 0 3px;
 }
 
 #food-preview {
@@ -11005,11 +11002,12 @@ h2 {
   }
 
   #app-layout .side-menu {
-    padding: 30px 50px 0;
+    padding: 30px 30px 0;
     position: fixed;
     top: 0;
     transform: translate3d(-100vw, 0, 0);
     transition: transform 0.3s ease-in-out;
+    width: 280px;
     z-index: 6;
   }
 
@@ -11017,9 +11015,9 @@ h2 {
     background: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     bottom: 0;
-    left: 300px;
+    left: 280px;
     height: calc(100vh - 45px);
-    width: calc(100vw - 300px);
+    width: calc(100vw - 280px);
     position: absolute;
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
