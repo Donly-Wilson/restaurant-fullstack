@@ -51,7 +51,8 @@ Route::get('/offers/thank-you', [StaticPagesController::class, 'thankYou']);
 /* ADMIN DASHBOARD - this is route for links on admin dashboard page */
 Route::get('/admin', [AdminController::class, 'dashboard']);
 //Get request to api built with mysql 
-Route::get('/admin/estimated-revenue-daily', [DashboardApiController::class, 'getDailyRevenueLast30']);
+// Route::get('/admin/estimated-revenue-daily', [DashboardApiController::class, 'getDailyRevenueLast30']);
+Route::get('/admin/estimated-revenue-daily', [AdminController::class, 'getDailyRevenueLast30']);
 
 // ADMIN/food-categories
 Route::get('/admin/food-categories', [FoodCategoriesController::class, 'index'])->middleware('role:Admin');

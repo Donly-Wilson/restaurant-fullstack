@@ -68,5 +68,13 @@ class AdminController extends Controller
             'total_employees' => $total_employees[0]->total,
             'latestReservations' => $latestReservations //passed down latest reservations variable to route
         ]);
+
+        return $estimated_income_daily_data = DB::select(DB::raw('
+            SELECT 
+                DATE_FORMAT(created_at,"%Y-%m-%d") as x, 
+                (sum(guests_total) * 27 ) as y
+            FROM reservations
+            group by x desc;
+        '));
     }
 }
