@@ -41,9 +41,9 @@ class DashboardApiController extends Controller
         return $estimated_income_daily_data = DB::select(DB::raw('
             SELECT 
                 DATE_FORMAT(created_at,"%Y-%m-%d") as x,
-                (sum(guest_total)*27)as y
-                FROM reservations
-                group by x desc;
+                (sum(guest_total)*27) as y
+            FROM reservations
+            group by x desc;
         '));
     }
 }
