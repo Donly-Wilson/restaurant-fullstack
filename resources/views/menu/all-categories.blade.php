@@ -8,6 +8,6 @@ Food Menu - {{$settings["general"]->site_title}}
 @section('content')
 <div id="menu-page">
     {{-- inputs food-categories-slider from includes folder --}}
-    @include('includes.food-categories-slider')
+    @include('includes.landing-page.food-categories-slider')
 </div>
 @endsection

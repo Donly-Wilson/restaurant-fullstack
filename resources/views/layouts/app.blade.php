@@ -2,15 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <!-- inputs meta-tags from includes folder -->
-        @include('includes.metaTags')
+        @include('includes.landing-page.metaTags')
     </head>
     <body>
         <!-- inputs navbar from includes folder as the header navbar-->
-        @include('includes.navbar')
+        @include('includes.landing-page.navbar')
         
         <section id="app-layout">
             <!-- inputs welcome-menu from includes folder as side-menu-->
-            @include('includes.side-menu')
+            @include('includes.landing-page.side-menu')
             <!-- display the content of a given section that is called-->
             <section id="content-section">
                 @if (session('status'))

@@ -29,5 +29,5 @@
   </div>
 </section>
 {{-- inputs food-categories-slider from includes folder --}}
-@include('includes.food-categories-slider')
+@include('includes.landing-page.food-categories-slider')
 @endsection

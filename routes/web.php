@@ -117,7 +117,7 @@ View::composer(['home', 'pages/about', 'pages/contact', 'pages/offers', 'pages/r
     $socialSettings = SocialSetting::find(1); //Pass down info in social_settings table to home view 
 
     $view->with('settings', [
-        "general" => $generalSettings, //Writting like this in view "{{$settings[general]->site_title}}"
+        "general" => $generalSettings, //Written like this in view "{{$settings[general]->site_title}}"
         "social" => $socialSettings,
         "seo" => $seoSettings
     ]);
