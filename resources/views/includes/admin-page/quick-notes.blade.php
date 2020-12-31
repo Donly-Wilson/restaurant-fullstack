@@ -1,8 +1,12 @@
 {{-- //Includes for Quicknotes --}}
-<ul class="dropdown-menu dropdown-menu-right connection-dropdown">
-    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 co-12">
+{{-- <ul class="dropdown-menu dropdown-menu-right connection-dropdown"> --}}
+<ul id="quick-notes">
+    <div class="">
         <section class="card card-fluid">
-            <h5 class="card-header drag-handle"> Shortable List </h5>
+            <div class="quick-notes_header card-header">
+                <h5> Shortable List </h5>
+                <p onclick="closeNav()">close</p>
+            </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>

@@ -15,8 +15,30 @@
     <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
     <title>Bailies's Burger - Admin</title>
     {{-- <title>{{$settings["general"]->site_title}} - St.Lucia Selling Franchise</title> --}}
+    <style>
+        #quick-notes {
+            background:white;
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            right: 0;
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding: 0 10px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+            }
+            .quick-notes_header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .sortable-lists{
+                display: flex !important;
+            }
+    </style>
 </head>
 
 <body>
@@ -87,11 +109,11 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item dropdown connection">
+                        {{-- <li class="nav-item dropdown connection"> --}}
+                        <li class="nav-item dropdown connection" onclick="openNav()">
                             <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-align-left"></i> </a>
                             @include('includes.admin-page.quick-notes')
                             {{-- @yield('quick-note') --}}
-                            {{-- Put quick note section in its own folder --}}
                         </li>
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
@@ -213,11 +235,26 @@
     <script src="/assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
+    <!-- Dragable QuickNote js -->
+    <script src="/assets/vendor/shortable-nestable/Sortable.min.js"></script>
+    <script src="/assets/vendor/shortable-nestable/sort-nest.js"></script>
+    <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
 
     <script>
-        ("dropdown-menu").click(function(){
-  $("show").off("click");
-});
+            //         ("dropdown-menu").click(function(){
+            //   $("show").off("click");
+            // });
+            
+            /* Set the width of the side navigation to 250px */
+            function openNav() {
+            document.getElementById("quick-notes").style.width = "350px";
+            }
+
+            /* Set the width of the side navigation to 0 */
+            function closeNav() {
+            document.getElementById("quick-notes").style.width = "0";
+            // console.log('works');
+            }
     </script>
 </body>
 
