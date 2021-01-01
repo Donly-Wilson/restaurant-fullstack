@@ -4,8 +4,8 @@
     <div class="">
         <section class="card card-fluid">
             <div class="quick-notes_header card-header">
-                <h5> Shortable List </h5>
-                <div onclick="closeNav()">close</div>
+                <h5> Quick Notes </h5>
+                <div class="quickNoteBtn">close</div>
             </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 <li class="list-group-item align-items-center drag-handle">
