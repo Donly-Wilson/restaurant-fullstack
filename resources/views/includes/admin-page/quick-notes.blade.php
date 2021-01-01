@@ -5,7 +5,7 @@
         <section class="card card-fluid">
             <div class="quick-notes_header card-header">
                 <h5> Shortable List </h5>
-                <p onclick="closeNav()">close</p>
+                <div onclick="closeNav()">close</div>
             </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 <li class="list-group-item align-items-center drag-handle">

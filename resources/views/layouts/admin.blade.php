@@ -236,9 +236,9 @@
     <script src="/assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="/assets/libs/js/dashboard-ecommerce.js"></script>
     <!-- Dragable QuickNote js -->
-    <script src="/assets/vendor/shortable-nestable/Sortable.min.js"></script>
+    {{-- <script src="/assets/vendor/shortable-nestable/Sortable.min.js"></script>
     <script src="/assets/vendor/shortable-nestable/sort-nest.js"></script>
-    <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
+    <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script> --}}
 
     <script>
             //         ("dropdown-menu").click(function(){
@@ -252,8 +252,8 @@
 
             /* Set the width of the side navigation to 0 */
             function closeNav() {
-            document.getElementById("quick-notes").style.width = "0";
-            // console.log('works');
+            document.getElementById("quick-notes").style.width = "10px";
+            console.log('works');
             }
     </script>
 </body>
