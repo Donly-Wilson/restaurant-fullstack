@@ -2,11 +2,16 @@
 {{-- <ul class="dropdown-menu dropdown-menu-right connection-dropdown"> --}}
 <ul id="quick-notes">
     <div class="">
-        <section class="card card-fluid">
-            <div class="quick-notes_header card-header">
+        <section class="card-fluid">
+            <div class="quick-notes_header">
                 <h5> Quick Notes </h5>
-                <div class="quickNoteBtn">close</div>
+                <span class="quickNoteBtn quickNotClose"><i class="fas fa-times"></i></span>
             </div>
+            <ul class="quick-notes_options">
+                <li class="active"><a href="#">Todo</a></li>
+                <li><a href="#">Announcements</a></li>
+                <li><a href="#">Assignment</a></li>
+            </ul>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>

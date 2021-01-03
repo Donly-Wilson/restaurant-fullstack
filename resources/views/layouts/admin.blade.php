@@ -30,19 +30,73 @@
             overflow-x: hidden; 
             padding: 0; 
             transition: all 0.5s ease-in-out; 
+            -webkit-box-shadow: -48px 3px 40px 1px rgba(0,0,0,0.19);
+            -moz-box-shadow: -48px 3px 40px 1px rgba(0,0,0,0.19);
+            box-shadow: -48px 3px 40px 1px rgba(0,0,0,0.09);
+            border-left: 1px solid #e4e5e9;
+            border-radius: 9px;
             /* opacity: 0; */
             }
             .quick-notes_header{
                 display: flex;
                 justify-content: space-between;
+                padding: 12px 20px;
+            }
+            .quickNotClose{
+                background: #f7f8fc;
+                color: #8f91a0;
+                cursor: pointer;
+                transition: 0.2s all ease-in-out;
+                line-height: 1.1;
+                padding: 4px 2px;
+                text-align: center;
+                font-size: 12px;
+                display: inline-block;
+                border-radius: 100%;
+                width:20px;
+                height:20px;
+            }
+            .quickNotClose:hover{
+                color: #ef172c;
+                background-color: #fbd3d5;
             }
             .list-group-item{
                 display: flex !important;
+            }
+            .list-group-item:nth-child(1){
+                border-top: 0;
             }
             .connection .openQuickNotes{
                 width:350px !important;
                 padding: 0 10px !important;
                 /* opacity: 1 !important; */
+            }
+            .quick-notes_options{
+                display: flex;
+                background: #f7f8fc;
+                padding: 0;
+                text-align: center;
+                border-radius: 9px;
+                justify-content: center;
+                width: fit-content;
+                border: 1px solid #e7ebee;
+                margin: 0 auto 20px;
+            }
+            .quick-notes_options li{
+                text-decoration: none;
+                border-radius: 9px;
+                padding: 4px 15px;
+                list-style-type:none;
+            }
+            .quick-notes_options li a{
+                color:#8f91a0;
+            }
+
+            .quick-notes_options .active{
+                background: white;
+            }
+            .quick-notes_options .active a{
+                color:#7d8087;
             }
     </style>
 </head>
