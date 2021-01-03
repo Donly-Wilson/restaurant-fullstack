@@ -34,7 +34,7 @@
             -moz-box-shadow: -48px 3px 40px 1px rgba(0,0,0,0.19);
             box-shadow: -48px 3px 40px 1px rgba(0,0,0,0.09);
             border-left: 1px solid #e4e5e9;
-            border-radius: 9px;
+            border-radius: 9px 0 0 9px;
             /* opacity: 0; */
             }
             .quick-notes_header{
@@ -83,7 +83,7 @@
                 margin: 0 auto 20px;
             }
             .quick-notes_options li{
-                text-decoration: none;
+                /* text-decoration: none; */
                 border-radius: 9px;
                 padding: 4px 15px;
                 list-style-type:none;
@@ -97,6 +97,12 @@
             }
             .quick-notes_options .active a{
                 color:#7d8087;
+            }
+            .quick-notes_footer{
+                display: flex;
+            }
+            .quick-notes_footer li{
+                list-style-type:none;
             }
     </style>
 </head>

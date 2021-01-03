@@ -10,7 +10,7 @@
             <ul class="quick-notes_options">
                 <li class="active"><a href="#">Todo</a></li>
                 <li><a href="#">Announcements</a></li>
-                <li><a href="#">Assignment</a></li>
+                <li><a href="#">Assigned</a></li>
             </ul>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 <li class="list-group-item align-items-center drag-handle">
@@ -63,6 +63,11 @@
                         </button>
                     </div>
                 </li>
+            </ul>
+            <ul class="quick-notes_footer">
+                <li><a href="#">Undo</a></li>
+                <li><a href="#">Add New</a></li>
+                <li><a href="#">Clear All</a></li>
             </ul>
         </section>
     </div>
