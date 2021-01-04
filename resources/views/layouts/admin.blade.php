@@ -37,7 +37,19 @@
             border-radius: 9px 0 0 9px;
             /* opacity: 0; */
             }
+            #quick-notes .card-fluid{
+                height:100vh;
+                position: relative; /* Remove this and footer touches both ends of quicknotes */
+            }
             .quick-notes_header{
+                position: sticky;
+                z-index: 1;
+                background: white;
+                width: 100%;
+                height:117px;
+                top: 0;
+            }
+            .quick-notes_title{
                 display: flex;
                 justify-content: space-between;
                 padding: 12px 20px;
@@ -100,9 +112,19 @@
             }
             .quick-notes_footer{
                 display: flex;
+                bottom: 0;
+                padding: 0;
+                position: sticky;
+                /* height:42px; */
+                width: 100%;
             }
             .quick-notes_footer li{
                 list-style-type:none;
+                /* width:33.33%; */
+                flex-basis: 100%;
+                padding:10px;
+                text-align: center;
+                background:#0e0c28;
             }
     </style>
 </head>
