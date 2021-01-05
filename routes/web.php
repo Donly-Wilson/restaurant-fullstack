@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ReservationController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\DashboardApiController;
+use App\Http\Controllers\QuicknoteTodoController;
 use App\Http\Controllers\StaticPagesController;
 use App\Models\GeneralSetting;
 use App\Models\SeoSetting;

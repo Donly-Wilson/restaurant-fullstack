@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class QuicknoteTodoController extends Controller
@@ -13,7 +14,14 @@ class QuicknoteTodoController extends Controller
      */
     public function index()
     {
-        //
+        return 'working';
+        $quicknoteTodo = Todo::all();
+
+        return response()->json([
+            "success" => true,
+            "message" => "Student List",
+            "data" => $quicknoteTodo
+        ]);
     }
 
     /**
