@@ -199,7 +199,7 @@
     // ============================================================== 
     // Total Revenue
     // ============================================================== 
-    //Get request to route and pass apiData to element
+    //Get request to a given route and pass it as apiData to element
     $.get("/admin/estimated-revenue-daily", function(apiData) {
         // console.log(apiData)
         Morris.Area({

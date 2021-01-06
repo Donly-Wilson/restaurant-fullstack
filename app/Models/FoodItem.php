@@ -9,7 +9,7 @@ class FoodItem extends Model
 {
     use HasFactory;
 
-    protected $table = "food_items";
+    protected $table = "food_items"; //manually bring table because class name is different
     // Get the food category that owns the food item.(link the food items to food category,inverse of "one-to-one" relationship)
     protected $fillable = [
         'title',

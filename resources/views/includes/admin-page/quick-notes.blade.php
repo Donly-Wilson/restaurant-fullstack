@@ -14,9 +14,16 @@
                 </ul>
             </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
+                @foreach ($results as $item)
                 <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>
-                    <div> Item one </div>
+                    <div>{{$item->title}}</div>
+                    {{-- {{dd($results)}} --}}
+                    @php
+                        echo '<pre>';
+                            // print_r($results);
+                        echo '</pre>';
+                    @endphp
                     <div class="btn-group ml-auto">
                         <button class="btn btn-sm btn-outline-light">Edit</button>
                         <button class="btn btn-sm btn-outline-light">
@@ -24,7 +31,10 @@
                         </button>
                     </div>
                 </li>
-                <li class="list-group-item align-items-center drag-handle">
+                @endforeach
+
+
+                {{-- <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>
                     <div> Item two </div>
                     <div class="btn-group ml-auto">
@@ -63,7 +73,7 @@
                             <i class="far fa-trash-alt"></i>
                         </button>
                     </div>
-                </li>
+                </li> --}}
                 {{-- Copies --}}
                 {{-- <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>

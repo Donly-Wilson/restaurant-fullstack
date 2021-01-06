@@ -14,14 +14,22 @@ class QuicknoteTodoController extends Controller
      */
     public function index()
     {
-        return 'working';
+        // Pass Todo Model aka(quicknotes_todo table) into $quicknoteTodo variable
         $quicknoteTodo = Todo::all();
 
-        return response()->json([
-            "success" => true,
-            "message" => "Student List",
-            "data" => $quicknoteTodo
-        ]);
+        // $todoapi = response()->json([
+        //     "success" => true,
+        //     "message" => "QuickNote Todo List",
+        //     "data" => $quicknoteTodo
+        // ]);
+        $results = json_decode($quicknoteTodo);
+        // $results = 'working';
+
+        return $results;
+        // return view('layouts/admin', compact('results'));
+        // return view('layouts/admin', [
+        //     'results' => $results //passed down categories variable to route
+        // ]);
     }
 
     /**

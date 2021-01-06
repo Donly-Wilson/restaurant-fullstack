@@ -201,6 +201,11 @@
                         <li class="nav-item dropdown connection">
                             <a class="nav-link quickNoteBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-align-left"></i> </a>
                             @include('includes.admin-page.quick-notes')
+                            @php
+                                echo '<pre>';
+                                    // print_r($results);
+                                echo '</pre>';
+                            @endphp
                             {{-- @yield('quick-note') --}}
                         </li>
                         <li class="nav-item dropdown nav-user">
