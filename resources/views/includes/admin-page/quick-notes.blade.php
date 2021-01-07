@@ -14,16 +14,18 @@
                 </ul>
             </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
-                @foreach ($results as $item)
+                {{-- //$results is returned from AppServiceProvider --}}
+                @foreach ($results as $todoList)
                 <li class="list-group-item align-items-center drag-handle">
                     <span class="drag-indicator"></span>
-                    <div>{{$item->title}}</div>
-                    {{-- {{dd($results)}} --}}
-                    @php
+                    <div>{{$todoList->title}}</div>
+
+                    {{-- Display results form api being sent from appProvider --}}
+                    {{-- @php
                         echo '<pre>';
                             // print_r($results);
                         echo '</pre>';
-                    @endphp
+                    @endphp --}}
                     <div class="btn-group ml-auto">
                         <button class="btn btn-sm btn-outline-light">Edit</button>
                         <button class="btn btn-sm btn-outline-light">
@@ -32,149 +34,6 @@
                     </div>
                 </li>
                 @endforeach
-
-
-                {{-- <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item two </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div>Item three</div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item four </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item five </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li> --}}
-                {{-- Copies --}}
-                {{-- <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item one </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item two </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div>Item three</div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item four </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item five </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item one </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item two </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div>Item three</div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item four </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li>
-                <li class="list-group-item align-items-center drag-handle">
-                    <span class="drag-indicator"></span>
-                    <div> Item five </div>
-                    <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
-                    </div>
-                </li> --}}
             </ul>
             <ul class="quick-notes_footer">
                 <li><a href="#">Undo</a></li>

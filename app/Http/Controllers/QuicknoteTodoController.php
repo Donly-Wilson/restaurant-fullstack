@@ -40,6 +40,7 @@ class QuicknoteTodoController extends Controller
     public function create()
     {
         //
+        // return Todo::create($request->all());
     }
 
     /**
@@ -50,7 +51,35 @@ class QuicknoteTodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Todo::updateOrCreate(
+            ['id' => $request->id],
+            [
+                'title' => $request->title,
+                'description' => $request->description
+            ]
+        );
+
+        return response()->json(['success' => 'Book saved successfully.']);
+
+
+
+        // $input = $request->all();
+        // $validator = Validator::make($input, [
+        // 'first_name' => 'required',
+        // 'last_name' => 'required',
+        // 'address' => 'required'
+        // ]);
+
+        // if($validator->fails()){
+        // return $this->sendError('Validation Error.', $validator->errors());       
+        // }
+
+        // $student = Student::create($input);
+        // return response()->json([
+        // "success" => true,
+        // "message" => "Student created successfully.",
+        // "data" => $student
     }
 
     /**
@@ -62,6 +91,7 @@ class QuicknoteTodoController extends Controller
     public function show($id)
     {
         //
+        return Todo::find($id);
     }
 
     /**
@@ -85,6 +115,9 @@ class QuicknoteTodoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $todo = Todo::find($id);
+        $todo->update($request->all());
+        return $todo;
     }
 
     /**
@@ -96,5 +129,6 @@ class QuicknoteTodoController extends Controller
     public function destroy($id)
     {
         //
+        return Todo::deleted($id);
     }
 }
