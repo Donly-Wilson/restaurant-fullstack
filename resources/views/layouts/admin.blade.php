@@ -334,11 +334,15 @@
     <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
 
     <script>
+            //Open and close quickNote section
             let connection = $(".quickNoteBtn");
             
             connection.click(function(){
               $("#quick-notes").toggleClass("openQuickNotes");
             });
+
+            //Place every '.model' class above backdrop by appending it to body
+            $('.modal').appendTo("body").modal('show');
     </script>
 </body>
 

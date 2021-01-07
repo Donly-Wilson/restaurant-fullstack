@@ -1,6 +1,8 @@
 {{-- //Includes for Quicknotes --}}
 {{-- <ul class="dropdown-menu dropdown-menu-right connection-dropdown"> --}}
-<ul id="quick-notes">
+
+<div class="row">
+    <ul id="quick-notes">
         <section class="card-fluid">
             <div class="quick-notes_header">
                 <div class="quick-notes_title">
@@ -37,8 +39,63 @@
             </ul>
             <ul class="quick-notes_footer">
                 <li><a href="#">Undo</a></li>
-                <li><a href="#">Add New</a></li>
+                <li>
+                    <!-- Button trigger modal -->
+                    <a href="#" data-toggle="modal" data-target="#addTodo">
+                    Add New
+                    </a>
+                </li>
                 <li><a href="#">Clear All</a></li>
             </ul>
-        </section>
-</ul>
+        </section>                
+    </ul>
+</div>
+
+<div class="">
+        <!-- ============================================================== -->
+        <!-- New Todo Modal -->
+        <!-- ============================================================== -->
+        <div class="modal fade" id="addTodo" tabindex="-1" role="dialog" aria-labelledby="addTodoLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTodoLabel">Create New Todo</h5>
+                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </a>
+                    </div>
+                    <div class="modal-body">
+                        <form class="" method="POST" 
+                        {{-- action="/admin/food-categories" --}}
+                        >
+                            <input type="hidden" name="_token" value="2LTwmixFtuRBLAoNaMwlOSfYUz2QLnIBGwcTsYeP">                            
+                            <div class="form-group">
+                                <label for="inputtitle">Title</label>
+                                <input id="inputtitle" class="form-control form-control-lg " type="text" name="title" value="" required="" autofocus="" autocomplete="title" placeholder="Give category a title">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputdescription">Description</label>
+                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required="" autofocus="" placeholder="Write a description"></textarea>
+                            </div>
+                            {{-- <div class="row">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    </p>
+                                </div>
+                            </div> --}}
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                            <a href="#" type="submit" class="btn btn-primary">Save changes</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!--end New Todo Modal -->
+        <!-- ============================================================== -->
+    </div>
