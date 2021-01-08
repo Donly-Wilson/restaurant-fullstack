@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Todo;
 use Illuminate\Http\Request;
+use Validator;
 
 class QuicknoteTodoController extends Controller
 {
@@ -15,21 +16,16 @@ class QuicknoteTodoController extends Controller
     public function index()
     {
         // Pass Todo Model aka(quicknotes_todo table) into $quicknoteTodo variable
-        $quicknoteTodo = Todo::all();
+        $quicknoteTodos = Todo::all();
 
         // $todoapi = response()->json([
         //     "success" => true,
         //     "message" => "QuickNote Todo List",
         //     "data" => $quicknoteTodo
         // ]);
-        $results = json_decode($quicknoteTodo);
-        // $results = 'working';
-
+        $results = json_decode($quicknoteTodos);
+        // $results = response()->json($quicknoteTodos, 200);
         return $results;
-        // return view('layouts/admin', compact('results'));
-        // return view('layouts/admin', [
-        //     'results' => $results //passed down categories variable to route
-        // ]);
     }
 
     /**
@@ -39,7 +35,7 @@ class QuicknoteTodoController extends Controller
      */
     public function create()
     {
-        //
+        ////No create function---Creating is handled through "Store" function
         // return Todo::create($request->all());
     }
 
@@ -52,6 +48,18 @@ class QuicknoteTodoController extends Controller
     public function store(Request $request)
     {
 
+        //Ajax
+
+        // $validator = Validator::make($input, [
+        // 'first_name' => 'required',
+        // 'last_name' => 'required',
+        // 'address' => 'required'
+        // ]);
+
+        // if($validator->fails()){
+        // return $this->sendError('Validation Error.', $validator->errors());       
+        // }
+
         Todo::updateOrCreate(
             ['id' => $request->id],
             [
@@ -60,7 +68,7 @@ class QuicknoteTodoController extends Controller
             ]
         );
 
-        return response()->json(['success' => 'Book saved successfully.']);
+        return response()->json(['success' => 'Task saved successfully.']);
 
 
 
@@ -90,8 +98,15 @@ class QuicknoteTodoController extends Controller
      */
     public function show($id)
     {
-        //
-        return Todo::find($id);
+        //get QuickTodo by $id
+        $quicknoteTodo = Todo::find($id);
+
+        //returns if there is no such $id
+        if (is_null($quicknoteTodo)) {
+            return response()->json(['message' => 'No such task']);
+        }
+        //else return QuickTodo
+        return response()->json($quicknoteTodo, 201);
     }
 
     /**
@@ -102,7 +117,7 @@ class QuicknoteTodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        //No edit function---Editing is handled through "Store" function
     }
 
     /**
@@ -114,10 +129,17 @@ class QuicknoteTodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $todo = Todo::find($id);
-        $todo->update($request->all());
-        return $todo;
+        //get QuickTodo by $id
+        $quicknoteTodo = Todo::find($id);
+
+        //returns if there is no such $id
+        if (is_null($quicknoteTodo)) {
+            return response()->json(['message' => 'No such task'], 404);
+        }
+
+        //else return QuickTodo and update it
+        $quicknoteTodo->update($request->all());
+        return response()->json($quicknoteTodo, 200);
     }
 
     /**
@@ -126,9 +148,18 @@ class QuicknoteTodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
-        return Todo::deleted($id);
+        //get QuickTodo by $id
+        $quicknoteTodo = Todo::find($id);
+
+        //returns if there is no such $id
+        if (is_null($quicknoteTodo)) {
+            return response()->json(['message' => 'No such task'], 404);
+        }
+
+        //else return QuickTodo and update it
+        $quicknoteTodo->delete();
+        return response()->json(null, 204);
     }
 }

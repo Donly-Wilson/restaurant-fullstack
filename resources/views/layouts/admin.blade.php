@@ -341,8 +341,8 @@
               $("#quick-notes").toggleClass("openQuickNotes");
             });
 
-            //Place every '.model' class above backdrop by appending it to body
-            $('.modal').appendTo("body").modal('show');
+            //Place every '.model' class above backdrop by appending it to body(removed ".modal('show')" to prevent auto popup on login)
+            $('.modal').appendTo("body");
     </script>
 </body>
 

@@ -18,7 +18,7 @@
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                 {{-- //$results is returned from AppServiceProvider --}}
                 @foreach ($results as $todoList)
-                <li class="list-group-item align-items-center drag-handle">
+                <li class="list-group-item align-items-center drag-handle" id="{{$todoList->id}}">
                     <span class="drag-indicator"></span>
                     <div>{{$todoList->title}}</div>
 
@@ -29,7 +29,12 @@
                         echo '</pre>';
                     @endphp --}}
                     <div class="btn-group ml-auto">
-                        <button class="btn btn-sm btn-outline-light">Edit</button>
+                        <!-- Button trigger edit modal -->
+                        <button class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#editTodo">Edit
+                            {{-- <a href="#" >
+                                Add New
+                            </a> --}}
+                        </button>
                         <button class="btn btn-sm btn-outline-light">
                             <i class="far fa-trash-alt"></i>
                         </button>
@@ -66,7 +71,7 @@
                     </div>
                     <div class="modal-body">
                         <form class="" method="POST" 
-                        {{-- action="/admin/food-categories" --}}
+                        action="/api/quicknotes_todo"
                         >
                             <input type="hidden" name="_token" value="2LTwmixFtuRBLAoNaMwlOSfYUz2QLnIBGwcTsYeP">                            
                             <div class="form-group">
@@ -98,4 +103,53 @@
         <!-- ============================================================== -->
         <!--end New Todo Modal -->
         <!-- ============================================================== -->
+</div>
+
+<div class="">
+    <!-- ============================================================== -->
+    <!-- New Todo Modal -->
+    <!-- ============================================================== -->
+    <div class="modal fade" id="editTodo" tabindex="-1" role="dialog" aria-labelledby="editTodoLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editTodoLabel">Edit Todo</h5>
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <form class="" method="POST" 
+                    {{-- action="/api/quicknotes_todo/{{$quicknoteTodo->id}}" --}}
+                    >
+                        <input type="hidden" name="_token" value="2LTwmixFtuRBLAoNaMwlOSfYUz2QLnIBGwcTsYeP">                            
+                        <div class="form-group">
+                            <label for="inputtitle">Title</label>
+                            <input id="inputtitle" class="form-control form-control-lg " type="text" name="title" value="" required="" autofocus="" autocomplete="title" placeholder="Give category a title">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputdescription">Description</label>
+                            <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required="" autofocus="" placeholder="Write a description"></textarea>
+                        </div>
+                        {{-- <div class="row">
+                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                            </div>
+                            <div class="col-sm-6 pl-0">
+                                <p class="text-right">
+                                    <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                </p>
+                            </div>
+                        </div> --}}
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        <a href="#" type="submit" class="btn btn-primary">Save changes</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+    <!-- ============================================================== -->
+    <!--end New Todo Modal -->
+    <!-- ============================================================== -->
+</div>
