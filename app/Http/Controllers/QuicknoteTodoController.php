@@ -50,6 +50,11 @@ class QuicknoteTodoController extends Controller
 
         //Ajax
 
+
+        request()->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+        ]);
         // $validator = Validator::make($input, [
         // 'first_name' => 'required',
         // 'last_name' => 'required',

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\QuicknoteTodoController;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             GeneralSettingSeeder::class,
             SeoSettingSeeder::class,
             SocialSettingSeeder::class,
+            QuicknoteTodoSeeder::class,
         ]);
     }
 }

@@ -30,14 +30,22 @@
                     @endphp --}}
                     <div class="btn-group ml-auto">
                         <!-- Button trigger edit modal -->
-                        <button class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#editTodo">Edit
+                        <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoList->id}}" data-toggle="modal" data-target="#editTodo">Edit
                             {{-- <a href="#" >
                                 Add New
                             </a> --}}
                         </button>
-                        <button class="btn btn-sm btn-outline-light">
-                            <i class="far fa-trash-alt"></i>
-                        </button>
+                        
+                        {{-- this uses "Delete method" to delete todoList | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
+                        <form class="btn btn-sm btn-outline-light" id="delete-todoList-{{$todoList->id}}" method="POST" action="/api/quicknotes_todo/{{$todoList->id}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="todo-DeleteBtn"
+                                onclick="this.closest('form').submit();">
+                                <i class="far fa-trash-alt"></i>
+                                 {{-- {{ __('Delete') }} --}}
+                            </button>
+                        </form>
                     </div>
                 </li>
                 @endforeach
@@ -70,18 +78,32 @@
                         </a>
                     </div>
                     <div class="modal-body">
-                        <form class="" method="POST" 
-                        action="/api/quicknotes_todo"
-                        >
-                            <input type="hidden" name="_token" value="2LTwmixFtuRBLAoNaMwlOSfYUz2QLnIBGwcTsYeP">                            
+                        <form class="" method="POST" action="/api/quicknotes_todo">
+                            @csrf
                             <div class="form-group">
                                 <label for="inputtitle">Title</label>
-                                <input id="inputtitle" class="form-control form-control-lg " type="text" name="title" value="" required="" autofocus="" autocomplete="title" placeholder="Give category a title">
+                                <input id="inputtitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give category a title" />
+                                @error('title')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputdescription">Description</label>
-                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required="" autofocus="" placeholder="Write a description"></textarea>
+                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" autofocus placeholder="Write a description">{{old('description')}}</textarea>
+                                @error('description')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
+                            <div class="row">
+                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                                </div>
+                                <div class="col-sm-6 pl-0">
+                                    <p class="text-right">
+                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
                             {{-- <div class="row">
                                 <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                                 </div>
@@ -96,7 +118,6 @@
                             <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
                             <a href="#" type="submit" class="btn btn-primary">Save changes</a>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -107,7 +128,7 @@
 
 <div class="">
     <!-- ============================================================== -->
-    <!-- New Todo Modal -->
+    <!-- Edit Todo Modal -->
     <!-- ============================================================== -->
     <div class="modal fade" id="editTodo" tabindex="-1" role="dialog" aria-labelledby="editTodoLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog" role="document">
@@ -119,18 +140,35 @@
                     </a>
                 </div>
                 <div class="modal-body">
-                    <form class="" method="POST" 
-                    {{-- action="/api/quicknotes_todo/{{$quicknoteTodo->id}}" --}}
+                    <form class="" id="todoForm" method="POST" 
+                    {{-- action="api/quicknotes_todo" --}}
                     >
-                        <input type="hidden" name="_token" value="2LTwmixFtuRBLAoNaMwlOSfYUz2QLnIBGwcTsYeP">                            
+                        @csrf
+                        @method('PUT')
                         <div class="form-group">
-                            <label for="inputtitle">Title</label>
-                            <input id="inputtitle" class="form-control form-control-lg " type="text" name="title" value="" required="" autofocus="" autocomplete="title" placeholder="Give category a title">
+                            <label for="editTodoTitle">Title</label>
+                            <input id="editTodoTitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give category a title" />
+                            @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="inputdescription">Description</label>
-                            <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" required="" autofocus="" placeholder="Write a description"></textarea>
+                            <label for="editTodoDescription">Description</label>
+                            <textarea id="editTodoDescription" class="form-control form-control-lg" type="text" name="description" required autofocus placeholder="Write a description"></textarea>
+                            @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
+                        <div class="row">
+                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
+                            </div>
+                            <div class="col-sm-6 pl-0">
+                                <p class="text-right">
+                                    <button id="saveBtn" type="submit" class="btn btn-space btn-primary">Submit</button>
+                                </p>
+                            </div>
+                        </div>
+                    </form>
                         {{-- <div class="row">
                             <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
                             </div>
@@ -140,16 +178,27 @@
                                 </p>
                             </div>
                         </div> --}}
-                    </div>
-                    <div class="modal-footer">
-                        <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                        <a href="#" type="submit" class="btn btn-primary">Save changes</a>
-                    </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                    <a href="#" type="submit" class="btn btn-primary">Save changes</a>
+                </div>
             </div>
         </div>
     </div>
     <!-- ============================================================== -->
-    <!--end New Todo Modal -->
+    <!--end Edit Todo Modal -->
     <!-- ============================================================== -->
 </div>
+
+{{-- $('body').on('click', '.editTodo', function () {
+    var book_id = $(this).data('id');
+    $.get("{{ route('books.index') }}" +'/' + book_id +'/edit', function (data) {
+        $('#modelHeading').html("Edit Book");
+        $('#saveBtn').val("edit-book");
+        $('#ajaxModel').modal('show');
+        $('#book_id').val(data.id);
+        $('#title').val(data.title);
+        $('#author').val(data.author);
+    })
+ }); --}}

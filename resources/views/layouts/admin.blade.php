@@ -126,6 +126,11 @@
                 text-align: center;
                 background:#0e0c28;
             }
+            .todo-DeleteBtn{
+                border: none;
+                background: transparent;
+                color: #7171a6;
+            }
     </style>
 </head>
 
@@ -332,7 +337,8 @@
     <script src="/assets/vendor/shortable-nestable/Sortable.min.js"></script>
     <script src="/assets/vendor/shortable-nestable/sort-nest.js"></script>
     <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
-
+    {{-- Ajax --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
             //Open and close quickNote section
             let connection = $(".quickNoteBtn");
@@ -343,6 +349,44 @@
 
             //Place every '.model' class above backdrop by appending it to body(removed ".modal('show')" to prevent auto popup on login)
             $('.modal').appendTo("body");
+
+            $(document).ready(function () {
+                //When click edit student
+                $('body').on('click', '.editTodo', function () {
+                var todo_id = $(this).attr('data-id');
+                let selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
+                $.get(selectedTodoRoute, function (data) {
+                    // $('#editTodo').modal('show');
+                    $('#todoForm').attr('action',selectedTodoRoute);
+                    $('#editTodoTitle').val(data.title);
+                    $('#editTodoDescription').val(data.description);
+                    })
+                });
+            });
+
+            $('#saveBtn').click(function (e) {
+        e.preventDefault();
+        $(this).html('Save');
+
+        var form_action = $("#todoForm").attr("action");
+        $.ajax({
+          data: $('#todoForm').serialize(),
+          url: form_action,
+          type: "POST",
+          dataType: 'json',
+          success: function (data) {
+     
+            //   $('#todoForm').trigger("reset");
+              $('#editTodo').modal('hide');
+            //   table.draw();
+         
+          },
+          error: function (data) {
+              console.log('Error:', data);
+              $('#saveBtn').html('Save Changes');
+          }
+        });
+        });
     </script>
 </body>
 
