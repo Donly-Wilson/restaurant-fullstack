@@ -202,16 +202,10 @@
                                 </li>
                             </ul>
                         </li>
-                        {{-- <li class="nav-item dropdown connection"> --}}
                         <li class="nav-item dropdown connection">
                             <a class="nav-link quickNoteBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-align-left"></i> </a>
+                        {{-- QuickNote Section --}}
                             @include('includes.admin-page.quick-notes')
-                            @php
-                                echo '<pre>';
-                                    // print_r($results);
-                                echo '</pre>';
-                            @endphp
-                            {{-- @yield('quick-note') --}}
                         </li>
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
@@ -337,11 +331,10 @@
     <script src="/assets/vendor/shortable-nestable/Sortable.min.js"></script>
     <script src="/assets/vendor/shortable-nestable/sort-nest.js"></script>
     <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
-    {{-- Ajax --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
+    
     <script>
             //Open and close quickNote section
-            let connection = $(".quickNoteBtn");
+            var connection = $(".quickNoteBtn");
             
             connection.click(function(){
               $("#quick-notes").toggleClass("openQuickNotes");
@@ -351,21 +344,20 @@
             $('.modal').appendTo("body");
 
 
-                //When click edit student
-                $('body').on('click', '.editTodo', function () {
-                var todo_id = $(this).attr('data-id');
-                let selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
-                $.get(selectedTodoRoute, function (data) {
-                    $('#editTodo').modal('show');
-                    $('#todoForm').attr('action',selectedTodoRoute);
-                    $('#editTodoTitle').val(data.title);
-                    $('#editTodoDescription').val(data.description);
-                    })
-                });
+            //When click edit student
+            $('body').on('click', '.editTodo', function () {
+            var todo_id = $(this).attr('data-id');
+            var selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
+            $.get(selectedTodoRoute, function (data) {
+                $('#editTodo').modal('show');
+                $('#todoForm').attr('action',selectedTodoRoute);
+                $('#editTodoTitle').val(data.title);
+                $('#editTodoDescription').val(data.description);
+                })
+            });
 
 
         //On modal Submit btn clicked
-        ////Delete saveBtn ID and todoForm  ID if works
         $('.saveBtn').click(function (e) {
             e.preventDefault();
             $(this).html('Saved');
@@ -391,30 +383,10 @@
             error: function (data) {
                 console.log('Error:', data);
                 $('#saveBtn').html('Save Changes');
-            }
+            },
+            // timeout: 3000 // sets timeout to 3 seconds
             });
         });
-
-
-        // $('body').on('click', '.deleteTodoBtn', function () {
-     
-            
-        //     var todo_id = $(this).attr('data-id');
-        //     let selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
-        //     // confirm("Are You sure want to delete !");
-        
-        //     $.ajax({
-        //         type: "DELETE",
-        //         url: selectedTodoRoute,
-        //         success: function (data) {
-        //             $('#items').load(' #items');
-        //             console.log(`#${data.id}`)
-        //         },
-        //         error: function (data) {
-        //             console.log('Error:', data);
-        //         }
-        //     });
-        // });
 
         //Delete QuickNote Todo
         $('body').on('click', '.deleteTodoBtn', function () {

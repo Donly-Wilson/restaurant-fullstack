@@ -1,5 +1,4 @@
 {{-- //Includes for Quicknotes --}}
-{{-- <ul class="dropdown-menu dropdown-menu-right connection-dropdown"> --}}
 
 <div class="row">
     <ul id="quick-notes">
@@ -31,9 +30,6 @@
                     <div class="btn-group ml-auto">
                         <!-- Button trigger edit modal -->
                         <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoList->id}}"   data-target="#editTodo">Edit
-                            {{-- <a href="#" >
-                                Add New
-                            </a> --}}
                         </button>
                         
                         {{-- this uses "Delete method" to delete todoList | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
@@ -106,15 +102,6 @@
                                 </div>
                             </div>
                         </form>
-                            {{-- <div class="row">
-                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                </div>
-                                <div class="col-sm-6 pl-0">
-                                    <p class="text-right">
-                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                    </p>
-                                </div>
-                            </div> --}}
                         </div>
                         <div class="modal-footer">
                             <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
@@ -171,15 +158,6 @@
                             </div>
                         </div>
                     </form>
-                        {{-- <div class="row">
-                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                            </div>
-                            <div class="col-sm-6 pl-0">
-                                <p class="text-right">
-                                    <button type="submit" class="btn btn-space btn-primary">Submit</button>
-                                </p>
-                            </div>
-                        </div> --}}
                 </div>
                 <div class="modal-footer">
                     <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
@@ -192,15 +170,3 @@
     <!--end Edit Todo Modal -->
     <!-- ============================================================== -->
 </div>
-
-{{-- $('body').on('click', '.editTodo', function () {
-    var book_id = $(this).data('id');
-    $.get("{{ route('books.index') }}" +'/' + book_id +'/edit', function (data) {
-        $('#modelHeading').html("Edit Book");
-        $('#saveBtn').val("edit-book");
-        $('#ajaxModel').modal('show');
-        $('#book_id').val(data.id);
-        $('#title').val(data.title);
-        $('#author').val(data.author);
-    })
- }); --}}
