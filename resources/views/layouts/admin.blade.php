@@ -351,7 +351,6 @@
             $('.modal').appendTo("body");
 
 
-            // $(document).ready(function () {
                 //When click edit student
                 $('body').on('click', '.editTodo', function () {
                 var todo_id = $(this).attr('data-id');
@@ -363,30 +362,31 @@
                     $('#editTodoDescription').val(data.description);
                     })
                 });
-            // });
+
 
         //On modal Submit btn clicked
-        $('#saveBtn').click(function (e) {
+        ////Delete saveBtn ID and todoForm  ID if works
+        $('.saveBtn').click(function (e) {
             e.preventDefault();
             $(this).html('Saved');
+            //Select form id based on which one savebtn is clicked in
+            currentTodoForm = $(this).closest('form').attr('id');
+            //Select modal id based on which one savebtn is clicked in
+            currentTodoModal = $(this).closest('.modal').attr('id');
 
-            var form_action = $("#todoForm").attr("action");
+            console.log(`#${currentTodoForm}`);
+            var form_action = $(`#${currentTodoForm}`).attr("action");
             $.ajax({
-            data: $('#todoForm').serialize(),
+            data: $(`#${currentTodoForm}`).serialize(),
             url: form_action,
             type: "POST",
             dataType: 'json',
             success: function (data) {
-        
                 //   $('#todoForm').trigger("reset");
-                $('#editTodo').modal('hide');
-                //   table.draw();
-                // $('.connection #items').html(data)
-                // $('.connection #items').load(location.href+(' #items'));
-                $('#items').load(' #items');
+                $(`#${currentTodoModal}`).modal('hide');
                 console.log(data);
                 //If form action has an id update its htlm, else if not append a new one to bottom list 
-            
+                $('#items').load(' #items');
             },
             error: function (data) {
                 console.log('Error:', data);

@@ -64,7 +64,7 @@
     </ul>
 </div>
 
-<div class="">
+<div>
         <!-- ============================================================== -->
         <!-- New Todo Modal -->
         <!-- ============================================================== -->
@@ -78,7 +78,9 @@
                         </a>
                     </div>
                     <div class="modal-body">
-                        <form class="" method="POST" action="/api/quicknotes_todo">
+                        <form id="todoForm2" method="POST" 
+                        action="/api/quicknotes_todo"
+                        >
                             @csrf
                             <div class="form-group">
                                 <label for="inputtitle">Title</label>
@@ -99,7 +101,7 @@
                                 </div>
                                 <div class="col-sm-6 pl-0">
                                     <p class="text-right">
-                                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-space btn-primary saveBtn">Submit</button>
                                     </p>
                                 </div>
                             </div>
@@ -126,7 +128,7 @@
         <!-- ============================================================== -->
 </div>
 
-<div class="">
+<div>
     <!-- ============================================================== -->
     <!-- Edit Todo Modal -->
     <!-- ============================================================== -->
@@ -140,7 +142,7 @@
                     </a>
                 </div>
                 <div class="modal-body">
-                    <form class="" id="todoForm" method="POST" 
+                    <form class="todoForm" id="todoForm" method="POST" 
                     {{-- action="api/quicknotes_todo" --}}
                     >
                         @csrf
@@ -164,7 +166,7 @@
                             </div>
                             <div class="col-sm-6 pl-0">
                                 <p class="text-right">
-                                    <button id="saveBtn" type="submit" class="btn btn-space btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-space btn-primary saveBtn">Submit</button>
                                 </p>
                             </div>
                         </div>

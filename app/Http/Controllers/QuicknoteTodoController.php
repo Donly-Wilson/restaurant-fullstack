@@ -56,7 +56,8 @@ class QuicknoteTodoController extends Controller
         );
 
         // return response()->json(['success' => 'Task saved successfully.']);
-        return response()->json(['success' => $work]);
+        // return response()->json(['success' => $work]);
+        return response()->json($work, 200);
     }
 
     /**
