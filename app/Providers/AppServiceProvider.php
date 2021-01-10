@@ -34,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
             $results = json_decode($quicknoteTodo);
 
             $view->with('results', $results);
+
+            //     $categories=DB::table('categories')->get();
+            // View::share('categories',$categories);  
         });
     }
 }

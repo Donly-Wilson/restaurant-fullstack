@@ -18,13 +18,7 @@ class QuicknoteTodoController extends Controller
         // Pass Todo Model aka(quicknotes_todo table) into $quicknoteTodo variable
         $quicknoteTodos = Todo::all();
 
-        // $todoapi = response()->json([
-        //     "success" => true,
-        //     "message" => "QuickNote Todo List",
-        //     "data" => $quicknoteTodo
-        // ]);
         $results = json_decode($quicknoteTodos);
-        // $results = response()->json($quicknoteTodos, 200);
         return $results;
     }
 
@@ -48,24 +42,12 @@ class QuicknoteTodoController extends Controller
     public function store(Request $request)
     {
 
-        //Ajax
-
-
         request()->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
         ]);
-        // $validator = Validator::make($input, [
-        // 'first_name' => 'required',
-        // 'last_name' => 'required',
-        // 'address' => 'required'
-        // ]);
 
-        // if($validator->fails()){
-        // return $this->sendError('Validation Error.', $validator->errors());       
-        // }
-
-        Todo::updateOrCreate(
+        $work = Todo::updateOrCreate(
             ['id' => $request->id],
             [
                 'title' => $request->title,
@@ -73,26 +55,8 @@ class QuicknoteTodoController extends Controller
             ]
         );
 
-        return response()->json(['success' => 'Task saved successfully.']);
-
-
-
-        // $input = $request->all();
-        // $validator = Validator::make($input, [
-        // 'first_name' => 'required',
-        // 'last_name' => 'required',
-        // 'address' => 'required'
-        // ]);
-
-        // if($validator->fails()){
-        // return $this->sendError('Validation Error.', $validator->errors());       
-        // }
-
-        // $student = Student::create($input);
-        // return response()->json([
-        // "success" => true,
-        // "message" => "Student created successfully.",
-        // "data" => $student
+        // return response()->json(['success' => 'Task saved successfully.']);
+        return response()->json(['success' => $work]);
     }
 
     /**

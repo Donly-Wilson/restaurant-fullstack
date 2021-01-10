@@ -351,8 +351,6 @@
             $('.modal').appendTo("body");
 
 
-            
-
             // $(document).ready(function () {
                 //When click edit student
                 $('body').on('click', '.editTodo', function () {
@@ -367,49 +365,62 @@
                 });
             // });
 
-            //On modal btn clicked
-            $('#saveBtn').click(function (e) {
-        e.preventDefault();
-        $(this).html('Saved');
+        //On modal Submit btn clicked
+        $('#saveBtn').click(function (e) {
+            e.preventDefault();
+            $(this).html('Saved');
 
-        var form_action = $("#todoForm").attr("action");
-        $.ajax({
-          data: $('#todoForm').serialize(),
-          url: form_action,
-          type: "POST",
-          dataType: 'json',
-          success: function (data) {
-     
-            //   $('#todoForm').trigger("reset");
-              $('#editTodo').modal('hide');
-            //   table.draw();
-         
-          },
-          error: function (data) {
-              console.log('Error:', data);
-              $('#saveBtn').html('Save Changes');
-          }
-        });
-        });
-
-
-        $('body').on('click', '.deleteTodoBtn', function () {
-     
-            var todo_id = $(this).attr('data-id');
-            let selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
-            confirm("Are You sure want to delete !");
-        
+            var form_action = $("#todoForm").attr("action");
             $.ajax({
-                type: "DELETE",
-                url: selectedTodoRoute,
-                success: function (data) {
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                }
+            data: $('#todoForm').serialize(),
+            url: form_action,
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
+        
+                //   $('#todoForm').trigger("reset");
+                $('#editTodo').modal('hide');
+                //   table.draw();
+                // $('.connection #items').html(data)
+                // $('.connection #items').load(location.href+(' #items'));
+                $('#items').load(' #items');
+                console.log(data);
+                //If form action has an id update its htlm, else if not append a new one to bottom list 
+            
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#saveBtn').html('Save Changes');
+            }
             });
         });
+
+
+        // $('body').on('click', '.deleteTodoBtn', function () {
+     
+            
+        //     var todo_id = $(this).attr('data-id');
+        //     let selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
+        //     // confirm("Are You sure want to delete !");
+        
+        //     $.ajax({
+        //         type: "DELETE",
+        //         url: selectedTodoRoute,
+        //         success: function (data) {
+        //             $('#items').load(' #items');
+        //             console.log(`#${data.id}`)
+        //         },
+        //         error: function (data) {
+        //             console.log('Error:', data);
+        //         }
+        //     });
+        // });
+
+        //Delete QuickNote Todo
+        $('body').on('click', '.deleteTodoBtn', function () {
+            var todo_id = $(this).attr('data-id');
+            $('#quick-notes #items #'+ todo_id).remove();
+        }); 
     </script>
 </body>
 
