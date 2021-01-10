@@ -30,7 +30,7 @@
                     @endphp --}}
                     <div class="btn-group ml-auto">
                         <!-- Button trigger edit modal -->
-                        <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoList->id}}" data-toggle="modal" data-target="#editTodo">Edit
+                        <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoList->id}}"   data-target="#editTodo">Edit
                             {{-- <a href="#" >
                                 Add New
                             </a> --}}
@@ -40,7 +40,7 @@
                         <form class="btn btn-sm btn-outline-light" id="delete-todoList-{{$todoList->id}}" method="POST" action="/api/quicknotes_todo/{{$todoList->id}}">
                             @csrf
                             @method('DELETE')
-                            <button class="todo-DeleteBtn"
+                            <button class="deleteTodoBtn" data-id="{{$todoList->id}}"
                                 onclick="this.closest('form').submit();">
                                 <i class="far fa-trash-alt"></i>
                                  {{-- {{ __('Delete') }} --}}
