@@ -374,7 +374,7 @@
             type: "POST",
             dataType: 'json',
             success: function (data) {
-                //   $('#todoForm').trigger("reset");
+                  $(`#${currentTodoForm}`).trigger("reset");
                 $(`#${currentTodoModal}`).modal('hide');
                 console.log(data);
                 //If form action has an id update its htlm, else if not append a new one to bottom list 
@@ -397,3 +397,5 @@
 </body>
 
 </html>
+
+{{-- Clear/Reset input  --}}
