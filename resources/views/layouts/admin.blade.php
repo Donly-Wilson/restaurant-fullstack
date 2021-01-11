@@ -54,7 +54,7 @@
                 justify-content: space-between;
                 padding: 12px 20px;
             }
-            .quickNotClose{
+            .quick-note_close{
                 background: #f7f8fc;
                 color: #8f91a0;
                 cursor: pointer;
@@ -68,7 +68,7 @@
                 width:20px;
                 height:20px;
             }
-            .quickNotClose:hover{
+            .quick-note_close:hover{
                 color: #ef172c;
                 background-color: #fbd3d5;
             }
@@ -203,7 +203,7 @@
                             </ul>
                         </li>
                         <li class="nav-item dropdown connection">
-                            <a class="nav-link quickNoteBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-align-left"></i> </a>
+                            <a class="nav-link quickNotes-ToggleBtn" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-align-left"></i> </a>
                         {{-- QuickNote Section --}}
                             @include('includes.admin-page.quick-notes')
                         </li>
@@ -334,9 +334,9 @@
     
     <script>
             //Open and close quickNote section
-            var connection = $(".quickNoteBtn");
+            var quickNoteBtn = $(".quickNotes-ToggleBtn");
             
-            connection.click(function(){
+            quickNoteBtn.click(function(){
               $("#quick-notes").toggleClass("openQuickNotes");
             });
 

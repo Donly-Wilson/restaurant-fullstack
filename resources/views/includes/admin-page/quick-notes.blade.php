@@ -6,7 +6,7 @@
             <div class="quick-notes_header">
                 <div class="quick-notes_title">
                     <h5> Quick Notes </h5>
-                    <span class="quickNoteBtn quickNotClose"><i class="fas fa-times"></i></span>
+                    <span class="quickNotes-ToggleBtn quick-note_close"><i class="fas fa-times"></i></span>
                 </div>
                 <ul class="quick-notes_options">
                     <li class="active"><a href="#">Todo</a></li>
