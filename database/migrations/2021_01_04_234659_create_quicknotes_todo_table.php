@@ -13,6 +13,7 @@ class CreateQuicknotesTodoTable extends Migration
      */
     public function up()
     {
+        //Create table and data type for "quicknotes_todo"
         Schema::create('quicknotes_todo', function (Blueprint $table) {
             $table->id();
             $table->string('title');

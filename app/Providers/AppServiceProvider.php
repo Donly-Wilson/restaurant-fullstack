@@ -3,8 +3,11 @@
 namespace App\Providers;
 
 use App\Models\Todo;
+
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,12 +34,14 @@ class AppServiceProvider extends ServiceProvider
 
         view()->composer('includes.admin-page.quick-notes', function ($view) {
             $quicknoteTodo = Todo::all();
-            $results = json_decode($quicknoteTodo);
+            $todoResults = json_decode($quicknoteTodo);
 
-            $view->with('results', $results);
+            //Pass $todoResults as 'todoResults' in view
+            $view->with('todoResults', $todoResults);
 
-            //     $categories=DB::table('categories')->get();
-            // View::share('categories',$categories);  
+            //Another way to write code above
+            // $quicknoteTodo = DB::table('quicknotes_todo')->get();
+            // View::share('results', $quicknoteTodo);
         });
     }
 }

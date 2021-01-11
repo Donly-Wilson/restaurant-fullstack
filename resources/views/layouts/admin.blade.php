@@ -350,7 +350,7 @@
             var selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
             $.get(selectedTodoRoute, function (data) {
                 $('#editTodo').modal('show');
-                $('#todoForm').attr('action',selectedTodoRoute);
+                $('#todoEditForm').attr('action',selectedTodoRoute);
                 $('#editTodoTitle').val(data.title);
                 $('#editTodoDescription').val(data.description);
                 })

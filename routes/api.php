@@ -27,11 +27,6 @@ QuickNote Fetch API: http://127.0.0.1:8000/api/quicknotes_todo /{id} (Method:- G
 QuickNote Update API: http://127.0.0.1:8000/api/quicknotes_todo/{id} (Method:- PUT)
 QuickNote Delete API: http://127.0.0.1:8000/api/quicknotes_todo/{id} (Method:- DELETE)
 */
+
 //Api created for QuickNote Todo section
 Route::resource('quicknotes_todo', 'App\Http\Controllers\QuicknoteTodoController');
-Route::middleware('auth:api')->group(function () {
-    //Quicknote todo route
-    // Route::resource('quicknotes_todo', [QuicknoteTodoController::class],   ['except' => [
-    //     'create', 'store', 'update', 'destroy'
-    // ]]);
-});

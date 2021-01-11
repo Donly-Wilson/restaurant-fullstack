@@ -15,31 +15,28 @@
                 </ul>
             </div>
             <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
-                {{-- //$results is returned from AppServiceProvider --}}
-                @foreach ($results as $todoList)
-                <li class="list-group-item align-items-center drag-handle" id="{{$todoList->id}}">
+                {{-- //$todoResults is returned from App/Providers/AppServiceProvider --}}
+                @foreach ($todoResults as $todoTask)
+                <li class="list-group-item align-items-center drag-handle" id="{{$todoTask->id}}">
                     <span class="drag-indicator"></span>
-                    <div>{{$todoList->title}}</div>
-
-                    {{-- Display results form api being sent from appProvider --}}
+                    <div>{{$todoTask->title}}</div>
+                    {{-- Display todoResults form api being sent from appProvider --}}
                     {{-- @php
                         echo '<pre>';
-                            // print_r($results);
+                            // print_r($todoResults);
                         echo '</pre>';
                     @endphp --}}
                     <div class="btn-group ml-auto">
-                        <!-- Button trigger edit modal -->
-                        <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoList->id}}"   data-target="#editTodo">Edit
+                        <!-- This button triggers editTodo modal -->
+                        <button class="btn btn-sm btn-outline-light editTodo" data-id="{{$todoTask->id}}"   data-target="#editTodo">Edit
                         </button>
-                        
-                        {{-- this uses "Delete method" to delete todoList | If you remove '@method('DELETE')' below, it becomes a "POST" request --}}
-                        <form class="btn btn-sm btn-outline-light" id="delete-todoList-{{$todoList->id}}" method="POST" action="/api/quicknotes_todo/{{$todoList->id}}">
+                        {{-- this uses "Delete method" to delete todoTask | If you remove '@method('DELETE')' below, it becomes a "POST" request, not recommended --}}
+                        <form class="btn btn-sm btn-outline-light" id="delete-todoTask-{{$todoTask->id}}" method="POST" action="/api/quicknotes_todo/{{$todoTask->id}}">
                             @csrf
                             @method('DELETE')
-                            <button class="deleteTodoBtn" data-id="{{$todoList->id}}"
+                            <button class="deleteTodoBtn" data-id="{{$todoTask->id}}"
                                 onclick="this.closest('form').submit();">
                                 <i class="far fa-trash-alt"></i>
-                                 {{-- {{ __('Delete') }} --}}
                             </button>
                         </form>
                     </div>
@@ -49,7 +46,7 @@
             <ul class="quick-notes_footer">
                 <li><a href="#">Undo</a></li>
                 <li>
-                    <!-- Button trigger modal -->
+                    <!-- This button triggers addTodo modal -->
                     <a href="#" data-toggle="modal" data-target="#addTodo">
                     Add New
                     </a>
@@ -60,113 +57,92 @@
     </ul>
 </div>
 
-<div>
-        <!-- ============================================================== -->
-        <!-- New Todo Modal -->
-        <!-- ============================================================== -->
-        <div class="modal fade" id="addTodo" tabindex="-1" role="dialog" aria-labelledby="addTodoLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addTodoLabel">Create New Todo</h5>
-                        <a href="#" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </a>
-                    </div>
-                    <div class="modal-body">
-                        <form id="todoForm2" method="POST" 
-                        action="/api/quicknotes_todo"
-                        >
-                            @csrf
-                            <div class="form-group">
-                                <label for="inputtitle">Title</label>
-                                <input id="inputtitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give category a title" />
-                                @error('title')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="inputdescription">Description</label>
-                                <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" autofocus placeholder="Write a description">{{old('description')}}</textarea>
-                                @error('description')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                                </div>
-                                <div class="col-sm-6 pl-0">
-                                    <p class="text-right">
-                                        <button type="submit" class="btn btn-space btn-primary saveBtn">Submit</button>
-                                    </p>
-                                </div>
-                            </div>
-                        </form>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                            <a href="#" type="submit" class="btn btn-primary">Save changes</a>
-                        </div>
-                </div>
+<!-- ============================================================== -->
+<!-- New Todo Modal -->
+<!-- ============================================================== -->
+<div class="modal fade" id="addTodo" tabindex="-1" role="dialog" aria-labelledby="addTodoLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTodoLabel">Create New Todo</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
             </div>
-        </div>
-        <!-- ============================================================== -->
-        <!--end New Todo Modal -->
-        <!-- ============================================================== -->
-</div>
-
-<div>
-    <!-- ============================================================== -->
-    <!-- Edit Todo Modal -->
-    <!-- ============================================================== -->
-    <div class="modal fade" id="editTodo" tabindex="-1" role="dialog" aria-labelledby="editTodoLabel" aria-hidden="true" style="display: none;">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editTodoLabel">Edit Todo</h5>
-                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </a>
-                </div>
-                <div class="modal-body">
-                    <form class="todoForm" id="todoForm" method="POST" 
-                    {{-- action="api/quicknotes_todo" --}}
-                    >
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <label for="editTodoTitle">Title</label>
-                            <input id="editTodoTitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give category a title" />
-                            @error('title')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="editTodoDescription">Description</label>
-                            <textarea id="editTodoDescription" class="form-control form-control-lg" type="text" name="description" required autofocus placeholder="Write a description"></textarea>
-                            @error('description')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6 pb-2 pb-sm-4 pb-lg-0 pr-0">
-                            </div>
-                            <div class="col-sm-6 pl-0">
-                                <p class="text-right">
-                                    <button type="submit" class="btn btn-space btn-primary saveBtn">Submit</button>
-                                </p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
-                    <a href="#" type="submit" class="btn btn-primary">Save changes</a>
-                </div>
+            <div class="modal-body">
+                <form id="todoAddForm" method="POST" action="/api/quicknotes_todo">
+                    @csrf
+                    <div class="form-group">
+                        <label for="inputtitle">Title</label>
+                        <input id="inputtitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Give task a title" />
+                        @error('title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="inputdescription">Description</label>
+                        <textarea id="inputdescription" class="form-control form-control-lg" type="text" name="description" autofocus placeholder="Write a description">{{old('description')}}</textarea>
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-primary saveBtn">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <!-- ============================================================== -->
-    <!--end Edit Todo Modal -->
-    <!-- ============================================================== -->
 </div>
+<!-- ============================================================== -->
+<!--end New Todo Modal -->
+<!-- ============================================================== -->
+
+
+
+<!-- ============================================================== -->
+<!-- Edit Todo Modal -->
+<!-- ============================================================== -->
+<div class="modal fade" id="editTodo" tabindex="-1" role="dialog" aria-labelledby="editTodoLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editTodoLabel">Edit Todo</h5>
+                <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                <form id="todoEditForm" method="POST" 
+                {{-- action="api/quicknotes_todo" --}}
+                >
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="editTodoTitle">Title</label>
+                        <input id="editTodoTitle" class="form-control form-control-lg @error('title') is-invalid @enderror" type="text" name="title" value="{{old('title')}}" required autofocus autocomplete="title" placeholder="Edit task title" />
+                        @error('title')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="editTodoDescription">Description</label>
+                        <textarea id="editTodoDescription" class="form-control form-control-lg" type="text" name="description" required autofocus placeholder="Edit this description"></textarea>
+                        @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                        <button type="submit" class="btn btn-primary saveBtn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!--end Edit Todo Modal -->
+<!-- ============================================================== -->
+    

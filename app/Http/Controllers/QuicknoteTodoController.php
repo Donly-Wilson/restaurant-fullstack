@@ -42,12 +42,14 @@ class QuicknoteTodoController extends Controller
     public function store(Request $request)
     {
 
+        //This validates that data being inputed
         request()->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
         ]);
 
-        $work = Todo::updateOrCreate(
+        //This updates or create new entry bassed on id
+        $quicknoteTodo = Todo::updateOrCreate(
             ['id' => $request->id],
             [
                 'title' => $request->title,
@@ -56,8 +58,7 @@ class QuicknoteTodoController extends Controller
         );
 
         // return response()->json(['success' => 'Task saved successfully.']);
-        // return response()->json(['success' => $work]);
-        return response()->json($work, 200);
+        return response()->json($quicknoteTodo, 200);
     }
 
     /**
@@ -66,6 +67,7 @@ class QuicknoteTodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //This is being used to show data within modal on edit click
     public function show($id)
     {
         //get QuickTodo by $id
@@ -79,6 +81,7 @@ class QuicknoteTodoController extends Controller
         return response()->json($quicknoteTodo, 201);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -89,6 +92,7 @@ class QuicknoteTodoController extends Controller
     {
         //No edit function---Editing is handled through "Store" function
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -111,6 +115,7 @@ class QuicknoteTodoController extends Controller
         $quicknoteTodo->update($request->all());
         return response()->json($quicknoteTodo, 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
