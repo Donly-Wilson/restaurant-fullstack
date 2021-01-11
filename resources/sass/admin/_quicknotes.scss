@@ -1,4 +1,10 @@
 /*Quick-Notes*/
+
+.connection .openQuickNotes {
+    // !important is used to over ride "#quick-notes ID style"
+    width: 350px !important;
+    padding: 0 10px !important;
+}
 #quick-notes {
     background: white;
     height: 100%;
@@ -76,7 +82,17 @@
             }
         }
     }
-
+    .list-group-item {
+        display: flex !important;
+        &:nth-child(1) {
+            border-top: 0;
+        }
+        .deleteTodoBtn {
+            border: none;
+            background: transparent;
+            color: #7171a6;
+        }
+    }
     .quick-notes_footer {
         display: flex;
         bottom: 0;
@@ -93,22 +109,4 @@
             background: #0e0c28;
         }
     }
-}
-
-.list-group-item {
-    display: flex !important;
-}
-.list-group-item:nth-child(1) {
-    border-top: 0;
-}
-.connection .openQuickNotes {
-    width: 350px !important;
-    padding: 0 10px !important;
-    /* opacity: 1 !important; */
-}
-
-.deleteTodoBtn {
-    border: none;
-    background: transparent;
-    color: #7171a6;
 }
