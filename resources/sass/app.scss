@@ -108,23 +108,8 @@ p {
         }
         .social-icons {
             display: flex;
-            // a {
-            //     background: #c2c8cc;
-            //     border-radius: 50%;
-            //     color: white;
-            //     font-size: 0.9rem;
-            //     height: 30px;
-            //     margin-right: 10px;
-            //     text-decoration: none;
-            //     width: 30px;
-            //     padding: 10px;
-            //     display: flex;
-            //     align-items: center;
-            //     justify-content: center;
-            // }
             a {
-                // background: transparent;
-                background: #212121;
+                background: rgba(33, 33, 33, 0.9);
                 outline: none;
                 color: rgba(255, 255, 255, 0.9);
                 -webkit-border-radius: 100px;

@@ -1,2 +1,17 @@
 //Styling Belong's To Admin Page
 @import "./admin/quicknotes";
+
+//User Page(the table) admin + employee styling
+.user-admin {
+    color: #2ec551;
+    background-color: hsla(133.9, 62.1%, 47.6%, 0.2);
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.user-employee {
+    color: #5969ff;
+    background-color: hsla(234.2, 100%, 67.5%, 0.2);
+    padding: 5px 8px;
+    border-radius: 4px;
+}

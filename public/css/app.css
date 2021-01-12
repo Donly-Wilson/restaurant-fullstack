@@ -10661,7 +10661,7 @@ body {
 }
 
 #app-layout .side-menu .social-icons a {
-  background: #212121;
+  background: rgba(33, 33, 33, 0.9);
   outline: none;
   color: rgba(255, 255, 255, 0.9);
   border-radius: 100px;

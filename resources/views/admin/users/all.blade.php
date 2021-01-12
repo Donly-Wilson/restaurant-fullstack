@@ -39,6 +39,7 @@
                                     <tr>
                                         <th scope="col">Id</th>
                                         <th scope="col">Username</th>
+                                        <th scope="col">Role</th>
                                         <th scope="col">Date Created</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
@@ -49,16 +50,11 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <th scope="row">{{$user->id}}</th>
-                                            <td>{{ $user->fname }} {{ $user->lname }} 
+                                            <td>{{ $user->fname }} {{ $user->lname }}</td> 
+                                            <td>
                                                 {{-- //Checks to see if user "role_id = 1" ("title = admin" can also be used) then add admin span --}}
                                                 @if ($user->roles()->where('role_id', '1')->first())
-                                                    <span style="
-                                                        color: #2ec551;
-                                                        background-color: hsla(133.9,62.1%,47.6%,0.2);
-                                                        padding: 5px 8px;
-                                                        border-radius: 4px;
-                                                        margin-left: 15px;
-                                                    ">
+                                                    <span class="user-admin">
                                                     {{-- // $user->roles()->where('role_id', '1')->get()->map(function($aUser){
                                                     //     return $aUser->only(['title']);
                                                     // })
@@ -66,13 +62,7 @@
                                                     Admin
                                                 </span>
                                                 @else
-                                                    <span style="
-                                                    color:#5969ff;
-                                                    background-color: hsla(234.2,100%,67.5%,0.2);
-                                                    padding: 5px 8px;
-                                                    border-radius: 4px;
-                                                    margin-left: 15px;
-                                                ">Employee</span>
+                                                    <span class="user-employee">Employee</span>
                                                 @endif
                                             </td>
                                             <td>{{ date('m/d/y', strtotime($user->updated_at)) }}</td>
