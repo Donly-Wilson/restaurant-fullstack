@@ -10661,18 +10661,47 @@ body {
 }
 
 #app-layout .side-menu .social-icons a {
-  background: #c2c8cc;
+  background: #212121;
+  outline: none;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.2s ease-in-out;
   border-radius: 50%;
-  color: white;
   font-size: 0.9rem;
   height: 30px;
+  width: 30px;
   margin-right: 10px;
   text-decoration: none;
-  width: 30px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#app-layout .side-menu .social-icons a:hover {
+  color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+}
+
+#app-layout .side-menu .social-icons .whatsapp:hover {
+  background: #1bd741;
+  border-color: #2cb742;
+}
+
+#app-layout .side-menu .social-icons .facebook:hover {
+  background: #3b5998;
+  border-color: #436aaf;
+}
+
+#app-layout .side-menu .social-icons .twitter:hover {
+  background: #00aced;
+  border-color: #72c6e6;
+}
+
+#app-layout .side-menu .social-icons .instagram:hover {
+  background: #ea4c89;
+  border-color: #ff78ac;
 }
 
 #app-layout .side-menu .location {

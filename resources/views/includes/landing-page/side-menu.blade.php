@@ -14,9 +14,11 @@
       </ul>
     </div>
     <div class="social-icons">
-      <a href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-      <a href="{{$settings["social"]->twitter_url}}" target="new"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-      <a href="{{$settings["social"]->instagram_url}}" target="new"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      <a class="whatsapp" href="https://web.whatsapp.com/" target="new"><i class="fa fa-whatsapp" 
+      aria-hidden="true"></i></a>
+      <a class="facebook" href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+      <a class="twitter" href="{{$settings["social"]->twitter_url}}" target="new"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a class="instagram" href="{{$settings["social"]->instagram_url}}" target="new"><i class="fa fa-instagram" aria-hidden="true"></i></a>
     </div>
     <div class="location">
       <div class="address">{{$settings["general"]->address_1}} {{$settings["general"]->address_2}}<br>
