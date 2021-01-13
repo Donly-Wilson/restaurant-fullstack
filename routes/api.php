@@ -29,4 +29,5 @@ QuickNote Delete API: http://127.0.0.1:8000/api/quicknotes_todo/{id} (Method:- D
 */
 
 //Api created for QuickNote Todo section
+Route::delete('selected-quicknotes_todo', [QuicknoteTodoController::class, 'deleteCheckedTask'])->name("todo.deleteSelected");
 Route::resource('quicknotes_todo', 'App\Http\Controllers\QuicknoteTodoController');

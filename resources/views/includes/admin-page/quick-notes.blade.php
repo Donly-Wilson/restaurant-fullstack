@@ -18,6 +18,7 @@
                 {{-- //$todoResults is returned from App/Providers/AppServiceProvider --}}
                 @foreach ($todoResults as $todoTask)
                 <li class="list-group-item align-items-center drag-handle" id="{{$todoTask->id}}">
+                    <input type="checkbox" name="ids" value="{{$todoTask->id}}" class="taskCheckBox">
                     <span class="drag-indicator"></span>
                     <div>{{$todoTask->title}}</div>
                     {{-- Display todoResults form api being sent from appProvider --}}
@@ -51,7 +52,21 @@
                     Add New
                     </a>
                 </li>
-                <li><a href="#">Clear All</a></li>
+                <li>
+                    {{-- <a href="#" id="clearAll">Clear All</a> --}}
+                    <input type="checkbox" name="" id="clearAll">
+                </li>
+                <li>
+                    {{-- <a href="#" id="deleteSelected">Delete Selected</a> --}}
+
+                    <form class="btn btn-sm btn-outline-light" id="deleteSelected" method="POST" action="/api/selected-quicknotes_todo">
+                        @csrf
+                        @method('DELETE')
+                        <button onclick="this.closest('form').submit();">
+                            Delete Selected
+                        </button>
+                    </form>
+                </li>
             </ul>
         </section>                
     </ul>

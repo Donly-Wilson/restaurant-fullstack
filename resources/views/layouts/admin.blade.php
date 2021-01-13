@@ -281,6 +281,47 @@
             var todo_id = $(this).attr('data-id');
             $('#quick-notes #items #'+ todo_id).remove();
         }); 
+
+        //Delete all and checkbox
+        $(function(e){
+            $('#clearAll').click(function(){
+                $('.taskCheckBox').prop('checked',$(this).prop('checked'));
+            });
+
+            $("#deleteSelected").click(function(e){
+                var allids = [];
+
+                $('input:checkbox[name=ids]:checked').each(function() {
+                    allids.push($(this).val());
+                });
+
+                console.log(allids);
+                currentTodoForm = $(this).closest('form').attr('id');
+                var form_action = $(`#${currentTodoForm}`).attr("action");
+
+                // $(allids).each(function(key,val){
+                // $('#quick-notes #items #'+val).remove();
+                // console.log(val);
+                // })
+                $.ajax({
+                    url:form_action,
+                    type:"DELETE",
+                    data:{
+                        _token:$('input[name=_token]').val(),
+                        ids:allids
+                    },
+                    success:function(response){
+                        $.each(allids,function(key,val){
+                            $('#quick-notes #items #'+val).remove();
+                        })
+                    },
+                    error: function (data) {
+                    console.log('Error:', data);
+                    // $('#saveBtn').html('Save Changes');
+                },
+                })
+            })
+        });
     </script>
 </body>
 
