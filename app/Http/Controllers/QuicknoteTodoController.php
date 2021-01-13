@@ -142,7 +142,8 @@ class QuicknoteTodoController extends Controller
     public function deleteCheckedTask(Request $request)
     {
         $ids = $request->ids;
-        Todo::whereIn('id', $ids)->delete();
-        return response()->json(['success' => 'selected have been deleted']);
+        Todo::whereIn('id', [$ids])->delete();
+        // return response()->json(['success' => 'selected have been deleted']);
+        return response()->json(null, 204);
     }
 }
