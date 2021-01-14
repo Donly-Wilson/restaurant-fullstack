@@ -20,6 +20,23 @@
 
     <title>Bailies's Burger - Admin</title>
     {{-- <title>{{$settings["general"]->site_title}} - St.Lucia Selling Franchise</title> --}}
+
+    <style>
+        .quick-notes_todo-header{
+            display: flex;
+            justify-content: space-between;
+        }
+        .quick-notes_todo-header ul{
+            display: flex;
+            padding:0;
+        }
+        .quick-notes_todo-header ul li{
+            list-style-type: none;
+        }
+        .quick-notes_todo-header ul li:nth-child(1){
+            margin-right:5px;
+        }
+    </style>
 </head>
 
 <body>

@@ -89,6 +89,8 @@
 }
 
 #quick-notes .quick-notes_header .quick-notes_options .active {
+  border-radius: 9px;
+  padding: 4px 15px;
   background: white;
 }
 

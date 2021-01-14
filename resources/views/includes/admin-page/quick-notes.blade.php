@@ -9,17 +9,42 @@
                     <span class="quickNotes-ToggleBtn quick-note_close"><i class="fas fa-times"></i></span>
                 </div>
                 <ul class="quick-notes_options nav nav-tabs">
-                    <li><a class="active show" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Todo</a>
+                    <li><a class="active show" id="todo-tab" data-toggle="tab" href="#todo" role="tab" aria-controls="todo" aria-selected="true">Todo</a>
                     </li>
-                    <li><a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Announcements</a>
+                    <li><a id="Announcements-tab" data-toggle="tab" href="#Announcements" role="tab" aria-controls="Announcements" aria-selected="false">Announcements</a>
                     </li>
-                    <li><a id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Assigned</a>
+                    <li><a id="Assigned-tab" data-toggle="tab" href="#Assigned" role="tab" aria-controls="Assigned" aria-selected="false">Assigned</a>
 
                     </li>
                 </ul>
             </div>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
+                    <div class="quick-notes_todo-header">
+                        <ul>
+                            {{-- <li><i class="fas fa-undo-alt"></i></li>
+                            <li><i class="fas fa-plus"></i></li> --}}
+                            {{-- <li>select all</li> --}}
+                            <li>
+                                {{-- <a href="#" id="clearAll">Clear All</a> --}}
+                                <label>select all<input type="checkbox" name="" id="clearAll" value='select-all'></label>
+                            </li>
+                        </ul>
+                        <ul>
+                            {{-- <li>delete selected</li> --}}
+                            <li>
+                                {{-- <a class="btn btn-sm btn-outline-light" href="#" id="deleteSelected">Delete Selected</a> --}}
+            
+                                <form id="deleteSelected" method="POST" action="/api/selected-quicknotes_todo">
+                                    @csrf
+                                    @method('DELETE')
+                                    <span onclick="this.closest('form').submit();">
+                                        Delete Selected
+                                    </span>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                     <ul class="sortable-lists list-group list-group-flush list-group-bordered" id="items">
                         {{-- //$todoResults is returned from App/Providers/AppServiceProvider --}}
                         @foreach ($todoResults as $todoTask)
@@ -58,28 +83,13 @@
                             Add New
                             </a>
                         </li>
-                        <li>
-                            {{-- <a href="#" id="clearAll">Clear All</a> --}}
-                            <input type="checkbox" name="" id="clearAll">
-                        </li>
-                        <li>
-                            {{-- <a href="#" id="deleteSelected">Delete Selected</a> --}}
-        
-                            <form class="btn btn-sm btn-outline-light" id="deleteSelected" method="POST" action="/api/selected-quicknotes_todo">
-                                @csrf
-                                @method('DELETE')
-                                <button onclick="this.closest('form').submit();">
-                                    Delete Selected
-                                </button>
-                            </form>
-                        </li>
                     </ul>
                 </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade" id="Announcements" role="tabpanel" aria-labelledby="Announcements-tab">
                     <h3>Announcement Section</h3>
                     <p>Nullam et tellus ac ligula condimentum sodales. Aenean tincidunt viverra suscipit. Maecenas id molestie est, a commodo nisi. Quisque fringilla turpis nec elit eleifend vestibulum. Aliquam sed purus in odio ullamcorper congue consectetur in neque. Aenean sem ex, tempor et auctor sed, congue id neque. </p>
                 </div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="tab-pane fade" id="Assigned" role="tabpanel" aria-labelledby="Assigned-tab">
                     <h3>Assigned Section</h3>
                     <p>Vivamus pellentesque vestibulum lectus vitae auctor. Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. Fusce a eros pellentesque, ultricies urna nec, consectetur dolor. Nam dapibus scelerisque risus, a commodo mi tempus eu.</p>
                 </div>
