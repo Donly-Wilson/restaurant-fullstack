@@ -221,28 +221,28 @@
     <script src="/assets/vendor/shortable-nestable/jquery.nestable.js"></script>
     
     <script>
-            //Open and close quickNote section
-            var quickNoteBtn = $(".quickNotes-ToggleBtn");
-            
-            quickNoteBtn.click(function(){
-              $("#quick-notes").toggleClass("openQuickNotes");
-            });
+        //Open and close quickNote section
+        var quickNoteBtn = $(".quickNotes-ToggleBtn");
+        
+        quickNoteBtn.click(function(){
+          $("#quick-notes").toggleClass("openQuickNotes");
+        });
 
-            //Place every '.model' class above backdrop by appending it to body(removed ".modal('show')" to prevent auto popup on login)
-            $('.modal').appendTo("body");
+        //Place every '.model' class above backdrop by appending it to body(removed ".modal('show')" to prevent auto popup on login)
+        $('.modal').appendTo("body");
 
 
-            //When click edit student
-            $('body').on('click', '.editTodo', function () {
-            var todo_id = $(this).attr('data-id');
-            var selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
-            $.get(selectedTodoRoute, function (data) {
-                $('#editTodo').modal('show');
-                $('#todoEditForm').attr('action',selectedTodoRoute);
-                $('#editTodoTitle').val(data.title);
-                $('#editTodoDescription').val(data.description);
-                })
-            });
+        //When click edit student
+        $('body').on('click', '.editTodo', function () {
+        var todo_id = $(this).attr('data-id');
+        var selectedTodoRoute = 'api/quicknotes_todo' +'/' + todo_id;
+        $.get(selectedTodoRoute, function (data) {
+            $('#editTodo').modal('show');
+            $('#todoEditForm').attr('action',selectedTodoRoute);
+            $('#editTodoTitle').val(data.title);
+            $('#editTodoDescription').val(data.description);
+            })
+        });
 
 
         //On modal Submit btn clicked
@@ -276,13 +276,13 @@
             });
         });
 
-        //Delete QuickNote Todo
+        //Delete single QuickNote Todo with delete button
         $('body').on('click', '.deleteTodoBtn', function () {
             var todo_id = $(this).attr('data-id');
             $('#quick-notes #items #'+ todo_id).remove();
         }); 
 
-        //Delete all and checkbox
+        //Delete multiple QuickNote Todo with checkboxes
         $(function(e){
             $('#clearAll').click(function(){
                 $('.taskCheckBox').prop('checked',$(this).prop('checked'));
@@ -295,14 +295,9 @@
                     allids.push($(this).val());
                 });
 
-                console.log(allids);
                 currentTodoForm = $(this).closest('form').attr('id');
                 var form_action = $(`#${currentTodoForm}`).attr("action");
 
-                // $(allids).each(function(key,val){
-                // $('#quick-notes #items #'+val).remove();
-                // console.log(val);
-                // })
                 $.ajax({
                     url:form_action,
                     type:"DELETE",
@@ -317,7 +312,6 @@
                     },
                     error: function (data) {
                     console.log('Error:', data);
-                    // $('#saveBtn').html('Save Changes');
                 },
                 })
             })
