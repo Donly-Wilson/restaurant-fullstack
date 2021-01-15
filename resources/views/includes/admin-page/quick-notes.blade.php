@@ -39,7 +39,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <span onclick="this.closest('form').submit();">
-                                        Delete Selected
+                                        Delete All
                                     </span>
                                 </form>
                             </li>

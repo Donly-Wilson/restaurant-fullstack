@@ -36,6 +36,20 @@
         .quick-notes_todo-header ul li:nth-child(1){
             margin-right:5px;
         }
+
+        .drag-handle .drag-indicator{
+            margin:0;
+            height:0;
+            width:0;
+            background-image: none;
+        }
+        .taskCheckBox{
+            margin-right:5px;
+            margin-bottom:3px;
+        }
+        #clearAll{
+            margin-left:5px;
+        }
     </style>
 </head>
 
