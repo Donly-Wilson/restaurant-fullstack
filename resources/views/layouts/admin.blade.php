@@ -51,16 +51,30 @@
         }
         #deleteSelected{
             color:red;
-            cursor: pointer;
+            cursor:default;
             opacity: 0;
-            display:none;
+            /* display:none; */
             transition: 0.3s all ease-in-out;
         }
         #deleteSelected.active{
             opacity: 1;
-            display: block;
+            cursor: pointer;
+            /* display: block; */
         }
-
+        .todo-header_addBtn{
+            background: #f7f8fc;
+            color: #8f91a0;
+            border-radius: 50%;
+            border: 1px solid #e7ebee;
+            width:30px;
+            height:30px;
+        }
+        .todo-header_addBtn a{
+            padding: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 

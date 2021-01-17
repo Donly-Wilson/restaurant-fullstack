@@ -68,10 +68,11 @@
             li {
                 /* text-decoration: none; */
                 border-radius: 9px;
-                padding: 4px 15px;
                 list-style-type: none;
                 a {
                     color: #8f91a0;
+                    display: block;
+                    padding: 4px 15px;
                 }
             }
             .active {

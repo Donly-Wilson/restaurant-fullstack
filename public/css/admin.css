@@ -80,12 +80,13 @@
 #quick-notes .quick-notes_header .quick-notes_options li {
   /* text-decoration: none; */
   border-radius: 9px;
-  padding: 4px 15px;
   list-style-type: none;
 }
 
 #quick-notes .quick-notes_header .quick-notes_options li a {
   color: #8f91a0;
+  display: block;
+  padding: 4px 15px;
 }
 
 #quick-notes .quick-notes_header .quick-notes_options .active {

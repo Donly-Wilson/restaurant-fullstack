@@ -27,7 +27,15 @@
                             {{-- <li>select all</li> --}}
                             <li>
                                 {{-- <a href="#" id="clearAll">Clear All</a> --}}
-                                <label>select all<input type="checkbox" name="" id="selectAll" value='select-all'></label>
+                                <label>Select All<input type="checkbox" name="" id="selectAll" value='select-all'></label>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="todo-header_addBtn">
+                                <!-- This button triggers addTodo modal -->
+                                <a href="#" data-toggle="modal" data-target="#addTodo">
+                                    <i class="fas fa-plus"></i>
+                                </a>
                             </li>
                         </ul>
                         <ul>
@@ -75,7 +83,7 @@
                         </li>
                         @endforeach
                     </ul>
-                    <ul class="quick-notes_footer">
+                    {{-- <ul class="quick-notes_footer">
                         <li><a href="#">Undo</a></li>
                         <li>
                             <!-- This button triggers addTodo modal -->
@@ -83,7 +91,7 @@
                             Add New
                             </a>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
                 <div class="tab-pane fade" id="Announcements" role="tabpanel" aria-labelledby="Announcements-tab">
                     <h3>Announcement Section</h3>
