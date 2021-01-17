@@ -36,7 +36,6 @@
         .quick-notes_todo-header ul li:nth-child(1){
             margin-right:5px;
         }
-
         .drag-handle .drag-indicator{
             margin:0;
             height:0;
@@ -47,9 +46,21 @@
             margin-right:5px;
             margin-bottom:3px;
         }
-        #clearAll{
+        #selectAll{
             margin-left:5px;
         }
+        #deleteSelected{
+            color:red;
+            cursor: pointer;
+            opacity: 0;
+            display:none;
+            transition: 0.3s all ease-in-out;
+        }
+        #deleteSelected.active{
+            opacity: 1;
+            display: block;
+        }
+
     </style>
 </head>
 
@@ -313,15 +324,41 @@
             $('#quick-notes #items #'+ todo_id).remove();
         }); 
 
+
+        $(document).ready(function() {
+            $('.taskCheckBox').click(function() {
+                var todoCheckboxes = $('input:checkbox[name=ids]:checked').length;
+                // var selectCheckboxes = $('#selectAll:checked').length;
+                if(todoCheckboxes > 1){
+                    $("#deleteSelected").addClass("active");
+                    // console.log(selectCheckboxes);
+                    console.log(todoCheckboxes);
+                }else{
+                    $("#deleteSelected").removeClass("active");
+                    // console.log(selectCheckboxes);
+                    console.log(todoCheckboxes);
+                }
+        })
+        });
+
         //Delete multiple QuickNote Todo with checkboxes
         $(function(e){
-            $('#clearAll').click(function(){
+            $('#selectAll').click(function(){
                 $('.taskCheckBox').prop('checked',$(this).prop('checked'));
+
+                var todoCheckboxes = $('input:checkbox[name=ids]:checked').length;
+                //if more than 2 todo task is check keep delete button else remove it
+                if(todoCheckboxes > 1){
+                    $("#deleteSelected").addClass("active");
+                }else{
+                $("#deleteSelected").toggleClass("active");
+                }
             });
 
             $("#deleteSelected").click(function(e){
                 var allids = [];
 
+                //Searches for checked input and place it with in 'allids'
                 $('input:checkbox[name=ids]:checked').each(function() {
                     allids.push($(this).val());
                 });

@@ -27,7 +27,7 @@
                             {{-- <li>select all</li> --}}
                             <li>
                                 {{-- <a href="#" id="clearAll">Clear All</a> --}}
-                                <label>select all<input type="checkbox" name="" id="clearAll" value='select-all'></label>
+                                <label>select all<input type="checkbox" name="" id="selectAll" value='select-all'></label>
                             </li>
                         </ul>
                         <ul>
