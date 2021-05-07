@@ -22,27 +22,18 @@
                 <div class="tab-pane fade show active" id="todo" role="tabpanel" aria-labelledby="todo-tab">
                     <div class="quick-notes_todo-header">
                         <ul>
-                            {{-- <li><i class="fas fa-undo-alt"></i></li>
-                            <li><i class="fas fa-plus"></i></li> --}}
-                            {{-- <li>select all</li> --}}
+                            {{-- <li><i class="fas fa-undo-alt"></i></li>--}}
                             <li>
                                 {{-- <a href="#" id="clearAll">Clear All</a> --}}
                                 <label>Select All<input type="checkbox" name="" id="selectAll" value='select-all'></label>
                             </li>
-                        </ul>
-                        <ul>
                             <li class="todo-header_addBtn">
                                 <!-- This button triggers addTodo modal -->
                                 <a href="#" data-toggle="modal" data-target="#addTodo">
                                     <i class="fas fa-plus"></i>
                                 </a>
                             </li>
-                        </ul>
-                        <ul>
-                            {{-- <li>delete selected</li> --}}
                             <li>
-                                {{-- <a class="btn btn-sm btn-outline-light" href="#" id="deleteSelected">Delete Selected</a> --}}
-            
                                 <form id="deleteSelected" method="POST" action="/api/selected-quicknotes_todo">
                                     @csrf
                                     @method('DELETE')

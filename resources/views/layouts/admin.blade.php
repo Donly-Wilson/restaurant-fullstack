@@ -22,7 +22,7 @@
     {{-- <title>{{$settings["general"]->site_title}} - St.Lucia Selling Franchise</title> --}}
 
     <style>
-        .quick-notes_todo-header{
+        .quick-notes_todo-header ul{
             display: flex;
             justify-content: space-between;
         }
@@ -32,9 +32,13 @@
         }
         .quick-notes_todo-header ul li{
             list-style-type: none;
+            font-size: 13px;
         }
         .quick-notes_todo-header ul li:nth-child(1){
-            margin-right:5px;
+            margin: 18px 0 0;
+        }
+        .quick-notes_todo-header ul li:nth-child(3){
+            margin: 18px 0 0;
         }
         .drag-handle .drag-indicator{
             margin:0;
@@ -62,18 +66,24 @@
             /* display: block; */
         }
         .todo-header_addBtn{
-            background: #f7f8fc;
-            color: #8f91a0;
+            /* background: #f7f8fc; */
+            background: #f0edff;
+            /* color: #8f91a0; */
             border-radius: 50%;
             border: 1px solid #e7ebee;
             width:30px;
             height:30px;
         }
         .todo-header_addBtn a{
+            color: #241981;
             padding: 7px;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+        .todo-header_addBtn a:hover{
+            scale:0.1;
+            color: #007bff;
         }
     </style>
 </head>

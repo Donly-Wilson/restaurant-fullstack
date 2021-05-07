@@ -59,7 +59,7 @@
                 <hr>
                 <div class="footer-extras_content">
                     <div>
-                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Bailie's Burger. All rights reserved.</p>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Donly Wilson | Bailie's Burger. All rights reserved.</p>
                         {{-- <p>COVID-19 Opening Approval</p> --}}
                     </div>
                     <ul class="links">
