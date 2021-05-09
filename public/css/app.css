@@ -10705,7 +10705,7 @@ body {
 }
 
 #app-layout .side-menu .location {
-  bottom: 100px;
+  bottom: 68px;
   position: absolute;
 }
 
@@ -11334,6 +11334,12 @@ h2 {
 
   #food-preview .food-slider .slide {
     width: 50%;
+  }
+}
+
+@media (max-height: 700px) {
+  #app-layout .side-menu .location {
+    bottom: 0;
   }
 }
 

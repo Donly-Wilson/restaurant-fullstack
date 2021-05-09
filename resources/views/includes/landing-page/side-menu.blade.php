@@ -11,6 +11,7 @@
         <li><a href="/offers">Offers</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/about">About Us</a></li>
+        <li><a href="/admin">Log In</a></li>
       </ul>
     </div>
     <div class="social-icons">

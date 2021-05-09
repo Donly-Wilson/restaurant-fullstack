@@ -60,9 +60,12 @@
                     <div class="form-group">
                         <x-jet-input id="password" class="form-control form-control-lg" type="password" name="password" required autocomplete="current-password" placeholder="Password" />
                     </div>
-                    <div class="form-group">
-                        <label class="custom-control custom-checkbox">
+                    <div class="form-group d-flex">
+                        <label class="custom-control custom-checkbox w-50">
                             <input class="custom-control-input" type="checkbox"><span class="custom-control-label">{{ __('Remember me') }}</span>
+                        </label>
+                        <label class="custom-control custom-checkbox w-50">
+                            <input class="custom-control-input temp-account" type="checkbox"><span class="custom-control-label">Temp Account</span>
                         </label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
@@ -85,8 +88,12 @@
     <!-- Optional JavaScript -->
     <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/js/customJquery.js"></script>
 </body>
  
+
+
+
 </html>
 
 {{-- --------------- --}}

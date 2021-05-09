@@ -150,7 +150,8 @@ p {
             }
         }
         .location {
-            bottom: 100px;
+            bottom: 68px;
+            // bottom: 100px;
             position: absolute;
             // margin-top: auto;
             .address {
@@ -765,4 +766,10 @@ h2 {
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
+}
+
+@media (max-height: 700px) {
+    #app-layout .side-menu .location {
+        bottom: 0;
+    }
 }

@@ -21,7 +21,7 @@ mix
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/admin.scss', 'public/css')
     .browserSync({
-        proxy: 'localhost',
+        proxy: '127.0.0.1',
         // Stop the browser from automatically opening, access with proxy's value:3000(localhost:3000)
         open: false,
     });

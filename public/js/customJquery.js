@@ -106,3 +106,19 @@ let slides = $('.sliding-system a.slide').length
     console.log(b);
     tabletSlider(b);
     b.addEventListener('change',tabletSlider);
+
+    // Temp Account
+      var tempEmail = 'billy@gmail.com'
+      var tempPass = '12345678'
+      $('.temp-account').on('change',function() {
+          if (this.checked) {
+              $('.temp-account').next().text('Click Sign In')
+              $('#email').val(tempEmail)
+              $('#password').val(tempPass)
+          }
+          else {
+              $('.temp-account').next().text('Temp Account')
+              $('#email').val('')
+              $('#password').val('')
+          }
+      });
