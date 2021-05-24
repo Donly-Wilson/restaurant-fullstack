@@ -54,6 +54,15 @@ p {
 // Navigation Bar
 #headerNav {
     display: none;
+    .headerNav-logo {
+        text-decoration: none;
+        color: #fff;
+        display: flex;
+        img {
+            width: 20px;
+            margin-right: 5px;
+        }
+    }
 }
 
 // home-page 1st section

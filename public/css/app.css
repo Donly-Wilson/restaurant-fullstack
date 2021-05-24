@@ -10193,17 +10193,19 @@ footer .footer-contents .footer-extras p {
 footer .footer-contents .footer-extras .footer-extras_content {
   display: flex;
   justify-content: space-between;
+  font-size: 14px;
 }
 
 footer .footer-contents .footer-extras .footer-extras_content .links {
   display: flex;
+  align-self: center;
   padding: 9px;
 }
 
 footer .footer-contents .footer-extras .footer-extras_content .links a {
   color: white;
   text-decoration: none;
-  margin-left: 10px;
+  margin-left: 8px;
   transition: color 0.3s ease-in-out;
 }
 
@@ -10601,6 +10603,17 @@ body {
 
 #headerNav {
   display: none;
+}
+
+#headerNav .headerNav-logo {
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+}
+
+#headerNav .headerNav-logo img {
+  width: 20px;
+  margin-right: 5px;
 }
 
 #app-layout {

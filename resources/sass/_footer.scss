@@ -103,13 +103,15 @@ footer {
             .footer-extras_content {
                 display: flex;
                 justify-content: space-between;
+                font-size: 14px;
                 .links {
                     display: flex;
+                    align-self: center;
                     padding: 9px;
                     a {
                         color: white;
                         text-decoration: none;
-                        margin-left: 10px;
+                        margin-left: 8px;
                         transition: color 0.3s ease-in-out;
                         &:hover {
                             color: #f59c2e;
