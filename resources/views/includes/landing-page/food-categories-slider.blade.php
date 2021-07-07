@@ -1,5 +1,5 @@
 <section id="food-preview">
-    <h2>We have everything you need To kill your hunger</h2>
+    <h2>We Have Everything You Need To Kill Your Hunger</h2>
     <div class="container">
       <div class="left-btn">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -17,7 +17,13 @@
                   {{$category->title}}
                 </div>
                 <p class="food-description">{{$category->description}}</p>
-                <div class="food-image"><img src="{{$category->image_url}}" alt="">
+                <div class="food-image">
+                  <!-- <img src="{{$category->image_url}}" alt=""> -->
+                  <picture>
+                    <source srcset="{{$category->image_url_webp}}" type="image/webp">
+                    <source srcset="{{$category->image_url}}" type="image/png">
+                    <img src="{{$category->image_url}}" alt="">
+                  </picture>
                 </div>
               </div>
             </a>
