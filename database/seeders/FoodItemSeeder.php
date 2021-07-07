@@ -107,7 +107,7 @@ class FoodItemSeeder extends Seeder
         ]);
 
         DB::table('food_items')->insert([
-            'title' => "Bailie's Grilled Club",
+            'title' => "Ballie's Grilled Club",
             'description' => '
             marinated chicken breast, tomato, lettuce, bacon, avocado, brioche bread',
             'image_url' => './img/hambuger-and-fries.png',

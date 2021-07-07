@@ -31,7 +31,7 @@
             <div class="footer-contents row no-gutters">
                 <a class="footer-logo col-md-12" href="/">
                     <img src="./img/restaurant-logo.png" alt="">
-                    <h2>Bailie's Burger</h2>
+                    <h2>Ballie's Burger</h2>
                 </a>
                 <div class="footer-info col-md-12 row">
                     <div class="col-md-4">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-4">
                         <h3>Follow Us</h3>
-                        <a class="email" href="mailto:bailie@outlook.com">E-mail: bailie@outlook.com</a>
+                        <a class="email" href="mailto:ballie@outlook.com">E-mail: ballie@outlook.com</a>
                         <div class="social-icons">
                             <a class="whatsapp" href="https://web.whatsapp.com/" target="new"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                             <a href="{{$settings["social"]->facebook_url}}" target="new"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -64,7 +64,7 @@
                 <hr>
                 <div class="footer-extras_content">
                     <div>
-                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Donly Wilson | Bailie's Burger. All rights reserved.</p>
+                        <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Donly Wilson | Ballie's Burger. All rights reserved.</p>
                         {{-- <p>COVID-19 Opening Approval</p> --}}
                     </div>
                     <ul class="links">

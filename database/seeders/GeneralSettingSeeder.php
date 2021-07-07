@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class GeneralSettingSeeder extends Seeder
 {
@@ -17,7 +17,7 @@ class GeneralSettingSeeder extends Seeder
     {
         // dummy data for General Setting
         DB::table('general_settings')->insert([
-            'site_title' => "Bailie's  Burgers",
+            'site_title' => "Ballie's  Burgers",
             'logo_image_url' => './img/restaurant-logo.png',
             'address_1' => '234 Main st,',
             'address_2' => '',
