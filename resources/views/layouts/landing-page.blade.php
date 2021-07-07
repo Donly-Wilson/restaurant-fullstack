@@ -15,7 +15,12 @@
             <div class="welcome-jumbo">
               <div class="status">NEW</div>
               <h1>Ballie's Burger</h1>
-              <img class="burger-fries" src="./img/hamburger-and-fries.png" alt="">
+              <!-- <img class="burger-fries" src="./img/hamburger-and-fries.png" alt=""> -->
+              <picture>
+                <source srcset="./img/hamburger-and-fries2.webp" type="image/webp">
+                <source srcset="./img/hamburger-and-fries.png" type="image/png">
+                <img class="burger-fries" src="./img/hamburger-and-fries.png" alt="hamburger-and-fries">
+              </picture>
             </div>
         </section>
         @yield('content')

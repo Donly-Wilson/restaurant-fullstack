@@ -18,6 +18,7 @@ class CreateFoodCategoriesTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->text('image_url');
+            $table->text('image_url_webp');
             $table->timestamps();
         });
     }
